@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Fooddeuk</string>
+    <string name="tv_user_type_ceo"><u>사장님이신가요?</u></string>
+    <string name="tv_user_type_client"><u>손님이신가요?</u></string>
 </resources>
