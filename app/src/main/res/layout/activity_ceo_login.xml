@@ -4,6 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".CEOLoginActivity">
+
+    <ImageView
+        android:id="@+id/iv_hello_ceo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/ic_hello_ceo"/>
+
+    <TextView
+        android:id="@+id/tv_sign_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/tv_sign_up"
+        android:textColor="#FFB600"/>
+
+    <LinearLayout
+        android:id="@+id/container_inputs"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldLayout_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#e2e2e2"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            android:hint="아이디">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ev_user_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#e2e2e2"
+                app:hintTextColor="#e2e2e2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldLayout_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#e2e2e2"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp"
+            android:hint="비밀번호"
+            app:endIconMode="password_toggle"
+            app:endIconCheckable="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ev_user_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#e2e2e2"
+                app:hintTextColor="#e2e2e2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_ceo_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:elevation="0dp"
+            android:text="로그인"
+            android:textSize="16sp"
+            android:backgroundTint="#F7BB41"
+            style="@style/LoginButton" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
