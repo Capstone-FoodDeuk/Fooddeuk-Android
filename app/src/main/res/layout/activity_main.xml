@@ -6,13 +6,222 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <!-- 뒤로가기 화살표 -->
+    <ImageView
+        android:id="@+id/back_arrow_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="26dp"
+        android:src="@drawable/ic_back_arrow" />
+
+    <!-- 회원가입 타이틀 -->
+    <TextView
+        android:id="@+id/sign_up_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="42dp"
+        android:text="회원가입"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="16sp" />
+
+    <!-- 아이디 입력 부분 -->
+    <TextView
+        android:id="@+id/id_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_title_text_view"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="61dp"
+        android:text="아이디"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_text_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/id_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/id_title_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/check_redundancy_button"
+        app:layout_constraintHorizontal_weight="70"
+        android:layout_marginTop="2dp"
+        app:boxBackgroundColor="@null"
+        app:hintEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_text_input_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/SignUpEditText"
+            android:hint="영문, 숫자 포함 4~14자리" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/check_redundancy_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@id/id_text_input_layout"
+        app:layout_constraintTop_toTopOf="@id/id_text_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/id_text_input_layout"
+        app:layout_constraintHorizontal_weight="30"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="5dp"
+        style="@style/SignUpRedundancyButtonRadius"
+        app:strokeColor="@color/food_deuk_text_d"
+        android:text="중복 확인"
+        android:textColor="@color/food_deuk_text_d"
+        android:textSize="12sp"/>
+
+    <!-- 비밀번호 입력 부분 -->
+    <TextView
+        android:id="@+id/pw_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_text_input_layout"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="33dp"
+        android:text="비밀번호"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pw_text_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/pw_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/pw_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="45dp"
+        app:boxBackgroundColor="@null"
+        app:hintEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pw_text_input_edit_text"
+            style="@style/SignUpEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="영문, 숫자 포함 8~20자리" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 비밀번호 확인 입력 부분 -->
+    <TextView
+        android:id="@+id/pw_confirm_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw_text_input_layout"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="33dp"
+        android:text="비밀번호 확인"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pw_confirm_text_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/pw_confirm_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/pw_confirm_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="45dp"
+        app:boxBackgroundColor="@null"
+        app:hintEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pw_confirm_text_input_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/SignUpEditText"
+            android:hint="비밀번호 확인을 위해 재입력 해주세요." />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 닉네임 입력 부분 -->
+    <TextView
+        android:id="@+id/nick_name_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw_confirm_text_input_layout"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="33dp"
+        android:text="닉네임"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nick_name_text_input_layou"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/nick_name_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/nick_name_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="45dp"
+        app:boxBackgroundColor="@null"
+        app:hintEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nick_name_text_input_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/SignUpEditText"
+            android:hint="닉네임 입력" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 휴대전화 번호 -->
+    <TextView
+        android:id="@+id/phone_number_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nick_name_text_input_layou"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="33dp"
+        android:text="휴대전화 번호"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_number_text_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/phone_number_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="45dp"
+        app:boxBackgroundColor="@null"
+        app:hintEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_number_text_input_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/SignUpEditText"
+            android:hint="'-' 구분없이 입력" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 가입하기 버튼 부분 -->
+    <Button
+        android:id="@+id/sign_up_complete_button"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="@color/food_deuk_text_d"
+        style="@style/SignUpCompleteButtonCornerRadius"
+        android:text="푸드득 가입하기"
+        android:textSize="19sp"
+        android:textColor="@color/food_deuk_text_w" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
