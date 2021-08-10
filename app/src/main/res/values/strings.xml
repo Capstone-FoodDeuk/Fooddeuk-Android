@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">fooddeuk-android</string>
+
+    <!-- 밑줄 처리 -->
+    <string name="terms_of_service_show_text"><u>보기</u></string>
 </resources>
