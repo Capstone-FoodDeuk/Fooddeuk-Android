@@ -76,18 +76,20 @@ class IntroCEOActivity : AppCompatActivity() {
     private fun loadLastScreen() {
         val btnStarted = binding.btnStarted
         val tab = binding.tabIndication
+        val skip = binding.btnSkip
         val btnAnim = AnimationUtils.loadAnimation(applicationContext, R.anim.btn_animation)
-        val tvTitle : TextView = findViewById(R.id.tvTitle)
         btnStarted.visibility = View.VISIBLE
         tab.visibility = View.INVISIBLE
+        skip.visibility = View.INVISIBLE
         btnStarted.animation = btnAnim
     }
 
     private fun loadTab() {
         val btnStarted = binding.btnStarted
         val tab = binding.tabIndication
-        val tvTitle : TextView = findViewById(R.id.tvTitle)
+        val skip = binding.btnSkip
         tab.visibility = View.VISIBLE
+        skip.visibility = View.VISIBLE
         btnStarted.visibility = View.INVISIBLE
     }
 }
