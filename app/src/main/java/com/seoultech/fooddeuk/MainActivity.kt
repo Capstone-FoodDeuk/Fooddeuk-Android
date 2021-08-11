@@ -25,7 +25,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
-        binding.tmpGuideButton.setOnClickListener {
+        binding.tmpGuideButtonCustomer.setOnClickListener {
+            val intent = Intent(this, IntroCustomerActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpGuideButtonCeo.setOnClickListener {
+            val intent = Intent(this, IntroCEOActivity::class.java)
+            startActivity(intent)
         }
     }
 }

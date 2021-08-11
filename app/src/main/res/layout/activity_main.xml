@@ -17,12 +17,22 @@
         android:text="회원가입 뷰로 임시 이동 버튼"/>
 
     <Button
-        android:id="@+id/tmp_guide_button"
-        app:layout_constraintTop_toBottomOf="@+id/tmp_sign_up_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tmp_guide_button_customer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="앱 가이드 뷰로 임시 이동 버튼"/>
+        android:text="앱 가이드뷰(손님용)로 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_sign_up_button" />
+
+    <Button
+        android:id="@+id/tmp_guide_button_ceo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앱 가이드뷰(사장님용)로 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_customer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
