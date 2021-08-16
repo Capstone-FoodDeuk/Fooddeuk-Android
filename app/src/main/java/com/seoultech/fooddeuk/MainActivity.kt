@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seoultech.fooddeuk.databinding.ActivityMainBinding
-import com.seoultech.fooddeuk.databinding.ActivitySignUpBinding
+import com.seoultech.fooddeuk.intro.IntroCEOActivity
+import com.seoultech.fooddeuk.intro.IntroCustomerActivity
+import com.seoultech.fooddeuk.signUp.SignUpActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +14,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)

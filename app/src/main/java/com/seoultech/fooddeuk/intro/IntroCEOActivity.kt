@@ -1,23 +1,22 @@
-package com.seoultech.fooddeuk
+package com.seoultech.fooddeuk.intro
 
 import android.content.Intent
-import com.seoultech.fooddeuk.databinding.ActivityIntroCustomerBinding
-
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.seoultech.fooddeuk.MainActivity
+import com.seoultech.fooddeuk.R
+import com.seoultech.fooddeuk.databinding.ActivityIntroCeoBinding
 
-
-class IntroCustomerActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityIntroCustomerBinding
+class IntroCEOActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityIntroCeoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityIntroCustomerBinding.inflate(layoutInflater)
+        binding = ActivityIntroCeoBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
@@ -28,10 +27,34 @@ class IntroCustomerActivity : AppCompatActivity() {
 
         //fill list screen
         var mList : MutableList<ScreenItem> = mutableListOf()
-        mList.add(ScreenItem("확인해요!", "기재된 푸드트럭 정보(오픈시간, 날짜)는\n당일에만 해당됩니다. 방문 전, 그 날의\n정보를 한 번 더 확인하고 찾아가주세요.", R.drawable.gcustomer1))
-        mList.add(ScreenItem("연락해요!", "푸드트럭이 기재된 장소에 없다면\n‘전화’ 혹은 ‘트럭 없음' 버튼을 통해\n사장님께 연락해보세요.", R.drawable.gcustomer2))
-        mList.add(ScreenItem("찜해요!", "하트를 눌러 좋아하는 푸드트럭을 찜해봐요.\n사장님께서 영업을 시작하시면 푸쉬알람을\n보내드릴게요. (알람 수신은 설정 가능합니다)", R.drawable.gcustomer3))
-        mList.add(ScreenItem("푸드득!", "자, 이제 우리 동네의 숨은 맛집,\n푸드트럭을 찾으러 가볼까요?", R.drawable.gcustomer4))
+        mList.add(
+            ScreenItem(
+                "설정해요!",
+                "영업 시작시 설정하는 정보는 당일만 적용되며,\n설정값은 영업 마감시 초기화됩니다.\n시작 전 오픈 시간과 위치를 설정해주세요!",
+                R.drawable.gceo1
+            )
+        )
+        mList.add(
+            ScreenItem(
+                "수정해요!",
+                "푸드트럭 이동시 위치 정보를 변동된 장소로\n수정해주세요. 만약 기재하신 위치와 현 위치가\n다르다면 푸쉬 알람이 가니 확인 부탁드려요.",
+                R.drawable.gceo2
+            )
+        )
+        mList.add(
+            ScreenItem(
+                "확인해요!",
+                "우측 상단에 있는 버튼을 눌러보세요.\n지도보기, 가게 정보 및 메뉴 설정/변경,\n손님들이 남긴 리뷰 확인 등이 가능합니다.",
+                R.drawable.gceo3
+            )
+        )
+        mList.add(
+            ScreenItem(
+                "푸드득!",
+                "사장님의 푸드트럭을 주민들이 기다려요!\n어서 빨리 판매하러 가볼까요?",
+                R.drawable.gceo4
+            )
+        )
 
         //setup viewpager
         val introViewPagerAdapter = IntroViewPagerAdapter(this, mList)
@@ -94,5 +117,4 @@ class IntroCustomerActivity : AppCompatActivity() {
         skip.visibility = View.VISIBLE
         btnStarted.visibility = View.INVISIBLE
     }
-
 }
