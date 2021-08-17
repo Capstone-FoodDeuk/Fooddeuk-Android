@@ -1,4 +1,4 @@
-package com.seoultech.fooddeuk
+package com.seoultech.fooddeuk.signUp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
