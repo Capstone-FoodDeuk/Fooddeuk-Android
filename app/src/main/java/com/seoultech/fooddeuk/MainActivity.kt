@@ -34,5 +34,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, IntroCEOActivity::class.java)
             startActivity(intent)
         }
+        binding.tmpUserTypeButton.setOnClickListener {
+            val intent = Intent(this, UserTypeSelectActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

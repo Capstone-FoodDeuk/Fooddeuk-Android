@@ -35,4 +35,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_customer" />
 
+    <Button
+        android:id="@+id/tmp_user_type_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저 타입 선택 뷰로 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_ceo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
