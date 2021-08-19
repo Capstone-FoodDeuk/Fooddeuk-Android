@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fooddeukandroid">
-        <activity android:name=".intro.IntroCustomerActivity"></activity>
+        <activity android:name=".UserTypeSelectActivity" />
+        <activity android:name=".intro.IntroCustomerActivity" />
         <activity android:name=".intro.IntroCEOActivity" />
         <activity android:name=".signUp.SignUpActivity" />
         <activity android:name=".MainActivity" />

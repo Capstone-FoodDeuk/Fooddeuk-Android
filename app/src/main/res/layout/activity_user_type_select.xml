@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserTypeSelectActivity">
+
+    <!-- 유저 타입 선택 뷰 메인 아이콘 부분 -->
+    <ImageView
+        android:id="@+id/main_icon_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_main_with_title" />
+
+    <!-- 유저 타입 선택 뷰 설명 부분 -->
+    <TextView
+        android:id="@+id/view_description_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_icon_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="계정 타입을 선택해주세요."
+        android:textColor="@color/food_deuk_text_c"
+        android:textSize="16sp"/>
+
+    <!-- 유저 타입 선택 버튼 부분 -->
+    <Button
+        android:id="@+id/user_type_ceo_button"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_description_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/food_deuk_box_light_gray"
+        android:text="사장입니다"
+        android:textColor="@color/food_deuk_text_b"
+        android:textSize="24sp"
+        app:icon="@drawable/ic_user_type_select_ceo"
+        app:iconTint="@null"
+        app:iconSize="81dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/food_deuk_main_color"
+        style="@style/UserTypeSelectButtonStyle" />
+
+    <Button
+        android:id="@+id/user_type_customer_button"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        app:layout_constraintTop_toBottomOf="@+id/user_type_ceo_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/food_deuk_box_light_gray"
+        android:text="손님입니다"
+        android:textColor="@color/food_deuk_text_b"
+        android:textSize="24sp"
+        app:icon="@drawable/ic_user_type_select_customer"
+        app:iconTint="@null"
+        app:iconSize="81dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/food_deuk_main_color"
+        style="@style/UserTypeSelectButtonStyle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
