@@ -44,4 +44,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_ceo" />
 
+    <Button
+        android:id="@+id/tmp_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리뷰 작성 뷰로 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_user_type_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

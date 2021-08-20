@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seoultech.fooddeuk.databinding.ActivityMainBinding
+import com.seoultech.fooddeuk.review.InputStoreActivity
 import com.seoultech.fooddeuk.intro.IntroCEOActivity
 import com.seoultech.fooddeuk.intro.IntroCustomerActivity
 import com.seoultech.fooddeuk.signUp.SignUpActivity
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.tmpUserTypeButton.setOnClickListener {
             val intent = Intent(this, UserTypeSelectActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpReview.setOnClickListener {
+            val intent = Intent(this, InputStoreActivity::class.java)
             startActivity(intent)
         }
     }
