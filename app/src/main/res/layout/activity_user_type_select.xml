@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserTypeSelectActivity">
+    tools:context=".signIn.UserTypeSelectActivity">
 
     <!-- 유저 타입 선택 뷰 메인 아이콘 부분 -->
     <ImageView
