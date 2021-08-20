@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".review.InputStoreActivity">
+
+    <TextView
+        android:id="@+id/tvInputTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:text="가게명, 카테고리 입력창(임시)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etInputStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:hint="가게명을 입력하세요."
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvInputStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="253dp"
+        android:text="가게명"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvInputCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="253dp"
+        android:text="카테고리"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rgInputCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="255dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbInputTaco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="타코야끼" />
+
+        <RadioButton
+            android:id="@+id/rbInputGunbam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="군밤" />
+
+        <RadioButton
+            android:id="@+id/rbInputGoguma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="군고구마" />
+
+        <RadioButton
+            android:id="@+id/rbInputApple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="과일" />
+
+        <RadioButton
+            android:id="@+id/rbInputBungeo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="붕어빵" />
+
+        <RadioButton
+            android:id="@+id/rbInputSundae"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="순대" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnInputSelect"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="570dp"
+        android:text="선택 완료"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

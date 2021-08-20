@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seoultech.fooddeuk.databinding.ActivityMainBinding
-import com.seoultech.fooddeuk.databinding.ActivitySignUpBinding
+import com.seoultech.fooddeuk.review.InputStoreActivity
 
 class MainActivity : AppCompatActivity() {
 
