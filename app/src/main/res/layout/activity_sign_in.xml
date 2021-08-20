@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signIn.SignInActivity">
+    tools:context=".login.LoginActivity">
 
     <!-- 로그인 인사말 로고 부분 -->
     <ImageView
-        android:id="@+id/iv_hello_logo"
+        android:id="@+id/iv_ice_breaking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
@@ -26,7 +26,7 @@
         android:layout_marginTop="110dp"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_hello_logo"
+        app:layout_constraintTop_toBottomOf="@+id/iv_ice_breaking"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:hintEnabled="false"

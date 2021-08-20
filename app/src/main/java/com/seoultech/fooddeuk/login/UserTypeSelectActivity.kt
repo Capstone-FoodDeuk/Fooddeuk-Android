@@ -1,5 +1,6 @@
-package com.seoultech.fooddeuk.signIn
+package com.seoultech.fooddeuk.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,10 +16,10 @@ class UserTypeSelectActivity : AppCompatActivity() {
         binding = ActivityUserTypeSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        toggleUserTypeButtonStyle()
+        setUserTypeButtonToggleStyle()
     }
 
-    private fun toggleUserTypeButtonStyle() {
+    private fun setUserTypeButtonToggleStyle() {
         binding.userTypeCeoButton.setOnClickListener {
             binding.userTypeCeoButton.setBackgroundColor(ContextCompat.getColor(this,
                 R.color.food_deuk_main_color
@@ -30,6 +31,7 @@ class UserTypeSelectActivity : AppCompatActivity() {
             binding.userTypeCustomerButton.setTextColor(ContextCompat.getColor(this,
                 R.color.food_deuk_text_b
             ))
+            showCeoLoginView()
         }
         binding.userTypeCustomerButton.setOnClickListener {
             binding.userTypeCeoButton.setBackgroundColor(ContextCompat.getColor(this,
@@ -42,6 +44,21 @@ class UserTypeSelectActivity : AppCompatActivity() {
                 R.color.food_deuk_text_b
             ))
             binding.userTypeCustomerButton.setTextColor(ContextCompat.getColor(this, R.color.white))
+            showCustomerLoginView()
         }
+    }
+
+    private fun showCeoLoginView() {
+        val intent = Intent(this, LoginActivity::class.java).apply {
+            putExtra("USER_TYPE", UserType.CEO.name)
+        }
+        startActivity(intent)
+    }
+
+    private fun showCustomerLoginView() {
+        val intent = Intent(this, LoginActivity::class.java).apply {
+            putExtra("USER_TYPE", UserType.CUSTOMER.name)
+        }
+        startActivity(intent)
     }
 }
