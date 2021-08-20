@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seoultech.fooddeuk.databinding.ActivityMainBinding
 import com.seoultech.fooddeuk.review.InputStoreActivity
+import com.seoultech.fooddeuk.intro.IntroCEOActivity
+import com.seoultech.fooddeuk.intro.IntroCustomerActivity
+import com.seoultech.fooddeuk.signUp.SignUpActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -31,6 +33,14 @@ class MainActivity : AppCompatActivity() {
         }
         binding.tmpGuideButtonCeo.setOnClickListener {
             val intent = Intent(this, IntroCEOActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpUserTypeButton.setOnClickListener {
+            val intent = Intent(this, UserTypeSelectActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpReview.setOnClickListener {
+            val intent = Intent(this, InputStoreActivity::class.java)
             startActivity(intent)
         }
     }

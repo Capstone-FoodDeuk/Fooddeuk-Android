@@ -18,7 +18,6 @@ class InputStoreActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // TODO: 가게명과 카테고리 선택된 것 변수에 저장하여 선택 완료 버튼 누르면 가게명과 카테고리 정보 담아 리뷰 작성 화면으로
         var storeName  = binding.etInputStore.text
         var storeCategory : String = ""
 

@@ -1,4 +1,4 @@
-package com.seoultech.fooddeuk;
+package com.seoultech.fooddeuk.intro;
 
 public class ScreenItem {
     String Title, Description;

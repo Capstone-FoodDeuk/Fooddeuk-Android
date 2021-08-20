@@ -9,10 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- 푸드득 메인 컬러  -->
-    <color name="food_deuk_point_color">#FFB600</color>
+    <color name="food_deuk_main_color">#FFB600</color>
     <color name="food_deuk_text_a">#212121</color>
     <color name="food_deuk_text_d">#DDDDDD</color>
     <color name="food_deuk_text_w">#FFFFFF</color>
     <color name="food_deuk_text_b">#666666</color>
-    <color name="food_deuk_text_c">#a0a0a0</color>
+    <color name="food_deuk_text_c">#A0A0A0</color>
+    <color name="food_deuk_box_light_gray">#F9F9F9</color>
 </resources>
