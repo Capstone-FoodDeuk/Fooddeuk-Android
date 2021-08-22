@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TextInputEditText unfocused 상태의 box stroke color 적용 -->
+    <item android:state_focused="true" android:color="@color/food_deuk_text_d"/>
+    <item android:state_hovered="true" android:color="@color/food_deuk_text_d"/>
+    <item android:color="@color/food_deuk_text_d"/>  <!-- unfocused -->
+</selector>

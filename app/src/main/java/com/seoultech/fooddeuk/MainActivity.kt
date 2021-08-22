@@ -7,6 +7,8 @@ import com.seoultech.fooddeuk.databinding.ActivityMainBinding
 import com.seoultech.fooddeuk.review.InputStoreActivity
 import com.seoultech.fooddeuk.intro.IntroCEOActivity
 import com.seoultech.fooddeuk.intro.IntroCustomerActivity
+import com.seoultech.fooddeuk.login.LoginActivity
+import com.seoultech.fooddeuk.login.UserTypeSelectActivity
 import com.seoultech.fooddeuk.signUp.SignUpActivity
 
 class MainActivity : AppCompatActivity() {
@@ -23,20 +25,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tmpButtonsClickListener() {
-        binding.tmpSignUpButton.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
         binding.tmpGuideButtonCustomer.setOnClickListener {
             val intent = Intent(this, IntroCustomerActivity::class.java)
             startActivity(intent)
         }
         binding.tmpGuideButtonCeo.setOnClickListener {
             val intent = Intent(this, IntroCEOActivity::class.java)
-            startActivity(intent)
-        }
-        binding.tmpUserTypeButton.setOnClickListener {
-            val intent = Intent(this, UserTypeSelectActivity::class.java)
             startActivity(intent)
         }
         binding.tmpReview.setOnClickListener {
