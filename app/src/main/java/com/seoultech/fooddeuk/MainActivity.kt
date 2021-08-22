@@ -37,5 +37,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, InputStoreActivity::class.java)
             startActivity(intent)
         }
+        binding.tmpMap.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

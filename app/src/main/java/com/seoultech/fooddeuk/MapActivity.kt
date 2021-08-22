@@ -3,6 +3,7 @@ package com.seoultech.fooddeuk
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.databinding.ActivityMapBinding
+import net.daum.mf.map.api.MapView
 
 class MapActivity : AppCompatActivity() {
 
@@ -13,6 +14,11 @@ class MapActivity : AppCompatActivity() {
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //val kakaoMapView = MapView(this)
+        setKakaoMap()
+    }
+
+    private fun setKakaoMap() {
+        val kakaoMapView = MapView(this)
+        binding.clMap.addView(kakaoMapView)
     }
 }

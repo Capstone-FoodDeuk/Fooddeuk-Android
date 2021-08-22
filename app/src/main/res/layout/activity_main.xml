@@ -35,4 +35,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_ceo" />
 
+    <Button
+        android:id="@+id/tmp_map"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_review"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지도 뷰로 임시 이동 버튼"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
