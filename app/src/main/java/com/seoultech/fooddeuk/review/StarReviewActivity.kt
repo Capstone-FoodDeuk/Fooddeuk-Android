@@ -1,6 +1,9 @@
 package com.seoultech.fooddeuk.review
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.RatingBar
 import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityStarReviewBinding
@@ -35,5 +38,12 @@ class StarReviewActivity : AppCompatActivity() {
             binding.ivFoodTruck.setImageResource(R.drawable.bungeo_truck)
         else if (storeCategory == "순대")
             binding.ivFoodTruck.setImageResource(R.drawable.sundae_truck)
+
+        //별점 선택시 다음 화면으로
+        binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            val intent = Intent(this, DetailReviewActivity::class.java)
+            intent.putExtra("rating", rating)
+            Log.i("score", rating.toString())
+        }
     }
 }
