@@ -5,7 +5,7 @@
        2. 테두리 두께, 색상 설정 -->
 
     <style name="SignUpEditText" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingLeft">0dp</item> <!-- 기본으로 적용된 패딩 제거 -->
         <item name="android:paddingStart">0dp</item>
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingBottom">2dp</item>
@@ -45,4 +45,14 @@
     </style>
 
     <style name="LoginButtonStyle" parent="UserTypeSelectButtonStyle"/>
+
+    <style name="MapAddressTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="android:paddingTop">0dp</item> <!-- 기본으로 적용된 패딩 제거 -->
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
 </resources>
