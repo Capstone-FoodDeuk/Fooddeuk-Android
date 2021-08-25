@@ -3,7 +3,8 @@
     package="com.seoultech.fooddeuk">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 카카오 지도 API 필수 퍼미션 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 카카오 지도 API 필수 퍼미션 / GPS 사용 시 필수 퍼미션 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- GPS 사용 시 필수 퍼미션 -->
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fooddeukandroid"
         android:networkSecurityConfig="@xml/network_security_config">
-        <activity android:name=".MapActivity" />
+        <activity android:name=".map.MapActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.UserTypeSelectActivity" />
         <activity android:name=".intro.IntroCustomerActivity" />
@@ -33,6 +34,9 @@
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="d9acff452d70f21214603c11e966b948" />
+
     </application>
+
+
 
 </manifest>
