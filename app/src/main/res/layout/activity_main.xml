@@ -44,4 +44,13 @@
         android:layout_height="wrap_content"
         android:text="지도 뷰로 임시 이동 버튼"/>
 
+    <Button
+        android:id="@+id/tmp_truck_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="트럭 상세보기 임시 이동"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

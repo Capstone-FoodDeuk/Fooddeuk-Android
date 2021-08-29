@@ -1,9 +1,9 @@
 package com.seoultech.fooddeuk
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.databinding.ActivitySplashBinding
 import com.seoultech.fooddeuk.login.UserTypeSelectActivity
 
@@ -21,6 +21,7 @@ class SplashActivity : AppCompatActivity() {
         handler.postDelayed({
             showUserTypeSelectView()
         }, 1000)
+
     }
 
     private fun showUserTypeSelectView() {
