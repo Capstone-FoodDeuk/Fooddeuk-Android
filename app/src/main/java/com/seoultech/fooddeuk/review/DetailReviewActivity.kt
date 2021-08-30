@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import com.seoultech.fooddeuk.MainActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityDetailReviewBinding
-import com.seoultech.fooddeuk.intro.IntroCustomerActivity
 
 class DetailReviewActivity : AppCompatActivity() {
 
@@ -38,17 +37,17 @@ class DetailReviewActivity : AppCompatActivity() {
         binding.rbStars.rating = numStars
 
         if(storeCategory == "타코야끼")
-            binding.ivDetailCategory.setImageResource(R.drawable.ic_food_tako)
+            binding.ivDetailCategory.setImageResource(R.drawable.ic_category_tako)
         else if(storeCategory == "군밤")
-            binding.ivDetailCategory.setImageResource(R.drawable.ic_food_gunbam)
+            binding.ivDetailCategory.setImageResource(R.drawable.ic_category_gunbam)
         else if(storeCategory == "군고구마")
-            binding.ivDetailCategory.setImageResource(R.drawable.ic_food_goguma)
+            binding.ivDetailCategory.setImageResource(R.drawable.ic_category_goguma)
         else if(storeCategory == "과일")
-            binding.ivDetailCategory.setImageResource(R.drawable.ic_food_apple)
+            binding.ivDetailCategory.setImageResource(R.drawable.ic_category_apple)
         else if(storeCategory == "붕어빵")
-            binding.ivDetailCategory.setImageResource(R.drawable.ic_food_bungeo)
+            binding.ivDetailCategory.setImageResource(R.drawable.ic_category_bungeo)
         else if(storeCategory == "순대")
-            binding.ivDetailCategory.setImageResource(R.drawable.ic_food_sundae)
+            binding.ivDetailCategory.setImageResource(R.drawable.ic_category_sundae)
 
         //리뷰 입력 세팅
         setTasteReview()
@@ -65,13 +64,13 @@ class DetailReviewActivity : AppCompatActivity() {
     // 각각 버튼 눌렀을 때 good/soso/bad 설정, 카테고리별 눌렸는지 여부 설정(총 리뷰/리뷰 작성 완료 버튼 활성화 위해)
     private fun setTasteReview() {
         binding.btnTasteGood.setOnClickListener {
-            binding.btnTasteGood.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnTasteGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnTasteGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalTaste.setImageResource(R.drawable.ic_review_bird_good)
@@ -84,13 +83,13 @@ class DetailReviewActivity : AppCompatActivity() {
         }
 
         binding.btnTasteSoso.setOnClickListener {
-            binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnTasteSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnTasteGood.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnTasteGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalTaste.setImageResource(R.drawable.ic_review_bird_soso)
@@ -103,13 +102,13 @@ class DetailReviewActivity : AppCompatActivity() {
         }
 
         binding.btnTasteBad.setOnClickListener {
-            binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnTasteBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnTasteGood.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnTasteGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalTaste.setImageResource(R.drawable.ic_review_bird_bad)
@@ -124,13 +123,13 @@ class DetailReviewActivity : AppCompatActivity() {
 
     private fun setAmountReview() {
         binding.btnAmountGood.setOnClickListener {
-            binding.btnAmountGood.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnAmountGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnAmountGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalAmount.setImageResource(R.drawable.ic_review_bird_good)
@@ -143,13 +142,13 @@ class DetailReviewActivity : AppCompatActivity() {
         }
 
         binding.btnAmountSoso.setOnClickListener {
-            binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnAmountSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnAmountGood.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnAmountGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalAmount.setImageResource(R.drawable.ic_review_bird_soso)
@@ -162,13 +161,13 @@ class DetailReviewActivity : AppCompatActivity() {
         }
 
         binding.btnAmountBad.setOnClickListener {
-            binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnAmountBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnAmountGood.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnAmountGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalAmount.setImageResource(R.drawable.ic_review_bird_bad)
@@ -183,13 +182,13 @@ class DetailReviewActivity : AppCompatActivity() {
 
     private fun setKindReview() {
         binding.btnKindGood.setOnClickListener {
-            binding.btnKindGood.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnKindGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnKindGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalKind.setImageResource(R.drawable.ic_review_bird_good)
@@ -202,13 +201,13 @@ class DetailReviewActivity : AppCompatActivity() {
         }
 
         binding.btnKindSoso.setOnClickListener {
-            binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnKindSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnKindGood.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnKindGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalKind.setImageResource(R.drawable.ic_review_bird_soso)
@@ -221,13 +220,13 @@ class DetailReviewActivity : AppCompatActivity() {
         }
 
         binding.btnKindBad.setOnClickListener {
-            binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.review_button_click)
+            binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button_click)
             binding.btnKindBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_main_color))
 
-            binding.btnKindGood.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnKindGood.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindGood.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.review_button)
+            binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
             binding.ivTotalKind.setImageResource(R.drawable.ic_review_bird_bad)
