@@ -23,6 +23,7 @@
         <activity android:name=".signUp.SignUpActivity" />
         <activity android:name=".review.InputStoreActivity" />
         <activity android:name=".review.StarReviewActivity" />
+        <activity android:name=".review.DetailReviewActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

@@ -36,7 +36,6 @@ class InputStoreActivity : AppCompatActivity() {
             val intent = Intent(this, StarReviewActivity::class.java)
             intent.putExtra("name", storeName.toString())
             intent.putExtra("category", storeCategory)
-            Log.i("tag", storeCategory)
             startActivity(intent)
         }
     }

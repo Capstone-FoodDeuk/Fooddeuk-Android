@@ -1,6 +1,9 @@
 package com.seoultech.fooddeuk.review
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.RatingBar
 import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityStarReviewBinding
@@ -15,6 +18,8 @@ class StarReviewActivity : AppCompatActivity() {
         binding = ActivityStarReviewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        //TODO : 가게 상세페이지 구현 후 back 버튼 누르면 작동하게
 
         //input view에서 입력한 가게명과 카테고리 세팅
         val intent = intent
@@ -35,5 +40,14 @@ class StarReviewActivity : AppCompatActivity() {
             binding.ivFoodTruck.setImageResource(R.drawable.bungeo_truck)
         else if (storeCategory == "순대")
             binding.ivFoodTruck.setImageResource(R.drawable.sundae_truck)
+
+        //별점 선택시 다음 화면으로
+        binding.rbStars.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            val intent = Intent(this, DetailReviewActivity::class.java)
+            val numStars : Float = binding.rbStars.rating
+            intent.putExtra("numStars", numStars)
+            intent.putExtra("category", storeCategory)
+            startActivity(intent)
+        }
     }
 }
