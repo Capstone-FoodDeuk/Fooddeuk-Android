@@ -25,8 +25,8 @@
                 android:id="@+id/iv_truck_category_logo"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_takoyaki_logo"
-                tool:src="@drawable/ic_takoyaki_logo"/>
+                android:src="@drawable/ic_category_tako"
+                tool:src="@drawable/ic_category_tako"/>
             <TextView
                 android:id="@+id/tv_truck_name"
                 android:layout_width="wrap_content"
