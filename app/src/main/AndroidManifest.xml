@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fooddeukandroid">
-        <activity android:name=".review.DetailReviewActivity"></activity>
-        <activity android:name=".UserTypeSelectActivity" />
+        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".login.UserTypeSelectActivity" />
         <activity android:name=".intro.IntroCustomerActivity" />
         <activity android:name=".intro.IntroCEOActivity" />
         <activity android:name=".signUp.SignUpActivity" />
         <activity android:name=".review.InputStoreActivity" />
         <activity android:name=".review.StarReviewActivity" />
+        <activity android:name=".review.DetailReviewActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

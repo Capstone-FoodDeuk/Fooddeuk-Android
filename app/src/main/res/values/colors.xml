@@ -8,8 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- 푸드득 메인 컬러  -->
+    <!-- 푸드득 브랜딩 컬러 -->
     <color name="food_deuk_main_color">#FFB600</color>
+    <color name="food_deuk_status_bar_color">#80000000</color> <!-- status bar 색상 -->
     <color name="food_deuk_text_a">#212121</color>
     <color name="food_deuk_text_d">#DDDDDD</color>
     <color name="food_deuk_text_w">#FFFFFF</color>

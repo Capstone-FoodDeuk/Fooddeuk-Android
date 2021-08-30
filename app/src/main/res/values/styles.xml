@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 스타일로 지정하면 좋은 것들
+       1. 모서리 둥글게 하기
+       2. 테두리 두께, 색상 설정 -->
+
     <style name="SignUpEditText" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingStart">0dp</item>
@@ -11,9 +15,7 @@
 
     <style name="SignUpCompleteButtonCornerRadius" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="cornerRadius">16dp</item>
-
-        <!-- 머티리얼 디자인 버튼 기본 마진 제거(레이아웃 <-> 컴포넌트) -->
-        <item name="android:insetTop">0dp</item>
+        <item name="android:insetTop">0dp</item> <!-- 머티리얼 디자인 버튼 기본 마진 제거(레이아웃 <-> 컴포넌트) -->
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetRight">0dp</item>
@@ -21,9 +23,7 @@
 
     <style name="SignUpRedundancyButtonRadius" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="cornerRadius">5dp</item>
-
-        <!-- 머티리얼 디자인 버튼 기본 마진 제거(레이아웃 <-> 컴포넌트) -->
-        <item name="android:insetTop">0dp</item>
+        <item name="android:insetTop">0dp</item> <!-- 머티리얼 디자인 버튼 기본 마진 제거(레이아웃 <-> 컴포넌트) -->
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetRight">0dp</item>
@@ -31,8 +31,18 @@
 
     <style name="UserTypeSelectButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton.Icon">
         <item name="cornerRadius">18dp</item>
-
-        <!-- 머티리얼 디자인 버튼 클릭 시 위로 떠오르는 애니메이션 제거 -->
-        <item name="android:stateListAnimator">@null</item>
+        <item name="android:stateListAnimator">@null</item> <!-- 머티리얼 디자인 버튼 클릭 시 위로 떠오르는 애니메이션 제거 -->
     </style>
+
+    <style name="SignInTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/selector_sign_in_edit_text_border_color</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+    </style>
+
+    <style name="LoginButtonStyle" parent="UserTypeSelectButtonStyle"/>
 </resources>

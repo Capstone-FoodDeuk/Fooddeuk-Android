@@ -7,24 +7,15 @@
     tools:context=".signUp.SignUpActivity">
 
     <Button
-        android:id="@+id/tmp_sign_up_button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원가입 뷰로 임시 이동 버튼"/>
-
-    <Button
         android:id="@+id/tmp_guide_button_customer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="앱 가이드뷰(손님용)로 임시 이동 버튼"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tmp_sign_up_button" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/tmp_guide_button_ceo"
@@ -36,21 +27,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_customer" />
 
     <Button
-        android:id="@+id/tmp_user_type_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="유저 타입 선택 뷰로 임시 이동 버튼"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_ceo" />
-
-    <Button
         android:id="@+id/tmp_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="리뷰 작성 뷰로 임시 이동 버튼"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tmp_user_type_button" />
+        app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_ceo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

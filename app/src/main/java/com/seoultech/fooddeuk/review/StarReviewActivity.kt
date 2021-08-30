@@ -19,6 +19,8 @@ class StarReviewActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        //TODO : 가게 상세페이지 구현 후 back 버튼 누르면 작동하게
+
         //input view에서 입력한 가게명과 카테고리 세팅
         val intent = intent
         val storeName = intent.getStringExtra("name").toString()
@@ -40,10 +42,12 @@ class StarReviewActivity : AppCompatActivity() {
             binding.ivFoodTruck.setImageResource(R.drawable.sundae_truck)
 
         //별점 선택시 다음 화면으로
-        binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+        binding.rbStars.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             val intent = Intent(this, DetailReviewActivity::class.java)
-            intent.putExtra("rating", rating)
-            Log.i("score", rating.toString())
+            val numStars : Float = binding.rbStars.rating
+            intent.putExtra("numStars", numStars)
+            intent.putExtra("category", storeCategory)
+            startActivity(intent)
         }
     }
 }
