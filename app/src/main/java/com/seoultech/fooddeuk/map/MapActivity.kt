@@ -71,7 +71,7 @@ class MapActivity : AppCompatActivity() {
         // TODO : 나중에 서버에서 받아야할 데이터임
         kakaoMap.addMarker(37.624814, 127.077832, "타코야끼집", 0, R.drawable.ic_map_marker_takoyaki) // 예시
         kakaoMap.addMarker(37.625857, 127.077859, "과일트럭", 1, R.drawable.ic_map_marker_fruit) // 예시
-        kakaoMap.addMarker(37.625043, 127.077505, "붕어빵", 2, R.drawable.ic_map_marker_fish) // 예시
+        kakaoMap.addMarker(37.625043, 127.077505, "붕어빵", 2, R.drawable.ic_map_marker_bungeoppang) // 예시
     }
 
     private fun checkLocationPermission() {

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_truck_review_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="푸드트럭 만족도"
+        android:textSize="16sp"
+        android:textColor="@color/food_deuk_text_a"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_stars"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_full_star"
+        app:layout_constraintTop_toBottomOf="@+id/tv_truck_review_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4.1"
+        android:textSize="24sp"
+        android:textColor="@color/food_deuk_text_a"
+        app:layout_constraintTop_toTopOf="@+id/iv_stars"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_stars"
+        app:layout_constraintEnd_toStartOf="@+id/tv_score_total"
+        tool:text="4.1"/>
+
+    <TextView
+        android:id="@+id/tv_score_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" / 5"
+        android:textSize="24sp"
+        android:textColor="@color/food_deuk_text_d"
+        app:layout_constraintTop_toTopOf="@+id/iv_stars"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_stars"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
