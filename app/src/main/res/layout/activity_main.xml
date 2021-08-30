@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tmp_guide_button_customer" />
 
     <Button
-        android:id="@+id/tmp_review"
+        android:id="@+id/tmp_write_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="리뷰 작성 뷰로 임시 이동 버튼"
@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/tmp_map"
-        app:layout_constraintTop_toBottomOf="@+id/tmp_review"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_write_review"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
@@ -46,11 +46,21 @@
 
     <Button
         android:id="@+id/tmp_truck_detail"
-        app:layout_constraintTop_toBottomOf="@+id/tmp_map"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="트럭 상세보기 임시 이동"/>
+        android:text="트럭 상세보기 임시 이동"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_map" />
+
+    <Button
+        android:id="@+id/tmp_check_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리뷰 확인 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_truck_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
