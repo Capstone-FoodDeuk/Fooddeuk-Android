@@ -1,15 +1,14 @@
 package com.seoultech.fooddeuk
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.databinding.ActivityMainBinding
-import com.seoultech.fooddeuk.review.InputStoreActivity
+import com.seoultech.fooddeuk.detail.TruckDetailActivity
 import com.seoultech.fooddeuk.intro.IntroCEOActivity
 import com.seoultech.fooddeuk.intro.IntroCustomerActivity
-import com.seoultech.fooddeuk.login.LoginActivity
-import com.seoultech.fooddeuk.login.UserTypeSelectActivity
-import com.seoultech.fooddeuk.signUp.SignUpActivity
+import com.seoultech.fooddeuk.map.MapActivity
+import com.seoultech.fooddeuk.review.InputStoreActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +34,14 @@ class MainActivity : AppCompatActivity() {
         }
         binding.tmpReview.setOnClickListener {
             val intent = Intent(this, InputStoreActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpMap.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpTruckDetail.setOnClickListener {
+            val intent = Intent(this, TruckDetailActivity::class.java)
             startActivity(intent)
         }
     }

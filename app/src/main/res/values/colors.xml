@@ -17,5 +17,6 @@
     <color name="food_deuk_text_b">#666666</color>
     <color name="food_deuk_text_c">#A0A0A0</color>
     <color name="food_deuk_box_light_gray">#F9F9F9</color>
-    <color name="food_deuk_activate_yellow">#FFD400</color>
+    <color name="food_deuk_bar_gray">#F4F4F4</color>
+    <color name="food_deuk_available_yellow">#FFD400</color>
 </resources>

@@ -29,7 +29,7 @@ class StarReviewActivity : AppCompatActivity() {
         binding.tvStore.text = storeName + "의\n전체적인 만족도를 평가해주세요!"
 
         if (storeCategory == "타코야끼")
-            binding.ivFoodTruck.setImageResource(R.drawable.tako_truck)
+            binding.ivFoodTruck.setImageResource(R.drawable.takoyaki_truck)
         else if (storeCategory == "군밤")
             binding.ivFoodTruck.setImageResource(R.drawable.gunbam_truck)
         else if (storeCategory == "군고구마")

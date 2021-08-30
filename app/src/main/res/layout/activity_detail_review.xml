@@ -162,7 +162,7 @@
         android:isIndicator="false"
         android:numStars="5"
         android:progressBackgroundTint="@color/food_deuk_text_d"
-        android:progressTint="@color/food_deuk_activate_yellow"
+        android:progressTint="@color/food_deuk_available_yellow"
         android:secondaryProgressTint="@color/food_deuk_text_d"
         android:stepSize="1"
         app:layout_constraintStart_toStartOf="parent"
