@@ -73,7 +73,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalTaste.setImageResource(R.drawable.ic_review_bird_good)
+            binding.ivTotalTaste.setImageResource(R.drawable.ic_emoji_good)
             binding.tvTotalTaste.text = "맛있어요!"
 
             tasteReview = "good"
@@ -92,7 +92,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnTasteBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalTaste.setImageResource(R.drawable.ic_review_bird_soso)
+            binding.ivTotalTaste.setImageResource(R.drawable.ic_emoji_soso)
             binding.tvTotalTaste.text = "보통이에요"
 
             tasteReview = "soso"
@@ -111,7 +111,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnTasteSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnTasteSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalTaste.setImageResource(R.drawable.ic_review_bird_bad)
+            binding.ivTotalTaste.setImageResource(R.drawable.ic_emoji_bad)
             binding.tvTotalTaste.text = "별로예요"
 
             tasteReview = "bad"
@@ -132,7 +132,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalAmount.setImageResource(R.drawable.ic_review_bird_good)
+            binding.ivTotalAmount.setImageResource(R.drawable.ic_emoji_good)
             binding.tvTotalAmount.text = "만족해요!"
 
             amountReview = "good"
@@ -151,7 +151,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnAmountBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalAmount.setImageResource(R.drawable.ic_review_bird_soso)
+            binding.ivTotalAmount.setImageResource(R.drawable.ic_emoji_soso)
             binding.tvTotalAmount.text = "보통이에요"
 
             amountReview = "soso"
@@ -170,7 +170,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnAmountSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnAmountSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalAmount.setImageResource(R.drawable.ic_review_bird_bad)
+            binding.ivTotalAmount.setImageResource(R.drawable.ic_emoji_bad)
             binding.tvTotalAmount.text = "부족해요"
 
             amountReview = "bad"
@@ -191,7 +191,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalKind.setImageResource(R.drawable.ic_review_bird_good)
+            binding.ivTotalKind.setImageResource(R.drawable.ic_emoji_good)
             binding.tvTotalKind.text = "친절해요!"
 
             kindReview = "good"
@@ -210,7 +210,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnKindBad.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindBad.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalKind.setImageResource(R.drawable.ic_review_bird_soso)
+            binding.ivTotalKind.setImageResource(R.drawable.ic_emoji_soso)
             binding.tvTotalKind.text = "보통이에요"
 
             kindReview = "soso"
@@ -229,7 +229,7 @@ class DetailReviewActivity : AppCompatActivity() {
             binding.btnKindSoso.background = ContextCompat.getDrawable(this, R.drawable.shape_review_button)
             binding.btnKindSoso.setTextColor(ContextCompat.getColor(this, R.color.food_deuk_text_c))
 
-            binding.ivTotalKind.setImageResource(R.drawable.ic_review_bird_bad)
+            binding.ivTotalKind.setImageResource(R.drawable.ic_emoji_bad)
             binding.tvTotalKind.text = "불친절해요"
 
             kindReview = "bad"
