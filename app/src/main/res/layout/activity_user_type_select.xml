@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_main_with_title" />
+        android:src="@drawable/ic_user_type_logo" />
 
     <!-- 유저 타입 선택 뷰 설명 부분 -->
     <TextView

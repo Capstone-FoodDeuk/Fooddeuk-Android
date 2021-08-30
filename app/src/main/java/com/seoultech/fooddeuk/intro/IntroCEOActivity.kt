@@ -31,28 +31,28 @@ class IntroCEOActivity : AppCompatActivity() {
             ScreenItem(
                 "설정해요!",
                 "영업 시작시 설정하는 정보는 당일만 적용되며,\n설정값은 영업 마감시 초기화됩니다.\n시작 전 오픈 시간과 위치를 설정해주세요!",
-                R.drawable.gceo1
+                R.drawable.ic_guide_ceo_1
             )
         )
         mList.add(
             ScreenItem(
                 "수정해요!",
                 "푸드트럭 이동시 위치 정보를 변동된 장소로\n수정해주세요. 만약 기재하신 위치와 현 위치가\n다르다면 푸쉬 알람이 가니 확인 부탁드려요.",
-                R.drawable.gceo2
+                R.drawable.ic_guide_ceo_2
             )
         )
         mList.add(
             ScreenItem(
                 "확인해요!",
                 "우측 상단에 있는 버튼을 눌러보세요.\n지도보기, 가게 정보 및 메뉴 설정/변경,\n손님들이 남긴 리뷰 확인 등이 가능합니다.",
-                R.drawable.gceo3
+                R.drawable.ic_guide_ceo_3
             )
         )
         mList.add(
             ScreenItem(
                 "푸드득!",
                 "사장님의 푸드트럭을 주민들이 기다려요!\n어서 빨리 판매하러 가볼까요?",
-                R.drawable.gceo4
+                R.drawable.ic_guide_ceo_4
             )
         )
 
