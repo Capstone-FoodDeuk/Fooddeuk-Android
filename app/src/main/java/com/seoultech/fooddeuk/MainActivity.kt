@@ -8,6 +8,7 @@ import com.seoultech.fooddeuk.detail.TruckDetailActivity
 import com.seoultech.fooddeuk.intro.IntroCEOActivity
 import com.seoultech.fooddeuk.intro.IntroCustomerActivity
 import com.seoultech.fooddeuk.map.MapActivity
+import com.seoultech.fooddeuk.review.InputReviewActivity
 import com.seoultech.fooddeuk.review.InputStoreActivity
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, IntroCEOActivity::class.java)
             startActivity(intent)
         }
-        binding.tmpReview.setOnClickListener {
+        binding.tmpWriteReview.setOnClickListener {
             val intent = Intent(this, InputStoreActivity::class.java)
             startActivity(intent)
         }
@@ -42,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.tmpTruckDetail.setOnClickListener {
             val intent = Intent(this, TruckDetailActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpCheckReview.setOnClickListener {
+            val intent = Intent(this, InputReviewActivity::class.java)
             startActivity(intent)
         }
     }

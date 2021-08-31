@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item> </item>
+        <item>타코야끼</item>
+        <item>군밤</item>
+        <item>군고구마</item>
+        <item>과일</item>
+        <item>붕어빵</item>
+        <item>순대</item>
+    </string-array>
+</resources>
