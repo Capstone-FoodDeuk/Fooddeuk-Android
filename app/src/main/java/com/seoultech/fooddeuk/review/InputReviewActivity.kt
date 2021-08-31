@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityInputReviewBinding
 
@@ -18,17 +20,33 @@ class InputReviewActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        var category : String? = null
+
+        binding.spCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (parent != null) {
+                    category = parent.getItemAtPosition(position).toString()
+                }
+            }
+        }
+
         binding.btnInputOk.setOnClickListener {
             val intent = Intent(this, CheckReviewActivity::class.java)
-            intent.putExtra("tasteGood", binding.etTasteGood.text)
-            intent.putExtra("tasteSoSo", binding.etTasteGood.text)
-            intent.putExtra("tasteBad", binding.etTasteGood.text)
-            intent.putExtra("amountGood", binding.etTasteGood.text)
-            intent.putExtra("amountSoSo", binding.etTasteGood.text)
-            intent.putExtra("amountBad", binding.etTasteGood.text)
-            intent.putExtra("kindGood", binding.etTasteGood.text)
-            intent.putExtra("kindSoSo", binding.etTasteGood.text)
-            intent.putExtra("kindBad", binding.etTasteGood.text)
+            intent.putExtra("storeName", binding.etStoreName.text.toString())
+            intent.putExtra("category", category)
+            intent.putExtra("starScore", binding.etStar.text.toString())
+            intent.putExtra("tasteGood", binding.etTasteGood.text.toString())
+            intent.putExtra("tasteSoSo", binding.etTasteSoso.text.toString())
+            intent.putExtra("tasteBad", binding.etTasteBad.text.toString())
+            intent.putExtra("amountGood", binding.etAmountGood.text.toString())
+            intent.putExtra("amountSoSo", binding.etAmountSoso.text.toString())
+            intent.putExtra("amountBad", binding.etAmountBad.text.toString())
+            intent.putExtra("kindGood", binding.etKindGood.text.toString())
+            intent.putExtra("kindSoSo", binding.etKindSoso.text.toString())
+            intent.putExtra("kindBad", binding.etKindBad.text.toString())
             startActivity(intent)
         }
     }
