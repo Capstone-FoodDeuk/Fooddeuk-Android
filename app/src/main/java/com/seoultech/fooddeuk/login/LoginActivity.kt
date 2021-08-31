@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seoultech.fooddeuk.MainActivity
+import com.seoultech.fooddeuk.OnOffActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivitySignInBinding
 import com.seoultech.fooddeuk.signUp.SignUpActivity
@@ -18,13 +19,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setLoginIceBreakingImage()
+        setOnClickLoginButtonListener()
         showSignUpView()
-        showTmpButtons()
     }
 
     private fun setLoginIceBreakingImage() {
-        val userType = intent.getStringExtra("USER_TYPE")
-        when (userType) {
+        when (getUserType()) {
             UserType.CEO.name -> binding.ivIceBreaking.setImageResource(R.drawable.ic_ceo_login_logo)
             UserType.CUSTOMER.name -> binding.ivIceBreaking.setImageResource(R.drawable.ic_customer_login_logo)
         }
@@ -37,11 +37,22 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    // TODO : 기능 덧붙이면서 지워야함
-    private fun showTmpButtons() {
+    private fun setOnClickLoginButtonListener() {
         binding.btnLogin.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            when (getUserType()) {
+                UserType.CEO.name -> {
+                    val intent = Intent(this, OnOffActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                UserType.CUSTOMER.name -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
         }
     }
+
+    private fun getUserType() = intent.getStringExtra("USER_TYPE").toString()
 }

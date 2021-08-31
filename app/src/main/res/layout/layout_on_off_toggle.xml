@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="21dp"
+    app:contentPadding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="오픈"
+            android:textSize="16sp"
+            android:textColor="@color/food_deuk_text_c"
+            android:backgroundTint="@color/white"
+            style="@style/OnOffToggleButtonStyle"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="마감"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/food_deuk_off_background_black"
+            style="@style/OnOffToggleButtonStyle"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
