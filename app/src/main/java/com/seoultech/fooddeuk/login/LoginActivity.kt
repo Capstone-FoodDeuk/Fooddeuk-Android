@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seoultech.fooddeuk.MainActivity
-import com.seoultech.fooddeuk.OnOffActivity
+import com.seoultech.fooddeuk.ceoOnOff.CeoOnOffActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivitySignInBinding
 import com.seoultech.fooddeuk.signUp.SignUpActivity
@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             when (getUserType()) {
                 UserType.CEO.name -> {
-                    val intent = Intent(this, OnOffActivity::class.java)
+                    val intent = Intent(this, CeoOnOffActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
