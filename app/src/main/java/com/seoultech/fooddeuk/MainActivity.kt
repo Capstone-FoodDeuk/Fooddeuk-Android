@@ -8,6 +8,7 @@ import com.seoultech.fooddeuk.detail.TruckDetailActivity
 import com.seoultech.fooddeuk.intro.IntroCEOActivity
 import com.seoultech.fooddeuk.intro.IntroCustomerActivity
 import com.seoultech.fooddeuk.map.MapActivity
+import com.seoultech.fooddeuk.mypage.MyPageActivity
 import com.seoultech.fooddeuk.review.InputReviewActivity
 import com.seoultech.fooddeuk.review.InputStoreActivity
 
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.tmpCheckReview.setOnClickListener {
             val intent = Intent(this, InputReviewActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpMyPage.setOnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
         }
     }

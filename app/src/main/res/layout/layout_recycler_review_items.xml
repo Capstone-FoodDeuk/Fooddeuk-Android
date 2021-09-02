@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginBottom="5dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/food_deuk_box_light_gray"
+    app:cardCornerRadius="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_category"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_category_goguma" />
+
+        <TextView
+            android:id="@+id/tv_item_store_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="22dp"
+            android:text="맛있구마"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vw_line1"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/food_deuk_text_d"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/iv_item_taste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:text="맛"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/iv_item_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="85dp"
+            android:text="양"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/iv_item_kind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="110dp"
+            android:text="친절함"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_item_review_taste"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_emoji_good" />
+
+        <TextView
+            android:id="@+id/tv_item_review_taste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="60dp"
+            android:text="맛있어요!"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_item_review_taste"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_item_review_amount"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="85dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_emoji_bad" />
+
+        <TextView
+            android:id="@+id/tv_item_review_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="85dp"
+            android:text="부족해요"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_item_review_amount"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_item_review_kind"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="110dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_emoji_soso" />
+
+        <TextView
+            android:id="@+id/tv_item_review_kind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="110dp"
+            android:text="보통이에요"
+            android:textColor="@color/food_deuk_text_a"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_item_review_kind"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
