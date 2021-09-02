@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fooddeukandroid">
-        <activity android:name=".review.CheckReviewActivity"></activity>
+        <activity android:name=".mypage.MyPageActivity"></activity>
+        <activity android:name=".review.CheckReviewActivity" />
         <activity android:name=".review.InputReviewActivity" />
         <activity android:name=".detail.TruckDetailActivity" />
         <activity android:name=".map.MapActivity" />

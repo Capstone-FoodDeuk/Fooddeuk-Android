@@ -63,4 +63,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tmp_truck_detail" />
 
+    <Button
+        android:id="@+id/tmp_my_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마이 페이지 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_truck_detail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
