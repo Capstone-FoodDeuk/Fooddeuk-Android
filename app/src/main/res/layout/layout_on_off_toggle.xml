@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="onOrOff"
+            type="Boolean" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="21dp"
+        app:contentPadding="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Button
+                android:id="@+id/btn_on"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="오픈"
+                android:textSize="16sp"
+                android:textColor="@{onOrOff ? @color/white : @color/food_deuk_text_c}"
+                android:backgroundTint="@{onOrOff ? @color/food_deuk_main_color : @color/white}"
+                style="@style/OnOffToggleButtonStyle"
+                tools:backgroundTint="@color/white"
+                tools:textColor="@color/food_deuk_text_c"/>
+            <Button
+                android:id="@+id/btn_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="마감"
+                android:textSize="16sp"
+                android:textColor="@{onOrOff ? @color/food_deuk_text_c : @color/white}"
+                android:backgroundTint="@{onOrOff ? @color/white : @color/food_deuk_off_background_black}"
+                style="@style/OnOffToggleButtonStyle"
+                tools:backgroundTint="@color/food_deuk_off_background_black"
+                tools:textColor="@color/white"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

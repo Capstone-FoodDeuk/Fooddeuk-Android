@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="13dp"
+        app:contentPadding="18dp"
+        app:cardElevation="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_location_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="위치"
+                android:textSize="13sp"
+                android:textColor="@color/food_deuk_text_a"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_truck_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:hintEnabled="false"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintTop_toBottomOf="@+id/tv_location_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_truck_current_location_logo">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:hint="주소 검색해 입력"
+                    android:textColorHint="@color/food_deuk_text_d"
+                    style="@style/OnTruckLocationTextInputStyle"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <ImageView
+                android:id="@+id/iv_truck_current_location_logo"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="11dp"
+                android:src="@drawable/ic_current_location"
+                app:layout_constraintTop_toTopOf="@+id/til_truck_address"
+                app:layout_constraintBottom_toBottomOf="@+id/til_truck_address"
+                app:layout_constraintStart_toEndOf="@+id/til_truck_address" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="현위치"
+                android:textSize="12sp"
+                android:textColor="@color/food_deuk_text_b"
+                app:layout_constraintTop_toTopOf="@+id/iv_truck_current_location_logo"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_truck_current_location_logo"
+                app:layout_constraintStart_toEndOf="@+id/iv_truck_current_location_logo"
+                app:layout_constraintEnd_toEndOf="parent" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_truck_detail_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:boxBackgroundColor="@null"
+                app:hintEnabled="false"
+                app:layout_constraintTop_toBottomOf="@+id/til_truck_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/til_truck_address">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:hint="상세 위치를 설명해주세요."
+                    android:textColorHint="@color/food_deuk_text_d"
+                    style="@style/OnTruckLocationTextInputStyle"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

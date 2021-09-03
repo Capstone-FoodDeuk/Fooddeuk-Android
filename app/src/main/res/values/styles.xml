@@ -63,4 +63,21 @@
         <item name="android:insetRight">0dp</item>
     </style>
 
+    <style name="OnOffToggleButtonStyle" parent="NoTruckDialogCancleOrOkButtonStyle" />
+
+    <style name="OnTruckLocationTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:paddingLeft">0dp</item> <!-- 기본으로 적용된 패딩 제거 -->
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <style name="OnSaveButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="android:insetTop">0dp</item> <!-- 머티리얼 디자인 버튼 기본 마진 제거(레이아웃 <-> 컴포넌트) -->
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
 </resources>

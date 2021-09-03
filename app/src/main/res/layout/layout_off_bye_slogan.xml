@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tool:background="@color/food_deuk_off_background_black">
+
+        <ImageView
+            android:id="@+id/iv_emoji_bye"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_emoji_good"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_off_bye_slogan_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="오늘도 수고 많으셨어요."
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/iv_emoji_bye"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_off_bye_slogan_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="오픈 정보는 정상적으로 초기화 되었으니\n 내일 일정에 따라 새롭게 입력해주세요!"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tv_off_bye_slogan_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
