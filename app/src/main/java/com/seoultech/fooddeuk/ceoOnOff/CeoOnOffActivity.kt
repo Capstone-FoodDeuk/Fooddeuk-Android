@@ -1,5 +1,6 @@
 package com.seoultech.fooddeuk.ceoOnOff
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.databinding.BindingConversion
 import androidx.databinding.DataBindingUtil
+import com.seoultech.fooddeuk.MainActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityCeoOnOffBinding
 
@@ -19,7 +21,7 @@ class CeoOnOffActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_ceo_on_off)
 
         init()
-        setOnClickOffToggleButtonListener()
+        setOnClickListeners()
     }
 
     private fun init() {
@@ -27,7 +29,7 @@ class CeoOnOffActivity : AppCompatActivity() {
         binding.onOrOff = true
     }
 
-    private fun setOnClickOffToggleButtonListener() {
+    private fun setOnClickListeners() {
         binding.layoutOnOffToggle.btnOn.setOnClickListener {
             binding.layoutOnOffToggle.onOrOff = true
             binding.onOrOff = true
@@ -35,6 +37,10 @@ class CeoOnOffActivity : AppCompatActivity() {
         binding.layoutOnOffToggle.btnOff.setOnClickListener {
             binding.layoutOnOffToggle.onOrOff = false
             binding.onOrOff = false
+        }
+        binding.btnOnSettingSave.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

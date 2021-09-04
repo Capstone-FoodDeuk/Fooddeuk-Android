@@ -26,32 +26,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tmpButtonsClickListener() {
-        binding.tmpGuideButtonCustomer.setOnClickListener {
-            val intent = Intent(this, IntroCustomerActivity::class.java)
-            startActivity(intent)
-        }
-        binding.tmpGuideButtonCeo.setOnClickListener {
-            val intent = Intent(this, IntroCEOActivity::class.java)
-            startActivity(intent)
-        }
         binding.tmpWriteReview.setOnClickListener {
             val intent = Intent(this, InputStoreActivity::class.java)
             startActivity(intent)
         }
-        binding.tmpMap.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
-            startActivity(intent)
-        }
-        binding.tmpTruckDetail.setOnClickListener {
-            val intent = Intent(this, TruckDetailActivity::class.java)
-            startActivity(intent)
-        }
         binding.tmpCheckReview.setOnClickListener {
             val intent = Intent(this, InputReviewActivity::class.java)
-            startActivity(intent)
-        }
-        binding.tmpMyPage.setOnClickListener {
-            val intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
         }
     }

@@ -6,6 +6,7 @@ import com.seoultech.fooddeuk.R
 
 object LoginBindingAdapter {
     @BindingAdapter("setLoginLogo")
+    @JvmStatic
     fun setLoginLogo(view: ImageView, userType: String) {
         if (userType == UserType.CEO.name) {
             view.setImageResource(R.drawable.ic_ceo_login_logo)

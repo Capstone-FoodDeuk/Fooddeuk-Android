@@ -2,24 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <!-- 뒤로가기 화살표 -->
     <ImageView
-        android:id="@+id/ivBack"
+        android:id="@+id/iv_back_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="45dp"
         android:layout_marginStart="26dp"
-        android:src="@drawable/ic_back_arrow" />
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- 회원가입 타이틀 -->
     <TextView
-        android:id="@+id/tvStarReviewTitle"
+        android:id="@+id/tv_star_review_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -32,11 +32,11 @@
 
     <!-- 아이디 입력 부분 -->
     <TextView
-        android:id="@+id/id_title_text_view"
+        android:id="@+id/tv_id_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvStarReviewTitle"
+        app:layout_constraintTop_toBottomOf="@id/tv_star_review_title"
         android:layout_marginStart="45dp"
         android:layout_marginTop="61dp"
         android:text="아이디"
@@ -44,18 +44,18 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/id_text_input_layout"
+        android:id="@+id/til_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/id_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/id_title_text_view"
-        app:layout_constraintEnd_toStartOf="@+id/check_redundancy_button"
+        app:layout_constraintStart_toStartOf="@+id/tv_id_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_id_title"
+        app:layout_constraintEnd_toStartOf="@+id/btn_check_redundancy"
         app:layout_constraintHorizontal_weight="70"
         android:layout_marginTop="2dp"
         app:boxBackgroundColor="@null"
         app:hintEnabled="false">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/id_text_input_edit_text"
+            android:id="@+id/tiet_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             style="@style/SignUpEditText"
@@ -63,13 +63,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/check_redundancy_button"
+        android:id="@+id/btn_check_redundancy"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toEndOf="@id/id_text_input_layout"
-        app:layout_constraintTop_toTopOf="@id/id_text_input_layout"
+        app:layout_constraintStart_toEndOf="@id/til_id"
+        app:layout_constraintTop_toTopOf="@id/til_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/id_text_input_layout"
+        app:layout_constraintBottom_toBottomOf="@id/til_id"
         app:layout_constraintHorizontal_weight="30"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="5dp"
@@ -81,11 +81,11 @@
 
     <!-- 비밀번호 입력 부분 -->
     <TextView
-        android:id="@+id/pw_title_text_view"
+        android:id="@+id/tv_pw_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_text_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/til_id"
         android:layout_marginStart="45dp"
         android:layout_marginTop="33dp"
         android:text="비밀번호"
@@ -93,18 +93,18 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pw_text_input_layout"
+        android:id="@+id/til_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/pw_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/pw_title_text_view"
+        app:layout_constraintStart_toStartOf="@+id/tv_pw_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pw_title"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="45dp"
         app:boxBackgroundColor="@null"
         app:hintEnabled="false">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/pw_text_input_edit_text"
+            android:id="@+id/tiet_pw"
             style="@style/SignUpEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -113,11 +113,11 @@
 
     <!-- 비밀번호 확인 입력 부분 -->
     <TextView
-        android:id="@+id/pw_confirm_title_text_view"
+        android:id="@+id/tv_pw_confirm_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pw_text_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/til_pw"
         android:layout_marginStart="45dp"
         android:layout_marginTop="33dp"
         android:text="비밀번호 확인"
@@ -125,18 +125,18 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pw_confirm_text_input_layout"
+        android:id="@+id/til_pw_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/pw_confirm_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/pw_confirm_title_text_view"
+        app:layout_constraintStart_toStartOf="@+id/tv_pw_confirm_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pw_confirm_title"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="45dp"
         app:boxBackgroundColor="@null"
         app:hintEnabled="false">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/pw_confirm_text_input_edit_text"
+            android:id="@+id/tiet_pw_confirm"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             style="@style/SignUpEditText"
@@ -145,11 +145,11 @@
 
     <!-- 닉네임 입력 부분 -->
     <TextView
-        android:id="@+id/nick_name_title_text_view"
+        android:id="@+id/tv_nick_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pw_confirm_text_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/til_pw_confirm"
         android:layout_marginStart="45dp"
         android:layout_marginTop="33dp"
         android:text="닉네임"
@@ -157,18 +157,18 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nick_name_text_input_layou"
+        android:id="@+id/til_nick_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/nick_name_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/nick_name_title_text_view"
+        app:layout_constraintStart_toStartOf="@+id/tv_nick_name_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nick_name_title"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="45dp"
         app:boxBackgroundColor="@null"
         app:hintEnabled="false">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nick_name_text_input_edit_text"
+            android:id="@+id/tiet_nick_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             style="@style/SignUpEditText"
@@ -177,11 +177,11 @@
 
     <!-- 휴대전화 번호 -->
     <TextView
-        android:id="@+id/phone_number_title_text_view"
+        android:id="@+id/tv_phone_number_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nick_name_text_input_layou"
+        app:layout_constraintTop_toBottomOf="@+id/til_nick_name"
         android:layout_marginStart="45dp"
         android:layout_marginTop="33dp"
         android:text="휴대전화 번호"
@@ -189,18 +189,18 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_number_text_input_layout"
+        android:id="@+id/til_phone_number"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/phone_number_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number_title_text_view"
+        app:layout_constraintStart_toStartOf="@+id/tv_phone_number_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone_number_title"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="45dp"
         app:boxBackgroundColor="@null"
         app:hintEnabled="false">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_number_text_input_edit_text"
+            android:id="@+id/tiet_phone_number"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             style="@style/SignUpEditText"
@@ -209,7 +209,7 @@
 
     <!-- 가입하기 버튼 부분 -->
     <Button
-        android:id="@+id/sign_up_complete_button"
+        android:id="@+id/btn_sign_up_complete"
         android:layout_width="0dp"
         android:layout_height="53dp"
         app:layout_constraintStart_toStartOf="parent"
