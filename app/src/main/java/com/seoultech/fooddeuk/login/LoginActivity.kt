@@ -25,9 +25,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setLoginIceBreakingImage() {
         when (getUserType()) {
-            UserType.CEO.name -> binding.ivIceBreaking.setImageResource(R.drawable.ic_ceo_login_logo)
-            UserType.CUSTOMER.name -> binding.ivIceBreaking.setImageResource(R.drawable.ic_customer_login_logo)
+            UserType.CEO.name -> binding.userType = UserType.CEO.name
+            UserType.CUSTOMER.name -> binding.userType = UserType.CUSTOMER.name
         }
+//        when (userType) {
+//            UserType.CEO.name -> binding.ivIceBreaking.setImageResource(R.drawable.ic_ceo_login_logo)
+//            UserType.CUSTOMER.name -> binding.ivIceBreaking.setImageResource(R.drawable.ic_customer_login_logo)
+//        }
     }
 
     private fun showSignUpView() {
