@@ -2,16 +2,21 @@ package com.seoultech.fooddeuk.map
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityMapBinding
+import com.seoultech.fooddeuk.detail.TruckDetailActivity
+import com.seoultech.fooddeuk.mypage.MyPageActivity
+import com.seoultech.fooddeuk.signUp.SignUpActivity
 import com.seoultech.fooddeuk.util.AndroidPermissionManager
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
@@ -31,6 +36,8 @@ class MapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setOnClickListeners()
     }
 
     override fun onResume() {
@@ -86,25 +93,30 @@ class MapActivity : AppCompatActivity() {
         }
     }
 
-    class MarkerEventListener(val context: Context): MapView.POIItemEventListener {
-        override fun onPOIItemSelected(p0: MapView?, p1: MapPOIItem?) {
-            Toast.makeText(context, "${p1?.itemName} 눌림", Toast.LENGTH_SHORT).show()
+    private fun setOnClickListeners() {
+        binding.fabCategoryFilter.setOnClickListener {
+            Toast.makeText(this, "눌림", Toast.LENGTH_SHORT).show()
         }
+        binding.fabMypage.setOnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    class MarkerEventListener(val context: Context): MapView.POIItemEventListener {
+        override fun onPOIItemSelected(p0: MapView?, p1: MapPOIItem?) { }
 
         override fun onCalloutBalloonOfPOIItemTouched(p0: MapView?, p1: MapPOIItem?) {
-            TODO("Not yet implemented")
+            val intent = Intent(context, TruckDetailActivity::class.java)
+            context.startActivity(intent)
         }
 
         override fun onCalloutBalloonOfPOIItemTouched(
             p0: MapView?,
             p1: MapPOIItem?,
             p2: MapPOIItem.CalloutBalloonButtonType?
-        ) {
-            TODO("Not yet implemented")
-        }
+        ) { }
 
-        override fun onDraggablePOIItemMoved(p0: MapView?, p1: MapPOIItem?, p2: MapPoint?) {
-            TODO("Not yet implemented")
-        }
+        override fun onDraggablePOIItemMoved(p0: MapView?, p1: MapPOIItem?, p2: MapPoint?) { }
     }
 }

@@ -22,10 +22,10 @@ class IntroCustomerActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val tab = binding.tabIndication
-        val viewPager = binding.screenViewPager
+        val tab = binding.tlIndication
+        val viewPager = binding.vpScreen
         val skip = binding.btnSkip
-        val btnStarted = binding.btnStarted
+        val btnStarted = binding.btnStart
 
         //fill list screen
         var mList : MutableList<ScreenItem> = mutableListOf()
@@ -60,7 +60,7 @@ class IntroCustomerActivity : AppCompatActivity() {
 
         //setup viewpager
         val introViewPagerAdapter = IntroViewPagerAdapter(this, mList)
-        binding.screenViewPager.adapter = introViewPagerAdapter
+        binding.vpScreen.adapter = introViewPagerAdapter
 
         //setup tablayout with viewpager
         TabLayoutMediator(tab, viewPager) { tab, position ->
@@ -87,22 +87,18 @@ class IntroCustomerActivity : AppCompatActivity() {
 
         //intro skip
         skip.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            finish() // 액티비티 백스택 계산해보면 로그인 화면으로 돌아감
         }
 
         //start
         btnStarted.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            finish() // 액티비티 백스택 계산해보면 로그인 화면으로 돌아감
         }
     }
 
     private fun loadLastScreen() {
-        val btnStarted = binding.btnStarted
-        val tab = binding.tabIndication
+        val btnStarted = binding.btnStart
+        val tab = binding.tlIndication
         val skip = binding.btnSkip
         val btnAnim = AnimationUtils.loadAnimation(applicationContext, R.anim.btn_animation)
         btnStarted.visibility = View.VISIBLE
@@ -112,8 +108,8 @@ class IntroCustomerActivity : AppCompatActivity() {
     }
 
     private fun loadTab() {
-        val btnStarted = binding.btnStarted
-        val tab = binding.tabIndication
+        val btnStarted = binding.btnStart
+        val tab = binding.tlIndication
         val skip = binding.btnSkip
         tab.visibility = View.VISIBLE
         skip.visibility = View.VISIBLE
