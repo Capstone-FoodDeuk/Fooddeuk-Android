@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityMyPageBinding
+import com.seoultech.fooddeuk.dialog.NickNameSettingDialog
 
 class MyPageActivity : AppCompatActivity() {
 
@@ -27,6 +28,11 @@ class MyPageActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = titles.get(position)
         }.attach()
+
+        //닉네임 수정 다이얼로그
+        binding.ivNickNameSetting.setOnClickListener {
+            NickNameSettingDialog().show(supportFragmentManager, "layout_dialog_nick_name")
+        }
     }
 }
 
