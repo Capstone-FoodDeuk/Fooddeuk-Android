@@ -11,8 +11,8 @@ import com.seoultech.fooddeuk.databinding.ActivityFindIdPwBinding
 class FindIdPwActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFindIdPwBinding
-    private val findIdFragment = FindIdFragment()
-    private val findPwFragment = FindPwFragment()
+    private val findIdFragment: FindIdFragment = FindIdFragment()
+    private val findPwFragment: FindPwFragment = FindPwFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +21,7 @@ class FindIdPwActivity : AppCompatActivity() {
 
         initTabFragment()
         setTabSelectedListener()
+        setOnClickListeners()
     }
 
     private fun initTabFragment() {
@@ -45,4 +46,9 @@ class FindIdPwActivity : AppCompatActivity() {
         })
     }
 
+    private fun setOnClickListeners() {
+        binding.ivBackArrow.setOnClickListener {
+            finish()
+        }
+    }
 }
