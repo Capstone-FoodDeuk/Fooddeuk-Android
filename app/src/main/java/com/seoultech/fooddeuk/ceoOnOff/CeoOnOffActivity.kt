@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.seoultech.fooddeuk.MainActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityCeoOnOffBinding
+import com.seoultech.fooddeuk.storeSetting.StoreSettingActivity
 
 class CeoOnOffActivity : AppCompatActivity() {
 
