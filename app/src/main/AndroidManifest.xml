@@ -14,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fooddeukandroid">
+        <activity android:name=".login.FindIdPwActivity"/>
         <activity android:name=".mypage.MyPageActivity"/>
-        <activity android:name=".ceoOnOff.CeoOnOffActivity"></activity>
+        <activity android:name=".ceoOnOff.CeoOnOffActivity" />
         <activity android:name=".review.CheckReviewActivity" />
         <activity android:name=".review.InputReviewActivity" />
         <activity android:name=".detail.TruckDetailActivity" />

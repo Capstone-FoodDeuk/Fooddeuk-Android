@@ -55,6 +55,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.tvFindIdPassword.setOnClickListener {
+            val intent = Intent(this, FindIdPwActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.ivBackArrow.setOnClickListener {
             finish()
         }

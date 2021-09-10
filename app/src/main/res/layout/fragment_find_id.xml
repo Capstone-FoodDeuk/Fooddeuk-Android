@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".login.FindIdFragment">
+
+    <TextView
+        android:id="@+id/tv_find_id_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="등록한 휴대전화 번호로 찾기"
+        android:textSize="11sp"
+        android:textColor="@color/food_deuk_text_a"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_find_id_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가입 당시 입력한 휴대전화 번호를 통해 아이디를 확인합니다."
+        android:textSize="10sp"
+        android:textColor="@color/food_deuk_text_a"
+        app:layout_constraintTop_toBottomOf="@+id/tv_find_id_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:text="이름"
+        android:textSize="12sp"
+        android:textColor="@color/food_deuk_text_a"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tv_find_id_description"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toTopOf="@+id/tv_name_title"
+        app:layout_constraintStart_toStartOf="@+id/til_phone_number"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_name_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/FindIdPwEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이름"
+            android:textSize="11sp"
+            android:paddingVertical="10dp"
+            android:textColorHint="@color/food_deuk_text_d"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_phone_number_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="휴대전화"
+        android:textSize="12sp"
+        android:textColor="@color/food_deuk_text_a"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_title"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_send_authentication_number"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:text="인증번호"
+        android:textSize="11sp"
+        android:textColor="@color/food_deuk_text_d"
+        app:layout_constraintTop_toTopOf="@+id/tv_phone_number_title"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_phone_number_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/FindIdPwAuthenticationButtonStyle"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_phone_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="13dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toTopOf="@+id/tv_phone_number_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_phone_number_title"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_phone_number_title"
+        app:layout_constraintEnd_toStartOf="@+id/btn_send_authentication_number"
+        style="@style/FindIdPwEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_phone_number"
+            android:hint="'-' 제외 번호 입력"
+            android:textColorHint="@color/food_deuk_text_d"
+            android:textSize="11sp"
+            android:inputType="numberDecimal"
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_authentication_number_input_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="인증번호"
+        android:textSize="12sp"
+        android:textColor="@color/food_deuk_text_a"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone_number_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_authentication_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toTopOf="@+id/tv_authentication_number_input_title"
+        app:layout_constraintStart_toStartOf="@+id/til_phone_number"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_authentication_number_input_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/FindIdPwEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_authentication_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="인증번호 6자리 숫자 입력"
+            android:textSize="11sp"
+            android:inputType="numberDecimal"
+            android:paddingVertical="10dp"
+            android:textColorHint="@color/food_deuk_text_d"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_find_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="아이디 찾기"
+        android:backgroundTint="@color/food_deuk_text_d"
+        app:layout_constraintTop_toBottomOf="@+id/til_authentication_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/FindIdPwButtonStyle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
