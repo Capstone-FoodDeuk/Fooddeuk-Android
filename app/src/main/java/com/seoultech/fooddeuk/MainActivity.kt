@@ -11,6 +11,7 @@ import com.seoultech.fooddeuk.map.MapActivity
 import com.seoultech.fooddeuk.mypage.MyPageActivity
 import com.seoultech.fooddeuk.review.InputReviewActivity
 import com.seoultech.fooddeuk.review.InputStoreActivity
+import com.seoultech.fooddeuk.storeSetting.StoreSettingActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.tmpCheckReview.setOnClickListener {
             val intent = Intent(this, InputReviewActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tmpSettingStore.setOnClickListener {
+            val intent = Intent(this, StoreSettingActivity::class.java)
             startActivity(intent)
         }
     }

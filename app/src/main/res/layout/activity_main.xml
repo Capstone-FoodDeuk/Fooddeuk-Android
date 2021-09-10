@@ -26,4 +26,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tmp_write_review" />
 
+    <Button
+        android:id="@+id/tmp_setting_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가게 설정 뷰로 임시 이동 버튼"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmp_check_review" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
