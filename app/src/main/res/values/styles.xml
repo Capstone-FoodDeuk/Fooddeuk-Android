@@ -99,4 +99,9 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetRight">0dp</item>
     </style>
+
+    <style name="CategoryFilterBottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@color/food_deuk_box_light_gray</item>
+    </style>
+
 </resources>

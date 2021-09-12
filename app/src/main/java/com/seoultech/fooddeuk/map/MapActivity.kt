@@ -95,7 +95,8 @@ class MapActivity : AppCompatActivity() {
 
     private fun setOnClickListeners() {
         binding.fabCategoryFilter.setOnClickListener {
-            Toast.makeText(this, "눌림", Toast.LENGTH_SHORT).show()
+            val categoryFilterBottomSheet = CategoryFilterBottomSheet()
+            categoryFilterBottomSheet.show(supportFragmentManager, CategoryFilterBottomSheet.TAG)
         }
         binding.fabMypage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
