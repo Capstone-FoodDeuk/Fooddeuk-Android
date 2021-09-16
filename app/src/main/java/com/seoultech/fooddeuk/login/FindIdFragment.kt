@@ -9,6 +9,8 @@ import com.seoultech.fooddeuk.R
 
 class FindIdFragment : Fragment() {
 
+    // git test1 222
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
