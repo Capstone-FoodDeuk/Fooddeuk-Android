@@ -245,8 +245,10 @@ class DetailReviewActivity : AppCompatActivity() {
 
             binding.totalBox.visibility = View.VISIBLE
             binding.btnReviewOk.visibility = View.VISIBLE
+            binding.cvTotalBox.visibility = View.VISIBLE
             binding.totalBox.animation = reviewAnim
             binding.btnReviewOk.animation = reviewAnim
+            binding.cvTotalBox.animation = reviewAnim
         }
     }
 }

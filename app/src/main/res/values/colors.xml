@@ -20,4 +20,6 @@
     <color name="food_deuk_bar_gray">#F4F4F4</color>
     <color name="food_deuk_available_yellow">#FFD400</color>
     <color name="food_deuk_off_background_black">#282828</color>
+    <color name="food_deuk_alarm_thumb_on">#F7AA1B</color>
+    <color name="food_deuk_alarm_off">#D6D6D6</color>
 </resources>

@@ -10,6 +10,16 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp">
 
+        <ImageView
+            android:id="@+id/iv_hamburger"
+            android:layout_width="18dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/ic_hamburger_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tv_check_review_title"
             android:layout_width="wrap_content"
