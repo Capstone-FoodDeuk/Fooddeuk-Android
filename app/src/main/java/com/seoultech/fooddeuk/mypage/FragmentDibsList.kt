@@ -9,9 +9,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.seoultech.fooddeuk.R
+import com.seoultech.fooddeuk.databinding.LayoutRecyclerDibsItemsBinding
 
 
 class FragmentDibsList : Fragment() {
+
+    private var mBinding: LayoutRecyclerDibsItemsBinding? = null
+    private val binding get() = mBinding!!
 
     private var DibsList: ArrayList<DibsData> = ArrayList()
     private var recyclerView: RecyclerView? = null
@@ -29,26 +33,24 @@ class FragmentDibsList : Fragment() {
         recyclerView!!.itemAnimator = DefaultItemAnimator()
         recyclerView!!.adapter = mAdapter
 
+        mBinding = LayoutRecyclerDibsItemsBinding.inflate(inflater, container, false)
+
+        prepareData()
+
         return v
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        prepareData()
-    }
-
     private fun prepareData() {
-        DibsList.add(DibsData(R.drawable.ic_category_bungeo, "붕어집", "공릉로123", "3시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_apple, "과일집", "공릉로456", "2일 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_gunbam, "군밤집", "공릉로789", "21시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_sundae, "순대집", "공릉로135", "5시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_tako, "타코집", "공릉로246", "13시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_bungeo, "붕어집", "공릉로123", "3시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_apple, "과일집", "공릉로456", "2일 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_gunbam, "군밤집", "공릉로789", "21시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_sundae, "순대집", "공릉로135", "5시간 전"))
-        DibsList.add(DibsData(R.drawable.ic_category_tako, "타코집", "공릉로246", "13시간 전"))
+        DibsList.add(DibsData(R.drawable.ic_category_bungeo, "붕어집", "공릉로123", "3시간 전", R.drawable.ic_alarm_on))
+        DibsList.add(DibsData(R.drawable.ic_category_apple, "과일집", "공릉로456", "2일 전", R.drawable.ic_alarm_off))
+        DibsList.add(DibsData(R.drawable.ic_category_gunbam, "군밤집", "공릉로789", "21시간 전", R.drawable.ic_alarm_on))
+        DibsList.add(DibsData(R.drawable.ic_category_sundae, "순대집", "공릉로135", "5시간 전", R.drawable.ic_alarm_on))
+        DibsList.add(DibsData(R.drawable.ic_category_tako, "타코집", "공릉로246", "13시간 전", R.drawable.ic_alarm_on))
+        DibsList.add(DibsData(R.drawable.ic_category_bungeo, "붕어집", "공릉로123", "3시간 전", R.drawable.ic_alarm_off))
+        DibsList.add(DibsData(R.drawable.ic_category_apple, "과일집", "공릉로456", "2일 전", R.drawable.ic_alarm_on))
+        DibsList.add(DibsData(R.drawable.ic_category_gunbam, "군밤집", "공릉로789", "21시간 전", R.drawable.ic_alarm_off))
+        DibsList.add(DibsData(R.drawable.ic_category_sundae, "순대집", "공릉로135", "5시간 전", R.drawable.ic_alarm_on))
+        DibsList.add(DibsData(R.drawable.ic_category_tako, "타코집", "공릉로246", "13시간 전", R.drawable.ic_alarm_on))
     }
 
 }

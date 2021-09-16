@@ -83,12 +83,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
+    <Switch
+        android:id="@+id/sw_alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="286dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="170dp"
         android:checked="true"
+        android:switchMinWidth="55dp"
+        android:thumbTint="@color/selector_switch_thumb"
+        android:trackTint="@color/selector_switch_track"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

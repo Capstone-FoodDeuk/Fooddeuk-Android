@@ -39,5 +39,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, StoreSettingActivity::class.java)
             startActivity(intent)
         }
+        binding.tmpMyPage.setOnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

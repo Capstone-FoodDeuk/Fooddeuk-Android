@@ -20,6 +20,7 @@ class DibsAdapter(val dibsList: ArrayList<DibsData>) : RecyclerView.Adapter<Dibs
         holder.storeName.text = dibsList.get(position).storeName
         holder.salesPlace.text = dibsList.get(position).salesPlace
         holder.timeBefore.text = dibsList.get(position).timeBefore
+        holder.storeAlarm.setImageResource(dibsList.get(position).storeAlarm)
     }
 
     override fun getItemCount(): Int {
@@ -31,6 +32,7 @@ class DibsAdapter(val dibsList: ArrayList<DibsData>) : RecyclerView.Adapter<Dibs
         val storeName = itemView.findViewById<TextView>(R.id.tv_item_store_name) //가게명
         val salesPlace = itemView.findViewById<TextView>(R.id.tv_item_sales_place) //판매 장소
         val timeBefore = itemView.findViewById<TextView>(R.id.tv_item_time_before) //판매 시간
+        val storeAlarm = itemView.findViewById<ImageView>(R.id.iv_store_alarm) //가게 알람
     }
 
 }

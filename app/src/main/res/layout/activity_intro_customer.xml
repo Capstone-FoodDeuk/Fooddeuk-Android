@@ -33,14 +33,14 @@
 
     </androidx.viewpager2.widget.ViewPager2>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_start"
         android:layout_width="292dp"
         android:layout_height="40dp"
         android:layout_marginBottom="33dp"
         android:background="@drawable/gradient"
         android:text="푸드득 시작하기"
-        android:textColor="#fff"
+        android:textColor="@color/food_deuk_text_a"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"

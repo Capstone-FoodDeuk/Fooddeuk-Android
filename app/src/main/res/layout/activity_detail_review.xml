@@ -230,11 +230,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_review_ok"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="580dp"
+        android:background="@drawable/gradient"
+        android:textColor="@color/food_deuk_text_a"
         android:text="작성 완료"
         android:visibility="invisible"
         app:cornerRadius="10dp"
@@ -242,99 +244,110 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_total_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="450dp"
-        android:text="맛\n\n양\n\n친절함"
-        android:textColor="@color/food_deuk_text_a"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/vw_total_box"
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_total_box"
         android:layout_width="300dp"
         android:layout_height="110dp"
         android:layout_marginTop="435dp"
-        android:background="@drawable/shape_review_total_box"
-        android:elevation="5dp"
+        android:visibility="invisible"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_total_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/food_deuk_text_a"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_total_amount"
-        app:layout_constraintTop_toTopOf="@+id/iv_total_amount" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_detail_review"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_total_taste"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="450dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_total_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:text="맛\n\n양\n\n친절함"
+                android:textColor="@color/food_deuk_text_a"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_total_taste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/food_deuk_text_a"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_total_taste"
-        app:layout_constraintTop_toTopOf="@+id/iv_total_taste" />
+            <ImageView
+                android:id="@+id/iv_total_taste"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/iv_total_kind"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="510dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_total_taste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/food_deuk_text_a"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iv_total_taste"
+                app:layout_constraintTop_toTopOf="@+id/iv_total_taste" />
 
-    <TextView
-        android:id="@+id/tv_total_kind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/food_deuk_text_a"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_total_kind"
-        app:layout_constraintTop_toTopOf="@+id/iv_total_kind" />
+            <TextView
+                android:id="@+id/tv_total_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/food_deuk_text_a"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iv_total_amount"
+                app:layout_constraintTop_toTopOf="@+id/iv_total_amount" />
 
-    <ImageView
-        android:id="@+id/iv_total_amount"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="480dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/iv_total_amount"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/total_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:constraint_referenced_ids="tv_total_detail,vw_total_box,tv_total_amount,iv_total_taste,tv_total_taste,iv_total_kind,tv_total_kind,iv_total_amount" />
+            <ImageView
+                android:id="@+id/iv_total_kind"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="76dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/tv_total_kind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/food_deuk_text_a"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iv_total_kind"
+                app:layout_constraintTop_toTopOf="@+id/iv_total_kind" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/total_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:constraint_referenced_ids="cv_total_box,cl_detail_review,tv_total_detail,iv_total_taste,tv_total_taste,iv_total_amount,tv_total_amount,iv_total_kind,tv_total_kind"
+                tools:ignore="NotSibling" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
