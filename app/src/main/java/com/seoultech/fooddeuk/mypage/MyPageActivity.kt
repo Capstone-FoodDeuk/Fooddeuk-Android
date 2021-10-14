@@ -2,6 +2,7 @@ package com.seoultech.fooddeuk.mypage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -30,8 +31,13 @@ class MyPageActivity : AppCompatActivity() {
         }.attach()
 
         //닉네임 수정 다이얼로그
-        binding.ivNickNameSetting.setOnClickListener {
+        binding.ivNicknameSetting.setOnClickListener {
             NickNameSettingDialog().show(supportFragmentManager, "layout_dialog_nick_name")
+        }
+
+        //로그아웃 버튼
+        binding.ivLogout.setOnClickListener {
+            Toast.makeText(this, "로그아웃", Toast.LENGTH_SHORT).show()
         }
     }
 }

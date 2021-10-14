@@ -30,7 +30,7 @@
             android:id="@+id/tv_item_store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="22dp"
             android:text="맛있구마"
             android:textColor="@color/food_deuk_text_a"
@@ -92,9 +92,9 @@
             android:id="@+id/iv_item_review_taste"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginStart="250dp"
             android:layout_marginTop="60dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_emoji_good" />
 
@@ -114,9 +114,9 @@
             android:id="@+id/iv_item_review_amount"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginStart="250dp"
             android:layout_marginTop="85dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_emoji_bad" />
 
@@ -136,9 +136,9 @@
             android:id="@+id/iv_item_review_kind"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginStart="250dp"
             android:layout_marginTop="110dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_emoji_soso" />
 
