@@ -59,19 +59,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <RatingBar
+    <com.baha.reviewbar.ReviewBar
         android:id="@+id/rb_stars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="245dp"
-        android:progressBackgroundTint="@color/food_deuk_text_d"
-        android:progressTint="@color/food_deuk_available_yellow"
-        android:secondaryProgressTint="@color/food_deuk_text_d"
-        android:isIndicator="false"
-        android:numStars="5"
-        android:stepSize="1"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="240dp"
+        app:emptyIcon="@drawable/ic_empty_star"
+        app:fillIcon="@drawable/ic_full_star"
+        app:halfEnable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:reviewScoreMax="5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

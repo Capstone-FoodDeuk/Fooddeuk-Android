@@ -1,7 +1,10 @@
 package com.seoultech.fooddeuk.review
 
+import android.R.id.button1
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityStarReviewBinding
@@ -40,9 +43,11 @@ class StarReviewActivity : AppCompatActivity() {
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_sundae)
 
         //별점 선택시 다음 화면으로
-        binding.rbStars.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+
+
+        binding.ivFoodTruck.setOnClickListener {
+            val numStars : Float = binding.rbStars.getReviewScore()
             val intent = Intent(this, DetailReviewActivity::class.java)
-            val numStars : Float = binding.rbStars.rating
             intent.putExtra("numStars", numStars)
             intent.putExtra("category", storeCategory)
             startActivity(intent)

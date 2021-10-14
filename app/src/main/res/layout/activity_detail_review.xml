@@ -152,30 +152,27 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RatingBar
-        android:id="@+id/rb_stars"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="90dp"
-        android:isIndicator="false"
-        android:numStars="5"
-        android:progressBackgroundTint="@color/food_deuk_text_d"
-        android:progressTint="@color/food_deuk_available_yellow"
-        android:secondaryProgressTint="@color/food_deuk_text_d"
-        android:stepSize="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/iv_detail_category"
-        android:layout_width="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/rb_stars"
+        app:layout_constraintTop_toTopOf="@+id/rb_stars" />
+
+    <com.baha.reviewbar.ReviewBar
+        android:id="@+id/rb_stars"
+        android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginStart="110dp"
         android:layout_marginTop="80dp"
+        app:emptyIcon="@drawable/ic_empty_star"
+        app:fillIcon="@drawable/ic_full_star"
+        app:halfEnable="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:reviewScoreMax="5" />
 
     <TextView
         android:id="@+id/tv_detail_taste"
