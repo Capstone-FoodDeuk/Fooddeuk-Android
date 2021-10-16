@@ -34,7 +34,7 @@ class DetailReviewActivity : AppCompatActivity() {
         //TODO:뒤로가기 버튼
 
         //이전 화면에서 받아온 별 갯수와 카테고리 이미지 세팅
-        binding.rbStars.rating = numStars
+        binding.rbStars.setReviewScore(numStars)
 
         if(storeCategory == "타코야끼")
             binding.ivDetailCategory.setImageResource(R.drawable.ic_category_tako)

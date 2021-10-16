@@ -15,7 +15,6 @@ import com.seoultech.fooddeuk.databinding.LayoutRecyclerDibsItemsBinding
 class FragmentDibsList : Fragment() {
 
     private var mBinding: LayoutRecyclerDibsItemsBinding? = null
-    private val binding get() = mBinding!!
 
     private var DibsList: ArrayList<DibsData> = ArrayList()
     private var recyclerView: RecyclerView? = null

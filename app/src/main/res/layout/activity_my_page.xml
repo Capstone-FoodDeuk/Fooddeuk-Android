@@ -7,7 +7,7 @@
     tools:context=".mypage.MyPageActivity">
 
     <ImageView
-        android:id="@+id/ivBack"
+        android:id="@+id/iv_mypage_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvStarReviewTitle"
+        android:id="@+id/tv_mypage_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -41,14 +41,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ivNickNameSetting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
+        android:id="@+id/iv_nickname_setting"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="93dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_nickname"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_setting" />
+        app:srcCompat="@drawable/ic_edit_nickname" />
 
     <View
         android:id="@+id/view"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_alarm_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_alarm_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -89,10 +89,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="300dp"
         android:layout_marginTop="170dp"
+        android:layout_marginEnd="56dp"
         android:checked="true"
         android:switchMinWidth="55dp"
         android:thumbTint="@color/selector_switch_thumb"
         android:trackTint="@color/selector_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -133,5 +135,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+
+    <ImageView
+        android:id="@+id/iv_logout"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

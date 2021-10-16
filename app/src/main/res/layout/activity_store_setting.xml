@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="20dp">
 
         <ImageView
             android:id="@+id/iv_hamburger"
@@ -33,14 +33,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_store_name_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="85dp"
+            android:layout_marginEnd="301dp"
             android:text="가게 이름"
             android:textColor="@color/food_deuk_text_a"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,15 +53,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="115dp"
+            android:layout_marginEnd="56dp"
             app:boxBackgroundColor="@color/food_deuk_box_light_gray"
             app:boxStrokeColor="@color/food_deuk_main_color"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="1dp"
             app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_store_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="상호명을 입력해주세요."
@@ -67,24 +72,30 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tv_category_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="200dp"
+            android:layout_marginEnd="275dp"
             android:text="카테고리 설정"
             android:textColor="@color/food_deuk_text_a"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_category"
             android:layout_width="300dp"
             android:layout_height="170dp"
             android:layout_marginStart="55dp"
             android:layout_marginTop="230dp"
+            android:layout_marginEnd="56dp"
             app:cardBackgroundColor="@color/food_deuk_box_light_gray"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -197,13 +208,16 @@
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
+            android:id="@+id/tv_register_num_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="430dp"
+            android:layout_marginEnd="265dp"
             android:text="사업자등록번호"
             android:textColor="@color/food_deuk_text_a"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -213,16 +227,19 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="462dp"
+            android:layout_marginTop="460dp"
+            android:layout_marginEnd="56dp"
             app:boxBackgroundColor="@color/food_deuk_box_light_gray"
             app:boxStrokeColor="@color/food_deuk_main_color"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="1dp"
             app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_register_num"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="사업자등록번호를 입력해주세요."
@@ -234,8 +251,7 @@
             android:id="@+id/btn_certification"
             android:layout_width="65dp"
             android:layout_height="40dp"
-            android:layout_marginTop="470dp"
-            android:layout_marginEnd="70dp"
+            android:layout_marginEnd="15dp"
             android:backgroundTint="@color/food_deuk_box_light_gray"
             android:outlineProvider="none"
             android:paddingLeft="5dp"
@@ -244,19 +260,114 @@
             android:textColor="@color/food_deuk_text_d"
             android:textSize="10sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout"
             app:strokeColor="@color/food_deuk_text_d"
             app:strokeWidth="1dp" />
 
         <TextView
+            android:id="@+id/tv_menu_setting_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="550dp"
+            android:layout_marginTop="545dp"
+            android:layout_marginEnd="226dp"
+            android:text="메뉴 수량 및 가격 등록"
+            android:textColor="@color/food_deuk_text_a"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="575dp"
+            android:layout_marginEnd="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/food_deuk_box_light_gray"
+                app:boxStrokeColor="@color/food_deuk_main_color"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="1dp"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="메뉴 입력"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:boxBackgroundColor="@color/food_deuk_box_light_gray"
+                app:boxStrokeColor="@color/food_deuk_main_color"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="1dp"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="가격 입력"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/ib_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:drawable/screen_background_light_transparent"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="640dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_store_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="815dp"
+            android:layout_marginEnd="301dp"
             android:text="가게 설명"
             android:textColor="@color/food_deuk_text_a"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -265,12 +376,14 @@
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="582dp"
+            android:layout_marginTop="845dp"
+            android:layout_marginEnd="56dp"
             app:boxBackgroundColor="@color/food_deuk_box_light_gray"
             app:boxStrokeColor="@color/food_deuk_main_color"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="1dp"
             app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -283,13 +396,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tv_payment_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="710dp"
+            android:layout_marginTop="975dp"
+            android:layout_marginEnd="301dp"
             android:text="결제 수단"
             android:textColor="@color/food_deuk_text_a"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -297,7 +413,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="735dp"
+            android:layout_marginTop="1005dp"
+            android:layout_marginEnd="57dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -344,7 +462,7 @@
             style="@style/OnSaveButtonStyle"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="830dp"
+            android:layout_marginTop="1100dp"
             android:backgroundTint="@color/food_deuk_text_d"
             android:text="설정 완료"
             app:layout_constraintEnd_toEndOf="parent"
