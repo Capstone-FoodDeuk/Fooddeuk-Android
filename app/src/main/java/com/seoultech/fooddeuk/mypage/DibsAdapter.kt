@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.seoultech.fooddeuk.R
 
-class DibsAdapter(val dibsList: ArrayList<DibsData>) : RecyclerView.Adapter<DibsAdapter.CustomViewHolder>() {
+class DibsAdapter() : RecyclerView.Adapter<DibsAdapter.CustomViewHolder>() {
+
+    var dibsList: ArrayList<DibsData> = arrayListOf()
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val category = itemView.findViewById<ImageView>(R.id.img_category) //카테고리
@@ -33,5 +35,10 @@ class DibsAdapter(val dibsList: ArrayList<DibsData>) : RecyclerView.Adapter<Dibs
 
     override fun getItemCount(): Int {
         return dibsList.size
+    }
+
+    fun setData(newData: ArrayList<DibsData>) {
+        dibsList = newData
+        notifyDataSetChanged()
     }
 }
