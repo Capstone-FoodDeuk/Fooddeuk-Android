@@ -70,6 +70,7 @@ class SignUpActivity : AppCompatActivity() {
                         finish()
                     }
                 }
+                Toast.makeText(applicationContext, "감사합니다. 회원 가입 완료되었습니다~", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "죄송합니다. 회원 가입 요청에 실패하여 잠시후 다시 시도해주세요~", Toast.LENGTH_SHORT).show()
             }
