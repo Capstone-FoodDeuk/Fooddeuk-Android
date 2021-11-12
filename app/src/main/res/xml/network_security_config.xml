@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <!-- http 통신 예외 처리 -->
-    <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">maps.daum-img.net</domain>
-    </domain-config>
+    <!-- http 통신 허용 처리 -->
+    <base-config cleartextTrafficPermitted="true" />
 </network-security-config>

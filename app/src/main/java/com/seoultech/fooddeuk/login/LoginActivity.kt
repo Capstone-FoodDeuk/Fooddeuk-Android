@@ -1,13 +1,9 @@
 package com.seoultech.fooddeuk.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
-import com.seoultech.fooddeuk.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.seoultech.fooddeuk.ceoOnOff.CeoOnOffActivity
-import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivitySignInBinding
 import com.seoultech.fooddeuk.map.MapActivity
 import com.seoultech.fooddeuk.signUp.SignUpActivity
@@ -65,5 +61,5 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun getUserType() = intent.getStringExtra("USER_TYPE").toString()
+    private fun getUserType() = intent.getStringExtra("USER_TYPE")
 }

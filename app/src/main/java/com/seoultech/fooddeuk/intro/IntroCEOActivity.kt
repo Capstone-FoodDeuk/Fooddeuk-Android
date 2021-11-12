@@ -1,14 +1,14 @@
 package com.seoultech.fooddeuk.intro
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.seoultech.fooddeuk.MainActivity
 import com.seoultech.fooddeuk.R
+import com.seoultech.fooddeuk.ceoOnOff.CeoOnOffActivity
 import com.seoultech.fooddeuk.databinding.ActivityIntroCeoBinding
 
 class IntroCEOActivity : AppCompatActivity() {
@@ -90,6 +90,8 @@ class IntroCEOActivity : AppCompatActivity() {
 
         //start
         btnStarted.setOnClickListener {
+            val intent = Intent(this, CeoOnOffActivity::class.java)
+            startActivity(intent)
             finish() // 액티비티 백스택 계산해보면 로그인 화면으로 돌아감
         }
     }
