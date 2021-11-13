@@ -5,9 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -16,7 +14,6 @@ import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityMapBinding
 import com.seoultech.fooddeuk.detail.TruckDetailActivity
 import com.seoultech.fooddeuk.mypage.MyPageActivity
-import com.seoultech.fooddeuk.signUp.SignUpActivity
 import com.seoultech.fooddeuk.util.AndroidPermissionManager
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint

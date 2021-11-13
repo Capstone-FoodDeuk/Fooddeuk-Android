@@ -1,16 +1,15 @@
 package com.seoultech.fooddeuk.intro
 
 import android.content.Intent
-import com.seoultech.fooddeuk.databinding.ActivityIntroCustomerBinding
-
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.seoultech.fooddeuk.MainActivity
 import com.seoultech.fooddeuk.R
+import com.seoultech.fooddeuk.databinding.ActivityIntroCustomerBinding
+import com.seoultech.fooddeuk.map.MapActivity
 
 
 class IntroCustomerActivity : AppCompatActivity() {
@@ -92,7 +91,9 @@ class IntroCustomerActivity : AppCompatActivity() {
 
         //start
         btnStarted.setOnClickListener {
-            finish() // 액티비티 백스택 계산해보면 로그인 화면으로 돌아감
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
