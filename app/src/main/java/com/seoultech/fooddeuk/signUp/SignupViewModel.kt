@@ -11,17 +11,17 @@ import retrofit2.Response
 
 class SignupViewModel: ViewModel() {
 
-    val signupOkStatus: MutableLiveData<Boolean> = MutableLiveData()
+    val signupOkCode: MutableLiveData<Boolean> = MutableLiveData()
 
     fun requestSignup(signupInfo: SignupRequest) {
        FooddeukAPI.requestSignup(signupInfo).enqueue(object : Callback<Any> {
            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-               signupOkStatus.postValue(true)
+               signupOkCode.postValue(true)
                Log.d("[Fooddeuk API] signup", "회원가입 요청 성공")
            }
 
            override fun onFailure(call: Call<Any>, t: Throwable) {
-               signupOkStatus.postValue(false)
+               signupOkCode.postValue(false)
                Log.d("[Fooddeuk API] signup", "회원가입 요청 실패 Throwable -> ${t.message}")
            }
        })
