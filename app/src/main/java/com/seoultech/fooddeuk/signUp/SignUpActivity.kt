@@ -31,6 +31,17 @@ class SignUpActivity : AppCompatActivity() {
         subscribeViewModel()
     }
 
+    private fun subscribeViewModel() {
+        signUpViewModel.signupOkCode.observe(this, {
+            if (it) {
+                goToIntroActivity()
+                Toast.makeText(this, "감사합니다. 회원 가입 완료되었습니다~", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "죄송합니다. 회원 가입 요청에 실패하여 잠시후 다시 시도해주세요~", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
     private fun setUserType(userType: String?) {
         this.userType = when (userType) {
             UserType.CEO.name -> UserType.CEO.role
@@ -40,41 +51,39 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun setClickListeners() {
-        binding.btnSignUpComplete.setOnClickListener {
-            val signupInfo = SignupRequest(
-                role = userType,
-                loginId = binding.tietId.text.toString(),
-                pwd = binding.tietPw.text.toString(),
-                pwdCheck = binding.tietPwConfirm.text.toString(),
-                nickname = binding.tietNickName.text.toString(),
-                phoneNumber = binding.tietPhoneNumber.text.toString()
-            )
-            callSignupAPI(signupInfo)
+        binding.apply {
+            btnSignUpComplete.setOnClickListener {
+                val signupInfo = getSignupInfoFromView()
+                callSignupAPI(signupInfo)
+            }
+            ivBackArrow.setOnClickListener { finish() }
         }
-
-        binding.ivBackArrow.setOnClickListener { finish() }
     }
 
-    private fun subscribeViewModel() {
-        signUpViewModel.signupOkStatus.observe(this, {
-            if (it) {
-                when (userType) {
-                    UserType.CEO.role -> {
-                        val intent = Intent(this, IntroCEOActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                    UserType.CUSTOMER.role -> {
-                        val intent = Intent(this, IntroCustomerActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-                Toast.makeText(applicationContext, "감사합니다. 회원 가입 완료되었습니다~", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "죄송합니다. 회원 가입 요청에 실패하여 잠시후 다시 시도해주세요~", Toast.LENGTH_SHORT).show()
+    private fun getSignupInfoFromView(): SignupRequest {
+        return SignupRequest(
+            role = userType,
+            loginId = binding.tietId.text.toString(),
+            pwd = binding.tietPw.text.toString(),
+            pwdCheck = binding.tietPwConfirm.text.toString(),
+            nickname = binding.tietNickName.text.toString(),
+            phoneNumber = binding.tietPhoneNumber.text.toString()
+        )
+    }
+
+    private fun goToIntroActivity() {
+        when (userType) {
+            UserType.CEO.role -> {
+                val intent = Intent(this, IntroCEOActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-        })
+            UserType.CUSTOMER.role -> {
+                val intent = Intent(this, IntroCustomerActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 
     private fun getUserType(): String? = intent.getStringExtra("USER_TYPE")
