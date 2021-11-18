@@ -10,6 +10,7 @@ import com.seoultech.fooddeuk.databinding.ActivityLoginBinding
 import com.seoultech.fooddeuk.map.MapActivity
 import com.seoultech.fooddeuk.model.httpBody.LoginRequest
 import com.seoultech.fooddeuk.signUp.SignUpActivity
+import com.seoultech.fooddeuk.util.FooddeukApplication
 
 class LoginActivity : AppCompatActivity() {
 
@@ -34,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginOkCode.observe(this, {
             if (it) {
                 goToMainActivity()
+                FooddeukApplication.fooddeukSharedPreference.saveToken(loginViewModel.token)
             } else {
                 Toast.makeText(this, "죄송합니다. 로그인 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
             }
