@@ -1,5 +1,6 @@
 package com.seoultech.fooddeuk.network
 
+import com.seoultech.fooddeuk.util.FooddeukApplication
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -10,8 +11,10 @@ object FooddeukServiceImpl {
     private const val BASE_URL: String = "http://3.34.5.117:8080/api/"
 
     private val commonNetworkInterceptor = Interceptor { chain ->
+        val token = FooddeukApplication.fooddeukSharedPreference.getToken()
         val newRequest = chain.request().newBuilder()
             .addHeader("Content-Type", "application/json")
+            .addHeader("X-AUTH-TOKEN", token)
             .build()
         chain.proceed(newRequest)
     }

@@ -3,6 +3,7 @@ package com.seoultech.fooddeuk.network
 import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
 import com.seoultech.fooddeuk.model.httpBody.LoginRequest
+import com.seoultech.fooddeuk.model.httpBody.LoginResponse
 import com.seoultech.fooddeuk.model.httpBody.SignupRequest
 import retrofit2.Call
 import retrofit2.http.Body
@@ -23,5 +24,5 @@ interface FooddeukService {
     fun requestSignup(@Body signupInfo: SignupRequest): Call<Any>
 
     @POST("login")
-    fun requestLogin(@Body loginInfo: LoginRequest): Call<Any>
+    fun requestLogin(@Body loginInfo: LoginRequest): Call<LoginResponse>
 }
