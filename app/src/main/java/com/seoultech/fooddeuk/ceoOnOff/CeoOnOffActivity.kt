@@ -2,11 +2,8 @@ package com.seoultech.fooddeuk.ceoOnOff
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.databinding.BindingAdapter
-import androidx.databinding.BindingConversion
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.seoultech.fooddeuk.MainActivity
 import com.seoultech.fooddeuk.R
@@ -31,17 +28,31 @@ class CeoOnOffActivity : AppCompatActivity() {
     }
 
     private fun setOnClickListeners() {
-        binding.layoutOnOffToggle.btnOn.setOnClickListener {
-            binding.layoutOnOffToggle.onOrOff = true
-            binding.onOrOff = true
-        }
-        binding.layoutOnOffToggle.btnOff.setOnClickListener {
-            binding.layoutOnOffToggle.onOrOff = false
-            binding.onOrOff = false
-        }
-        binding.btnOnSettingSave.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        binding.apply {
+            layoutOnOffToggle.btnOn.setOnClickListener {
+                binding.layoutOnOffToggle.onOrOff = true
+                binding.onOrOff = true
+            }
+            layoutOnOffToggle.btnOff.setOnClickListener {
+                binding.layoutOnOffToggle.onOrOff = false
+                binding.onOrOff = false
+            }
+            btnOnSettingSave.setOnClickListener {
+                val intent = Intent(this@CeoOnOffActivity, MainActivity::class.java)
+                startActivity(intent)
+            }
+            ivHamburger.setOnClickListener {
+                drawerLayout.openDrawer(GravityCompat.START, true)
+            }
+            navigationMypage.setNavigationItemSelectedListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.truck_setting -> {
+                        val intent = Intent(this@CeoOnOffActivity, StoreSettingActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+                true
+            }
         }
     }
 }

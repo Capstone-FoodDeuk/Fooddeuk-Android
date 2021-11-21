@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/on_off_manage"
+            android:title="오픈/마감 관리"/>
+        <item
+            android:id="@+id/truck_setting"
+            android:title="가게 설정"/>
+        <item
+            android:id="@+id/review_manager"
+            android:title="리뷰 관리"/>
+    </group>
+</menu>
