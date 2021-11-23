@@ -4,6 +4,7 @@ import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
 import com.seoultech.fooddeuk.model.httpBody.LoginRequest
 import com.seoultech.fooddeuk.model.httpBody.LoginResponse
+import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
 import com.seoultech.fooddeuk.model.httpBody.SignupRequest
 import retrofit2.Call
 import retrofit2.http.Body
@@ -25,4 +26,7 @@ interface FooddeukService {
 
     @POST("login")
     fun requestLogin(@Body loginInfo: LoginRequest): Call<LoginResponse>
+
+    @POST("owner")
+    fun requestOwner(@Body ownerInfo: OwnerRequest): Call<Any>
 }
