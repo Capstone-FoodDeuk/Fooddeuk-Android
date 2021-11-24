@@ -4,8 +4,10 @@ import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
 import com.seoultech.fooddeuk.model.httpBody.LoginRequest
 import com.seoultech.fooddeuk.model.httpBody.LoginResponse
+import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
 import com.seoultech.fooddeuk.model.httpBody.SignupRequest
 import retrofit2.Call
+import retrofit2.http.Body
 
 object FooddeukAPI {
     // 참고용 1 (추후에 지울 것)
@@ -24,5 +26,9 @@ object FooddeukAPI {
 
     fun requestLogin(loginInfo: LoginRequest): Call<LoginResponse> {
         return FooddeukServiceImpl.service.requestLogin(loginInfo)
+    }
+
+    fun requestOwner(ownerInfo: OwnerRequest) : Call<Any> {
+        return FooddeukServiceImpl.service.requestOwner(ownerInfo)
     }
 }
