@@ -1,6 +1,5 @@
 package com.seoultech.fooddeuk.model.httpBody
 
-import com.seoultech.fooddeuk.storeSetting.Menu
 import java.util.ArrayList
 
 data class OwnerRequest (
@@ -11,3 +10,5 @@ data class OwnerRequest (
     val description: String = "",
     val methods: ArrayList<String> = ArrayList<String>()
 )
+
+data class Menu(val name : String, val price : Long)

@@ -2,6 +2,7 @@ package com.seoultech.fooddeuk.storeSetting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityStoreSettingBinding
+import com.seoultech.fooddeuk.model.httpBody.Menu
 import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
 import java.util.ArrayList
 
@@ -45,8 +47,9 @@ class StoreSettingActivity : AppCompatActivity() {
         }
 
         // menu add click
-        binding.ibAdd.setOnClickListener {
-            addTask()
+        binding.btnAdd.setOnClickListener {
+            addMenus()
+            addRecyclerView()
         }
 
         // payment method click
@@ -54,6 +57,7 @@ class StoreSettingActivity : AppCompatActivity() {
 
         // ok click
         binding.btnSettingOk.setOnClickListener {
+            Log.i("메뉴 정보", menus.toString())
             val ownerInfo = getOwnerInfoFromView()
             callOwnerAPI(ownerInfo)
         }
@@ -69,14 +73,19 @@ class StoreSettingActivity : AppCompatActivity() {
         })
     }
 
-    private fun addTask() {
+    private fun addMenus() {
+        val menuTransfer = Menu(binding.etMenu.text.toString(), binding.etCost.text.toString().toLong())
+        menus.add(menuTransfer)
+    }
+
+    private fun addRecyclerView() {
         val menu = MenuData(binding.etMenu.text.toString(), binding.etCost.text.toString(), R.drawable.ic_cancel)
         data.add(menu)
 
-        val menuTransfer = Menu(binding.etMenu.text.toString(), binding.etCost.text.toString().toInt())
-        menus.add(menuTransfer)
-
         binding.recyclerView.adapter?.notifyDataSetChanged()
+
+        binding.etMenu.text = null
+        binding.etCost.text = null
     }
 
     private fun getOwnerInfoFromView(): OwnerRequest {
@@ -111,11 +120,11 @@ class StoreSettingActivity : AppCompatActivity() {
     private fun categoryClick() {
         binding.btnCategoryTako.setOnClickListener {
             setTakoClick()
-            category = "Tako"
+            category = "Takoyaki"
         }
         binding.btnCategoryGunbam.setOnClickListener {
             setGunbamClick()
-            category = "Gunbam"
+            category = "Chestnuts"
         }
         binding.btnCategoryGoguma.setOnClickListener {
             setGogumaClick()
@@ -123,15 +132,15 @@ class StoreSettingActivity : AppCompatActivity() {
         }
         binding.btnCategoryApple.setOnClickListener {
             setAppleClick()
-            category = "Apple"
+            category = "Fruit"
         }
         binding.btnCategoryBungeo.setOnClickListener {
             setBungeoClick()
-            category = "Bungeo"
+            category = "FishBread"
         }
         binding.btnCategorySundae.setOnClickListener {
             setSundaeClick()
-            category = "Sundae"
+            category = "Snack"
         }
     }
 
