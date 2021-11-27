@@ -12,7 +12,7 @@
             android:id="@+id/iv_background_map"
             android:layout_width="0dp"
             android:layout_height="250dp"
-            android:background="#FFEFEF"
+            android:src="@drawable/ic_review_bottom_tako"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

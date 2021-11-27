@@ -2,15 +2,9 @@ package com.seoultech.fooddeuk.network
 
 import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
-import com.seoultech.fooddeuk.model.httpBody.LoginRequest
-import com.seoultech.fooddeuk.model.httpBody.LoginResponse
-import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
-import com.seoultech.fooddeuk.model.httpBody.SignupRequest
+import com.seoultech.fooddeuk.model.httpBody.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface FooddeukService {
     // 참고용 1(추후에 지울 것)
@@ -29,4 +23,7 @@ interface FooddeukService {
 
     @POST("owner")
     fun requestOwner(@Body ownerInfo: OwnerRequest): Call<Any>
+
+    @GET("store/{storeId}")
+    fun requestTruckDetailInfo(@Path("storeId") storeId: Int): Call<TruckDetailResponse>
 }

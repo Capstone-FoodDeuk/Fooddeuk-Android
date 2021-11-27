@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="해당 정보는 내일 변동될 수 있습니다."
-        android:textSize="13sp"
+        android:textSize="10dp"
         android:textColor="@color/food_deuk_text_c"
         app:layout_constraintBottom_toBottomOf="@+id/tv_business_info_title"
         app:layout_constraintStart_toEndOf="@+id/tv_business_info_title"/>

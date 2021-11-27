@@ -28,28 +28,15 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_menu_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="6dp"
-        android:text="타코야키"
-        android:textSize="16sp"
-        android:textColor="@color/food_deuk_text_a"
-        app:layout_constraintTop_toBottomOf="@+id/v_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        tool:text="타코야키"/>
-
-    <TextView
         android:id="@+id/tv_menu_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="6dp"
-        android:text="5개"
+        android:text="타코야키"
         android:textSize="16dp"
         android:textColor="@color/food_deuk_text_a"
-        app:layout_constraintTop_toBottomOf="@+id/tv_menu_name"
+        app:layout_constraintTop_toBottomOf="@id/v_bar"
         app:layout_constraintStart_toStartOf="parent"
         tool:text="5개"/>
 

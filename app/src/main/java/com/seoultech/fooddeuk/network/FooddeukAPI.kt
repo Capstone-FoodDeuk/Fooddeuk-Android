@@ -2,12 +2,8 @@ package com.seoultech.fooddeuk.network
 
 import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
-import com.seoultech.fooddeuk.model.httpBody.LoginRequest
-import com.seoultech.fooddeuk.model.httpBody.LoginResponse
-import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
-import com.seoultech.fooddeuk.model.httpBody.SignupRequest
+import com.seoultech.fooddeuk.model.httpBody.*
 import retrofit2.Call
-import retrofit2.http.Body
 
 object FooddeukAPI {
     // 참고용 1 (추후에 지울 것)
@@ -30,5 +26,9 @@ object FooddeukAPI {
 
     fun requestOwner(ownerInfo: OwnerRequest) : Call<Any> {
         return FooddeukServiceImpl.service.requestOwner(ownerInfo)
+    }
+
+    fun requestTruckDetailInfo(storeId: Int): Call<TruckDetailResponse> {
+        return FooddeukServiceImpl.service.requestTruckDetailInfo(storeId)
     }
 }
