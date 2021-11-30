@@ -27,41 +27,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/tv_menu_detail"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu_list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:layout_marginStart="6dp"
-        android:text="타코야키"
-        android:textSize="16dp"
-        android:textColor="@color/food_deuk_text_a"
+        android:layout_marginEnd="6dp"
+        android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@id/v_bar"
         app:layout_constraintStart_toStartOf="parent"
-        tool:text="5개"/>
-
-    <View
-        android:id="@+id/v_line_dotted"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
-        android:background="@color/food_deuk_text_d"
-        app:layout_constraintStart_toEndOf="@+id/tv_menu_detail"
-        app:layout_constraintTop_toTopOf="@+id/tv_menu_detail"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_menu_detail"
-        app:layout_constraintEnd_toStartOf="@+id/tv_menu_price"/>
-
-    <TextView
-        android:id="@+id/tv_menu_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3000원"
-        android:textSize="16sp"
-        android:textColor="@color/food_deuk_text_a"
-        app:layout_constraintTop_toTopOf="@+id/tv_menu_detail"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_menu_detail"
         app:layout_constraintEnd_toEndOf="parent"
-        tool:text="3000원"/>
+        tool:listitem="@layout/item_menu_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

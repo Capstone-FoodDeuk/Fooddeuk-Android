@@ -27,6 +27,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <CheckedTextView
+            android:id="@+id/iv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkMark="@drawable/selector_like"
+            android:checked="false"
+            app:layout_constraintTop_toBottomOf="@id/iv_back_arrow"
+            app:layout_constraintEnd_toEndOf="@id/layout_truck_detail_title"/>
+
         <include
             android:id="@+id/layout_truck_detail_title"
             android:layout_width="0dp"
@@ -121,6 +130,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             layout="@layout/layout_review_detail_with_emoji"/>
+
+        <Button
+            android:id="@+id/btn_write_review"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:text="리뷰 남기기"
+            android:textSize="19sp"
+            android:backgroundTint="@color/food_deuk_main_color"
+            app:layout_constraintTop_toBottomOf="@id/layout_truck_detail_with_emoji"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/LoginButtonStyle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

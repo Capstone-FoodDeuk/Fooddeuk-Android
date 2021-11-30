@@ -3,12 +3,10 @@ package com.seoultech.fooddeuk.detail
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.seoultech.fooddeuk.model.httpBody.Menu
 import com.seoultech.fooddeuk.model.httpBody.RatingInfo
 import com.seoultech.fooddeuk.model.httpBody.TruckDetailData
 import com.seoultech.fooddeuk.model.httpBody.TruckDetailResponse
 import com.seoultech.fooddeuk.network.FooddeukAPI
-import com.seoultech.fooddeuk.util.FooddeukErrorManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +27,7 @@ class TruckDetailViewModel : ViewModel() {
                         phoneNumber = it.truckDetailData.phoneNumber,
                         location = it.truckDetailData.location,
                         closeTime = it.truckDetailData.closeTime,
-                        isLiked = it.truckDetailData.isLiked,
+                        liked = it.truckDetailData.liked,
                         rating = RatingInfo (
                             userCnt = it.truckDetailData.rating.userCnt,
                             totalSum = it.truckDetailData.rating.totalSum,

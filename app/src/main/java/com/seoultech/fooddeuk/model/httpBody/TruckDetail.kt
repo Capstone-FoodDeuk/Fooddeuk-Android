@@ -15,7 +15,7 @@ data class TruckDetailData (
     val latitude: Double = 0.0,
     val longitude: Double = 0.0,
     val closeTime: String ="",
-    val isLiked: Boolean = false,
+    val liked: Boolean = false,
     val rating: RatingInfo = RatingInfo(),
     val menuList: ArrayList<Menu> = arrayListOf(),
     val paymentMethods: ArrayList<String> = arrayListOf()
