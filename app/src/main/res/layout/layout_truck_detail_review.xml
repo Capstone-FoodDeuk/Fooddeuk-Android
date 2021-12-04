@@ -17,14 +17,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <ImageView
-        android:id="@+id/iv_stars"
-        android:layout_width="22dp"
+    <com.baha.reviewbar.ReviewBar
+        android:id="@+id/rb_stars"
+        android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ic_full_star"
-        app:layout_constraintTop_toBottomOf="@+id/tv_truck_review_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:emptyIcon="@drawable/ic_empty_star"
+        app:fillIcon="@drawable/ic_full_star"
+        app:halfEnable="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_truck_review_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:reviewScoreMax="5"
+        app:isIndicator="false" />
 
     <TextView
         android:id="@+id/tv_score"
@@ -33,8 +37,8 @@
         android:text="4.1"
         android:textSize="24sp"
         android:textColor="@color/food_deuk_text_a"
-        app:layout_constraintTop_toTopOf="@+id/iv_stars"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_stars"
+        app:layout_constraintTop_toTopOf="@id/rb_stars"
+        app:layout_constraintBottom_toBottomOf="@id/rb_stars"
         app:layout_constraintEnd_toStartOf="@+id/tv_score_total"
         tool:text="4.1"/>
 
@@ -45,8 +49,8 @@
         android:text=" / 5"
         android:textSize="24sp"
         android:textColor="@color/food_deuk_text_d"
-        app:layout_constraintTop_toTopOf="@+id/iv_stars"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_stars"
+        app:layout_constraintTop_toTopOf="@id/rb_stars"
+        app:layout_constraintBottom_toBottomOf="@id/rb_stars"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

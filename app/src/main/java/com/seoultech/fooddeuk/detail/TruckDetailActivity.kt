@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,7 +28,6 @@ class TruckDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         setClickListeners()
         initRecyclerView()
-
 
         // observe viewModel
         truckDetailViewModel = ViewModelProvider(this).get(TruckDetailViewModel::class.java)
@@ -75,17 +75,20 @@ class TruckDetailActivity : AppCompatActivity() {
         truckDetailViewModel.truckDetailInfoOkCode.observe(this, {
             if (it) {
                 val truckDetailData = truckDetailViewModel.truckDetailData
-                binding.layoutTruckDetailTitle.apply {
-                    tvTruckName.text = truckDetailData.name
-                    tvTruckCategory.text = getCategoryNameByKorean(truckDetailData.category)
-                    tvReviewScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
-                }
+                binding.layoutTruckDetailTitle.tvTruckName.text = truckDetailData.name
+                binding.layoutTruckDetailTitle.tvTruckCategory.text = getCategoryNameByKorean(truckDetailData.category)
+                binding.layoutTruckDetailTitle.tvReviewScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
+                binding.layoutTruckDetailBusinessInfo.tvBusinessTime.text = "${truckDetailData.closeTime.substring(11 until 16)} 마감" // 00:00 부분 추출
                 phoneNumber = truckDetailViewModel.truckDetailData.phoneNumber
                 menuListAdapter.setDataSet(truckDetailViewModel.truckDetailData.menuList)
-                binding.layoutTruckDetailReview.apply {
-                    tvScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
-                }
+                binding.layoutTruckDetailReview.tvScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
                 binding.ivLike.isChecked = truckDetailData.liked
+                truckDetailData.paymentMethods.forEach {
+                    binding.layoutTruckDetailPayType.payTypeBankTransfer.visibility = if (it == binding.layoutTruckDetailPayType.payTypeBankTransfer.tag) View.VISIBLE else View.GONE
+                    binding.layoutTruckDetailPayType.payTypeCash.visibility = if (it == binding.layoutTruckDetailPayType.payTypeCash.tag) View.VISIBLE else View.GONE
+                    binding.layoutTruckDetailPayType.payTypeCard.visibility = if (it == binding.layoutTruckDetailPayType.payTypeCard.tag) View.VISIBLE else View.GONE
+                }
+                binding.layoutTruckDetailReview.rbStars.setReviewScore(3.0f) // TODO : (chohee) 임시 점수임
             } else {
                 Toast.makeText(this, "죄송합니다. 푸드득 앱에 문제가 생겼어요! 얼른 고칠게요", Toast.LENGTH_SHORT).show()
                 finish()

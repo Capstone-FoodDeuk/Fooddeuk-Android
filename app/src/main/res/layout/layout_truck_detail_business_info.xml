@@ -54,7 +54,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
-        android:text="14:00 - 21:00"
         android:textSize="16sp"
         android:textColor="@color/food_deuk_text_a"
         app:layout_constraintTop_toTopOf="@+id/tv_business_time_title"
@@ -62,29 +61,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         tool:text="14:00 - 21:00"/>
 
-    <TextView
-        android:id="@+id/tv_business_location_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="6dp"
-        android:text="영업 장소"
-        android:textSize="16sp"
-        android:textColor="@color/food_deuk_text_a"
-        app:layout_constraintTop_toBottomOf="@+id/tv_business_time_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+<!-- TODO : (chohee) 위도, 경도를 위치로 보이게 할 수 있을 때 영업 장소 보이게 하기   -->
 
-    <TextView
-        android:id="@+id/tv_business_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:text="서울시 노원구 하계동 000-0"
-        android:textSize="16sp"
-        android:textColor="@color/food_deuk_text_a"
-        app:layout_constraintTop_toTopOf="@+id/tv_business_location_title"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_business_location_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        tool:text="서울시 노원구 하계동 000-0"/>
+<!--    <TextView-->
+<!--        android:id="@+id/tv_business_location_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginStart="6dp"-->
+<!--        android:text="영업 장소"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textColor="@color/food_deuk_text_a"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_business_time_title"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_business_location"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="6dp"-->
+<!--        android:text="서울시 노원구 하계동 000-0"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textColor="@color/food_deuk_text_a"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tv_business_location_title"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tv_business_location_title"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        tool:text="서울시 노원구 하계동 000-0"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
