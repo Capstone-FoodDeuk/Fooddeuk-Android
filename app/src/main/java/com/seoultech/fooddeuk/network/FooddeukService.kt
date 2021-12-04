@@ -26,4 +26,7 @@ interface FooddeukService {
 
     @GET("store/{storeId}")
     fun requestTruckDetailInfo(@Path("storeId") storeId: Int): Call<TruckDetailResponse>
+
+    @POST("store/{storeId}/like")
+    fun requestTruckLike(@Path("storeId") storeId: Int): Call<Any>
 }

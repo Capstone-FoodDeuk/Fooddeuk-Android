@@ -58,7 +58,10 @@ class TruckDetailActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
-            ivLike.setOnClickListener { ivLike.toggle() }
+            ivLike.setOnClickListener {
+                ivLike.toggle()
+                callTruckLikeAPI(1) // TODO : 임시 id 값 넘겨줌, 변경 필요
+            }
             ivBackArrow.setOnClickListener { finish() }
             btnWriteReview.setOnClickListener {
                 val intent = Intent(this@TruckDetailActivity, StarReviewActivity::class.java)
@@ -88,6 +91,18 @@ class TruckDetailActivity : AppCompatActivity() {
                 finish()
             }
         })
+
+        truckDetailViewModel.truckLikeOkCode.observe(this, {
+            if (it) {
+                if (binding.ivLike.isChecked) {
+                    Toast.makeText(this, "찜 목록에 추가했습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "찜 목록에서 제거했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "죄송합니다. 푸드득 앱 문제로 찜 등록에 실패했습니다.", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun getCategoryNameByKorean(category: String): String {
@@ -103,4 +118,6 @@ class TruckDetailActivity : AppCompatActivity() {
     private fun getReviewScore(userCount: Int, totalSum: Int) = if (userCount != 0) totalSum.toDouble() / userCount else 0
 
     private fun callTruckDetailInfoAPI(storeId: Int) = truckDetailViewModel.requestTruckDetailInfo(storeId)
+
+    private fun callTruckLikeAPI(storeId: Int) = truckDetailViewModel.requestTruckLike(storeId)
 }

@@ -14,6 +14,7 @@ import retrofit2.Response
 class TruckDetailViewModel : ViewModel() {
 
     val truckDetailInfoOkCode: MutableLiveData<Boolean> = MutableLiveData()
+    val truckLikeOkCode: MutableLiveData<Boolean> = MutableLiveData()
     lateinit var truckDetailData: TruckDetailData
 
     fun requestTruckDetailInfo(storeId: Int) {
@@ -45,6 +46,20 @@ class TruckDetailViewModel : ViewModel() {
             override fun onFailure(call: Call<TruckDetailResponse>, t: Throwable) {
                 Log.d("[Fooddeuk API] truck detail", "트럭 상세 정보 요청 실패, ${t.message}")
                 truckDetailInfoOkCode.value = false
+            }
+        })
+    }
+
+    fun requestTruckLike(storeId: Int) {
+        FooddeukAPI.requestTruckLike(storeId).enqueue(object : Callback<Any>{
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                Log.d("[Fooddeuk API] truck like", "트럭 찜 요청 성공")
+                truckLikeOkCode.value = true
+            }
+
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                Log.d("[Fooddeuk API] truck like", "트럭 찜 요청 실패, ${t.message}")
+                truckLikeOkCode.value = false
             }
         })
     }
