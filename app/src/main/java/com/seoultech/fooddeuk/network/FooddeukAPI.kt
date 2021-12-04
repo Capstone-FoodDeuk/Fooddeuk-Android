@@ -35,4 +35,8 @@ object FooddeukAPI {
     fun requestTruckLike(storeId: Int): Call<Any> {
         return FooddeukServiceImpl.service.requestTruckLike(storeId)
     }
+
+    fun requestTruckOpen(openInfo: OpenInfoRequest): Call<Any> {
+        return FooddeukServiceImpl.service.requestTruckOpen(openInfo)
+    }
 }
