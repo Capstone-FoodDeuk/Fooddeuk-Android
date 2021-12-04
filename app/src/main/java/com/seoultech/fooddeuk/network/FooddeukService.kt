@@ -29,4 +29,7 @@ interface FooddeukService {
 
     @POST("store/{storeId}/like")
     fun requestTruckLike(@Path("storeId") storeId: Int): Call<Any>
+
+    @POST("owner/open")
+    fun requestTruckOpen(@Body openInfo: OpenInfoRequest): Call<Any>
 }
