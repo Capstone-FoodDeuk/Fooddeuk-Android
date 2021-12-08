@@ -2,10 +2,7 @@ package com.seoultech.fooddeuk.network
 
 import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
-import com.seoultech.fooddeuk.model.httpBody.LoginRequest
-import com.seoultech.fooddeuk.model.httpBody.LoginResponse
-import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
-import com.seoultech.fooddeuk.model.httpBody.SignupRequest
+import com.seoultech.fooddeuk.model.httpBody.*
 import retrofit2.Call
 import retrofit2.http.Body
 
@@ -30,5 +27,9 @@ object FooddeukAPI {
 
     fun requestOwner(ownerInfo: OwnerRequest) : Call<Any> {
         return FooddeukServiceImpl.service.requestOwner(ownerInfo)
+    }
+
+    fun requestStoreReview(storeReviewInfo: StoreReviewRequest) : Call<Any> {
+        return FooddeukServiceImpl.service.requestStoreReview(storeReviewInfo)
     }
 }

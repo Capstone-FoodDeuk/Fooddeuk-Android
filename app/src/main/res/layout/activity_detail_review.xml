@@ -6,130 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".review.DetailReviewActivity">
 
-    <View
-        android:id="@+id/vw_line2"
-        android:layout_width="300dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="315dp"
-        android:background="@color/food_deuk_text_d"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_kind_good"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="365dp"
-        android:layout_marginEnd="22dp"
-        android:background="@drawable/shape_review_button"
-        android:text="친절해요!"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_kind_soso"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/vw_line1"
-        android:layout_width="300dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="220dp"
-        android:background="@color/food_deuk_text_d"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_kind_bad"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="365dp"
-        android:background="@drawable/shape_review_button"
-        android:text="불친절해요"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_kind_soso"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_kind_soso"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="365dp"
-        android:background="@drawable/shape_review_button"
-        android:text="보통이에요"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_detail_kind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="330dp"
-        android:text="사장님의 친절도는 어땠나요?"
-        android:textColor="@color/food_deuk_text_a"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_detail_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="235dp"
-        android:text="양은 어땠나요?"
-        android:textColor="@color/food_deuk_text_a"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_amount_bad"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="270dp"
-        android:background="@drawable/shape_review_button"
-        android:text="부족해요"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_amount_soso"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_amount_soso"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="270dp"
-        android:background="@drawable/shape_review_button"
-        android:text="보통이에요"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_amount_good"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="22dp"
-        android:background="@drawable/shape_review_button"
-        android:text="만족해요!"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_amount_soso"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
@@ -178,7 +54,7 @@
         android:id="@+id/tv_detail_taste"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="140dp"
         android:text="맛은 어땠나요?"
         android:textColor="@color/food_deuk_text_a"
@@ -187,61 +63,255 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_taste_good"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="22dp"
-        android:background="@drawable/shape_review_button"
-        android:text="맛있어요!"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_taste_soso"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_taste_soso"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="175dp"
-        android:background="@drawable/shape_review_button"
-        android:text="보통이에요"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_taste_bad"
-        android:layout_width="72dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="175dp"
-        android:background="@drawable/shape_review_button"
-        android:text="별로예요"
-        android:textColor="@color/food_deuk_text_c"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_taste_soso"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_review_ok"
-        android:layout_width="300dp"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/btn_taste"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
-        android:background="@drawable/gradient"
-        android:textColor="@color/food_deuk_text_a"
-        android:text="작성 완료"
-        android:visibility="invisible"
-        app:cornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_taste">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_taste_good"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="맛있어요!"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_taste_soso"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="보통이에요"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_taste_bad"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="별로예요"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <View
+        android:id="@+id/vw_line1"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="220dp"
+        android:background="@color/food_deuk_text_d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_detail_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="235dp"
+        android:text="양은 어땠나요?"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/btn_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_amount">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_amount_good"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="맛있어요!"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_amount_soso"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="보통이에요"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_amount_bad"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="별로예요"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <View
+        android:id="@+id/vw_line2"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="315dp"
+        android:background="@color/food_deuk_text_d"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="330dp"
+        android:text="사장님의 친절도는 어땠나요?"
+        android:textColor="@color/food_deuk_text_a"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/btn_kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_kind">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_kind_good"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="맛있어요!"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_kind_soso"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="보통이에요"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_kind_bad"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:text="별로예요"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/food_deuk_text_a"
+            app:chipEndPadding="0dp"
+            app:chipStartPadding="0dp"
+            app:closeIconEndPadding="0dp"
+            app:closeIconStartPadding="0dp"
+            app:rippleColor="@color/food_deuk_main_color"
+            app:chipBackgroundColor="@color/selector_chips"
+            app:textEndPadding="0dp"
+            app:textStartPadding="0dp" />
+    </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_total_box"
@@ -346,5 +416,19 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_review_ok"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:background="@drawable/gradient"
+        android:textColor="@color/food_deuk_text_a"
+        android:text="작성 완료"
+        android:visibility="invisible"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
