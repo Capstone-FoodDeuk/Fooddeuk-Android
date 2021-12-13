@@ -6,13 +6,10 @@
     import android.view.View
     import android.view.animation.AnimationUtils
     import android.widget.Toast
-    import androidx.core.content.ContextCompat
     import androidx.lifecycle.ViewModelProvider
-    import com.seoultech.fooddeuk.MainActivity
     import com.seoultech.fooddeuk.R
     import com.seoultech.fooddeuk.databinding.ActivityDetailReviewBinding
     import com.seoultech.fooddeuk.detail.TruckDetailActivity
-    import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
     import com.seoultech.fooddeuk.model.httpBody.StoreReviewRequest
 
     class DetailReviewActivity : AppCompatActivity() {
@@ -26,9 +23,6 @@
         var isCheckedAmount:Boolean = false
         var isCheckedKind:Boolean = false
 
-        val numStars = intent.getLongExtra("numStars", 0)
-        val storeCategory = intent.getStringExtra("category")
-
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
@@ -36,14 +30,18 @@
             val view = binding.root
             setContentView(view)
 
+            binding.ivBack.setOnClickListener {
+                finish()
+            }
+
             // view model
             storeReviewViewModel = ViewModelProvider(this).get(StoreReviewViewModel::class.java)
             subscribeViewModel()
 
-            //TODO:뒤로가기 버튼
-
             //이전 화면에서 받아온 별 갯수와 카테고리 이미지 세팅
-            setCategoryNStars()
+            val numStars = intent.getLongExtra("numStars", 0)
+            val storeCategory = intent.getStringExtra("category")
+            setCategoryNStars(numStars, storeCategory)
 
             //리뷰 입력 세팅
             setTasteReview()
@@ -52,7 +50,7 @@
 
             binding.btnReviewOk.setOnClickListener {
                 // 통신
-                val storeReviewInfo = getStoreReviewInfoFromView()
+                val storeReviewInfo = getStoreReviewInfoFromView(numStars)
                 callStoreReviewAPI(storeReviewInfo)
 
                 // 트럭별 상세보기로 이동
@@ -71,7 +69,7 @@
             })
         }
 
-        private fun getStoreReviewInfoFromView(): StoreReviewRequest {
+        private fun getStoreReviewInfoFromView(numStars: Long): StoreReviewRequest {
             return StoreReviewRequest(
                 score = numStars,
                 taste = tasteReview,
@@ -82,20 +80,20 @@
 
         private fun callStoreReviewAPI(storeReviewInfo: StoreReviewRequest) = storeReviewViewModel.requestStoreReview(storeReviewInfo)
 
-        private fun setCategoryNStars() {
+        private fun setCategoryNStars(numStars: Long, storeCategory: String?) {
             binding.rbStars.setReviewScore(numStars.toFloat())
 
-            if(storeCategory == "타코야끼")
+            if(storeCategory == "Takoyaki")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_tako)
-            else if(storeCategory == "군밤")
+            else if(storeCategory == "Gunbam")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_gunbam)
-            else if(storeCategory == "군고구마")
+            else if(storeCategory == "Goguma")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_goguma)
-            else if(storeCategory == "과일")
+            else if(storeCategory == "Apple")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_apple)
-            else if(storeCategory == "붕어빵")
+            else if(storeCategory == "Bungeoppang")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_bungeo)
-            else if(storeCategory == "순대")
+            else if(storeCategory == "Sundae")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_sundae)
         }
 
