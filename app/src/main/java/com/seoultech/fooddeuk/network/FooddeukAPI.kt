@@ -28,6 +28,10 @@ object FooddeukAPI {
         return FooddeukServiceImpl.service.requestOwner(ownerInfo)
     }
 
+    fun requestStoreReview(storeReviewInfo: StoreReviewRequest) : Call<Any> {
+        return FooddeukServiceImpl.service.requestStoreReview(storeReviewInfo)
+    }
+
     fun requestTruckDetailInfo(storeId: Int): Call<TruckDetailResponse> {
         return FooddeukServiceImpl.service.requestTruckDetailInfo(storeId)
     }

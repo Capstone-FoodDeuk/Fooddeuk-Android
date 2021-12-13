@@ -24,6 +24,9 @@ interface FooddeukService {
     @POST("owner")
     fun requestOwner(@Body ownerInfo: OwnerRequest): Call<Any>
 
+    @POST("review/{storeId}")
+    fun requestStoreReview(@Body storeReviewInfo: StoreReviewRequest): Call<Any>
+
     @GET("store/{storeId}")
     fun requestTruckDetailInfo(@Path("storeId") storeId: Int): Call<TruckDetailResponse>
 

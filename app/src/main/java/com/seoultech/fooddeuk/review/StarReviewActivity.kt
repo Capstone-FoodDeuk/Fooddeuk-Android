@@ -5,14 +5,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityStarReviewBinding
+import com.seoultech.fooddeuk.storeSetting.OwnerViewModel
 
 
 class StarReviewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStarReviewBinding
+
+    //TODO: input view에서 입력한 가게명과 카테고리 세팅 -> 가게 상세페이지에서 intent로 받아서 할 거임
+    val storeName = intent.getStringExtra("name").toString()
+    val storeCategory = intent.getStringExtra("category")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +28,6 @@ class StarReviewActivity : AppCompatActivity() {
         setContentView(view)
 
         //TODO : 가게 상세페이지 구현 후 back 버튼 누르면 작동하게
-
-        //input view에서 입력한 가게명과 카테고리 세팅
-        val intent = intent
-        val storeName = intent.getStringExtra("name").toString()
-        val storeCategory = intent.getStringExtra("category")
 
         binding.tvStore.text = storeName + "의\n전체적인 만족도를 평가해주세요!"
 
@@ -42,11 +44,9 @@ class StarReviewActivity : AppCompatActivity() {
         else if (storeCategory == "순대")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_sundae)
 
-        //별점 선택시 다음 화면으로
-
-
+        //다음 화면으로(별점, 카테고리 넣어서 보내기)
         binding.ivFoodTruck.setOnClickListener {
-            val numStars : Float = binding.rbStars.getReviewScore()
+            val numStars : Long = binding.rbStars.getReviewScore().toLong()
             val intent = Intent(this, DetailReviewActivity::class.java)
             intent.putExtra("numStars", numStars)
             intent.putExtra("category", storeCategory)
