@@ -4,10 +4,7 @@ import com.seoultech.fooddeuk.model.GitRepoNameResopnse
 import com.seoultech.fooddeuk.model.GitRepoResponse
 import com.seoultech.fooddeuk.model.httpBody.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface FooddeukService {
     // 참고용 1(추후에 지울 것)
@@ -29,4 +26,13 @@ interface FooddeukService {
 
     @POST("review/{storeId}")
     fun requestStoreReview(@Body storeReviewInfo: StoreReviewRequest): Call<Any>
+
+    @GET("store/{storeId}")
+    fun requestTruckDetailInfo(@Path("storeId") storeId: Int): Call<TruckDetailResponse>
+
+    @POST("store/{storeId}/like")
+    fun requestTruckLike(@Path("storeId") storeId: Int): Call<Any>
+
+    @POST("owner/open")
+    fun requestTruckOpen(@Body openInfo: OpenInfoRequest): Call<Any>
 }

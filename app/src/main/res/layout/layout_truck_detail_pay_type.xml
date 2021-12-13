@@ -38,8 +38,10 @@
         app:layout_constraintTop_toBottomOf="@+id/v_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_pay_type"
+            android:id="@+id/pay_type_bank_transfer"
+            android:tag="BANK_TRANSFER"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="계좌이체"
@@ -48,8 +50,10 @@
             android:enabled="false"
             app:chipBackgroundColor="@color/food_deuk_available_yellow"
             tool:text="계좌이체"/>
+
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_pay_type_2"
+            android:id="@+id/pay_type_cash"
+            android:tag="CASH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="현금"
@@ -58,6 +62,19 @@
             android:enabled="false"
             app:chipBackgroundColor="@color/food_deuk_available_yellow"
             tool:text="현금"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/pay_type_card"
+            android:tag="CARD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="카드"
+            android:textSize="15sp"
+            android:textColor="@color/food_deuk_text_a"
+            android:enabled="false"
+            app:chipBackgroundColor="@color/food_deuk_available_yellow"
+            tool:text="카드"/>
+
     </com.google.android.material.chip.ChipGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

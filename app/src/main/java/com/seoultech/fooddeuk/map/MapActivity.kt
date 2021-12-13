@@ -32,9 +32,10 @@ class MapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        setOnClickListeners()
+        // set things
+        setContentView(binding.root)
+        setClickListeners()
     }
 
     override fun onResume() {
@@ -90,7 +91,7 @@ class MapActivity : AppCompatActivity() {
         }
     }
 
-    private fun setOnClickListeners() {
+    private fun setClickListeners() {
         binding.fabCategoryFilter.setOnClickListener {
             val categoryFilterBottomSheet = CategoryFilterBottomSheet()
             categoryFilterBottomSheet.show(supportFragmentManager, CategoryFilterBottomSheet.TAG)

@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         // set things
         setContentView(binding.root)
         setLoginIceBreakingImage()
-        setOnClickListeners()
+        setClickListeners()
 
         // subscribe viewModel
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun setOnClickListeners() {
+    private fun setClickListeners() {
         binding.apply {
             btnLogin.setOnClickListener {
                 val loginInfo = getLoginInfoFromView()
