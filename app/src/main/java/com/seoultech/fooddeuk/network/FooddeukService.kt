@@ -35,4 +35,7 @@ interface FooddeukService {
 
     @POST("owner/open")
     fun requestTruckOpen(@Body openInfo: OpenInfoRequest): Call<Any>
+
+    @GET("guest")
+    fun requestMyPageInfo(): Call<MyPageResponse>
 }
