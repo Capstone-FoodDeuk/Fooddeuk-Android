@@ -22,6 +22,7 @@
         var isCheckedTaste:Boolean = false
         var isCheckedAmount:Boolean = false
         var isCheckedKind:Boolean = false
+        var storeId:Int = 0
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@
             //이전 화면에서 받아온 별 갯수와 카테고리 이미지 세팅
             val numStars = intent.getLongExtra("numStars", 0)
             val storeCategory = intent.getStringExtra("category")
+            val storeId = intent.getIntExtra("id", 0)
             setCategoryNStars(numStars, storeCategory)
 
             //리뷰 입력 세팅
@@ -78,7 +80,7 @@
             )
         }
 
-        private fun callStoreReviewAPI(storeReviewInfo: StoreReviewRequest) = storeReviewViewModel.requestStoreReview(storeReviewInfo)
+        private fun callStoreReviewAPI(storeReviewInfo: StoreReviewRequest) = storeReviewViewModel.requestStoreReview(storeId)
 
         private fun setCategoryNStars(numStars: Long, storeCategory: String?) {
             binding.rbStars.setReviewScore(numStars.toFloat())

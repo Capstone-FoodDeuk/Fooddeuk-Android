@@ -34,7 +34,7 @@ class TruckDetailActivity : AppCompatActivity() {
         subscribeViewModel()
 
         // call api function to get data from server
-        callTruckDetailInfoAPI(5) // TODO: (chohee) storeId 임의, 변경 필요
+        callTruckDetailInfoAPI(1) // TODO: (chohee) storeId 임의, 변경 필요
     }
 
     private fun initRecyclerView() {
@@ -60,12 +60,12 @@ class TruckDetailActivity : AppCompatActivity() {
             }
             ivLike.setOnClickListener {
                 ivLike.toggle()
-                callTruckLikeAPI(5) // TODO : 임시 id 값 넘겨줌, 변경 필요
+                callTruckLikeAPI(1) // TODO : 임시 id 값 넘겨줌, 변경 필요
             }
             ivBackArrow.setOnClickListener { finish() }
             btnWriteReview.setOnClickListener {
                 val intent = Intent(this@TruckDetailActivity, StarReviewActivity::class.java)
-                intent.putExtra("storeId", 5) // TODO : 임시 id 값 넘겨줌, 변경 필요
+                intent.putExtra("storeId", 1) // TODO : 임시 id 값 넘겨줌, 변경 필요
                 startActivity(intent)
             }
         }
