@@ -65,8 +65,25 @@ class FragmentDibsList : Fragment() {
 
     private fun prepareData(list: List<Likes>) {
         list.forEach {
-            DibsList.add(DibsData(R.drawable.ic_category_bungeo, it.name, it.longitude.toString(), it.closeTime, R.drawable.ic_alarm_on))
-            Log.i("[dibs] prepare data : store name", it.name)
+            var imgCategory : Int = 0
+            var isAlarm : Int = 0
+
+            when (it.category) {
+                "Takoyaki" -> imgCategory = R.drawable.ic_category_tako
+                "FishBread" -> imgCategory = R.drawable.ic_category_bungeo
+                "Snack" -> imgCategory = R.drawable.ic_category_sundae
+                "Fruit" -> imgCategory = R.drawable.ic_category_apple
+                "Chestnuts" -> imgCategory = R.drawable.ic_category_gunbam
+                "Goguma" -> imgCategory = R.drawable.ic_category_goguma
+            }
+
+            when (it.isAlarmActive) {
+                true -> isAlarm = R.drawable.ic_alarm_on
+                false -> isAlarm = R.drawable.ic_alarm_off
+            }
+
+            //TODO : 장소랑 시간 설정
+            DibsList.add(DibsData(imgCategory, it.name, it.longitude.toString(), it.closeTime, isAlarm))
         }
         mAdapter!!.setData(DibsList)
     }

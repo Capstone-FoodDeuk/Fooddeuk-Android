@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.seoultech.fooddeuk.R
 
-class ReviewAdapter(val reviewList: ArrayList<ReviewData>) : RecyclerView.Adapter<ReviewAdapter.CustomViewHolder>() {
+class ReviewAdapter() : RecyclerView.Adapter<ReviewAdapter.CustomViewHolder>() {
+
+    var reviewList: ArrayList<ReviewData> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewAdapter.CustomViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_recycler_review_items, parent, false)
@@ -28,6 +30,11 @@ class ReviewAdapter(val reviewList: ArrayList<ReviewData>) : RecyclerView.Adapte
 
     override fun getItemCount(): Int {
         return reviewList.size
+    }
+
+    fun setData(reviewList: ArrayList<ReviewData>) {
+        this.reviewList = reviewList
+        notifyDataSetChanged()
     }
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
