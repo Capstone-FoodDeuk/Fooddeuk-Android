@@ -30,6 +30,7 @@ class StarReviewActivity : AppCompatActivity() {
 
         val storeName = intent.getStringExtra("name").toString()
         val storeCategory = intent.getStringExtra("category")
+        val storeId = intent.getIntExtra("storeId", 0)
 
         binding.tvStore.text = storeName + "의\n전체적인 만족도를 평가해주세요!"
 
@@ -54,6 +55,7 @@ class StarReviewActivity : AppCompatActivity() {
                     val intent = Intent(this, DetailReviewActivity::class.java)
                     intent.putExtra("numStars", numStars)
                     intent.putExtra("category", storeCategory)
+                    intent.putExtra("id", storeId)
                     startActivity(intent)
                 }
             }

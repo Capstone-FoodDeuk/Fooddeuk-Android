@@ -1,18 +1,19 @@
 package com.seoultech.fooddeuk.mypage
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.LayoutRecyclerDibsItemsBinding
-import com.seoultech.fooddeuk.model.GitRepoNameResopnse
+import com.seoultech.fooddeuk.model.httpBody.Likes
 
 
 class FragmentDibsList : Fragment() {
@@ -22,7 +23,8 @@ class FragmentDibsList : Fragment() {
     private var DibsList: ArrayList<DibsData> = ArrayList()
     private var recyclerView: RecyclerView? = null
     private var mAdapter: DibsAdapter? = null
-    private lateinit var dibsViewModel: DibsViewModel
+    private lateinit var dibsViewModel: MyPageViewModel
+    var getDibs: ArrayList<Likes> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View = inflater.inflate(R.layout.fragment_dibs_list, container, false)
@@ -38,32 +40,53 @@ class FragmentDibsList : Fragment() {
 
         mBinding = LayoutRecyclerDibsItemsBinding.inflate(inflater, container, false)
 
-        dibsViewModel = ViewModelProvider(this).get(DibsViewModel::class.java)
+        dibsViewModel = ViewModelProvider(this).get(MyPageViewModel::class.java)
+        subscribeViewModel()
 
-        dibsViewModel.setStoreName("minha721")
-        dibsViewModel.getStoreName().observe(viewLifecycleOwner, Observer {
-            // storeName 값이 변경되면 할 일
-            prepareData(it)
-        })
+        callDibsListAPI()
 
         return v
     }
 
-    private fun prepareData(list: List<GitRepoNameResopnse>) {
-        list.forEach {
-            DibsList.add(DibsData(R.drawable.ic_category_bungeo, it.repoName, "공릉로123", "3시간 전", R.drawable.ic_alarm_on))
-        }
-        mAdapter!!.setData(DibsList)
-//        DibsList.add(DibsData(R.drawable.ic_category_bungeo, "붕어집", "공릉로123", "3시간 전", R.drawable.ic_alarm_on))
-//        DibsList.add(DibsData(R.drawable.ic_category_apple, "과일집", "공릉로456", "2일 전", R.drawable.ic_alarm_off))
-//        DibsList.add(DibsData(R.drawable.ic_category_gunbam, "군밤집", "공릉로789", "21시간 전", R.drawable.ic_alarm_on))
-//        DibsList.add(DibsData(R.drawable.ic_category_sundae, "순대집", "공릉로135", "5시간 전", R.drawable.ic_alarm_on))
-//        DibsList.add(DibsData(R.drawable.ic_category_tako, "타코집", "공릉로246", "13시간 전", R.drawable.ic_alarm_on))
-//        DibsList.add(DibsData(R.drawable.ic_category_bungeo, "붕어집", "공릉로123", "3시간 전", R.drawable.ic_alarm_off))
-//        DibsList.add(DibsData(R.drawable.ic_category_apple, "과일집", "공릉로456", "2일 전", R.drawable.ic_alarm_on))
-//        DibsList.add(DibsData(R.drawable.ic_category_gunbam, "군밤집", "공릉로789", "21시간 전", R.drawable.ic_alarm_off))
-//        DibsList.add(DibsData(R.drawable.ic_category_sundae, "순대집", "공릉로135", "5시간 전", R.drawable.ic_alarm_on))
-//        DibsList.add(DibsData(R.drawable.ic_category_tako, "타코집", "공릉로246", "13시간 전", R.drawable.ic_alarm_on))
+    private fun subscribeViewModel() {
+        dibsViewModel.myPageOkCode.observe(this, {
+            if (it) {
+                val myPageDataLikes = dibsViewModel.myPageData.likes
+                for(i in myPageDataLikes){
+                    Log.i("[dibs] subscribe view model : store name", i.name)
+                    getDibs.add(i)
+                }
+                prepareData(getDibs)
+            } else {
+                Toast.makeText(activity, "찜 목록을 가져 오는 데 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
+    private fun prepareData(list: List<Likes>) {
+        list.forEach {
+            var imgCategory : Int = 0
+            var isAlarm : Int = 0
+
+            when (it.category) {
+                "Takoyaki" -> imgCategory = R.drawable.ic_category_tako
+                "FishBread" -> imgCategory = R.drawable.ic_category_bungeo
+                "Snack" -> imgCategory = R.drawable.ic_category_sundae
+                "Fruit" -> imgCategory = R.drawable.ic_category_apple
+                "Chestnuts" -> imgCategory = R.drawable.ic_category_gunbam
+                "Goguma" -> imgCategory = R.drawable.ic_category_goguma
+            }
+
+            when (it.isAlarmActive) {
+                true -> isAlarm = R.drawable.ic_alarm_on
+                false -> isAlarm = R.drawable.ic_alarm_off
+            }
+
+            //TODO : 장소랑 시간 설정
+            DibsList.add(DibsData(imgCategory, it.name, it.longitude.toString(), it.closeTime, isAlarm))
+        }
+        mAdapter!!.setData(DibsList)
+    }
+
+    private fun callDibsListAPI() = dibsViewModel.requestMyPageInfo()
 }
