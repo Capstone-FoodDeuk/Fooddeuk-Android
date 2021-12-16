@@ -1,14 +1,13 @@
 package com.seoultech.fooddeuk.model.httpBody
 
 import com.google.gson.annotations.SerializedName
-import java.time.LocalDateTime
 
 data class MyPageResponse (
     @SerializedName("data")
-    val myPageData: GuestInfoRequest
+    val myPageData: GuestInfo
 )
 
-data class GuestInfoRequest (
+data class GuestInfo (
     val nickname: String = "",
     val likes: ArrayList<Likes> = arrayListOf(),
     val reviews: ArrayList<Reviews> = arrayListOf()

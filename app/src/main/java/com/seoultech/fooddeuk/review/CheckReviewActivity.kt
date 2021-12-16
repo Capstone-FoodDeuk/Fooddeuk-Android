@@ -19,6 +19,11 @@ class CheckReviewActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        // back click
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
+
         var tasteEval : Int
         var amountEval : Int
         var kindEval : Int
@@ -26,20 +31,19 @@ class CheckReviewActivity : AppCompatActivity() {
         var amountArray = arrayOf("만족해요!", "보통이에요", "부족해요")
         var kindArray = arrayOf("친절해요!", "보통이에요", "불친절해요")
 
-        val intent = intent
-        val storeName = intent.getStringExtra("storeName")
-        val category = intent.getStringExtra("category")
-        val starScore = intent.getStringExtra("starScore")!!.toFloat()
+        val storeName = "맛있다코야끼"
+        val category = "타코야끼"
+        val starScore = 4.2
 
-        val tasteGood = intent.getStringExtra("tasteGood")!!.toInt()
-        val tasteSoSo = intent.getStringExtra("tasteSoSo")!!.toInt()
-        val tasteBad = intent.getStringExtra("tasteBad")!!.toInt()
-        val amountGood = intent.getStringExtra("amountGood")!!.toInt()
-        val amountSoSo = intent.getStringExtra("amountSoSo")!!.toInt()
-        val amountBad = intent.getStringExtra("amountBad")!!.toInt()
-        val kindGood = intent.getStringExtra("kindGood")!!.toInt()
-        val kindSoSo = intent.getStringExtra("kindSoSo")!!.toInt()
-        val kindBad = intent.getStringExtra("kindBad")!!.toInt()
+        val tasteGood = 10
+        val tasteSoSo = 6
+        val tasteBad = 4
+        val amountGood = 3
+        val amountSoSo = 7
+        val amountBad = 10
+        val kindGood = 8
+        val kindSoSo = 10
+        val kindBad = 2
 
         //상단 카드뷰의 가게명, 카테고리, 평가 인원, 별점 세팅
         binding.tvStoreName.text = storeName
@@ -54,7 +58,7 @@ class CheckReviewActivity : AppCompatActivity() {
 
         binding.tvNumEval.text = "총 " + tasteEval + "명이 평가하였습니다"
 
-        binding.rbStarReview.rating = starScore
+        binding.rbStarReview.rating = starScore.toFloat()
         binding.tvStarScore.text = starScore.toString()
 
         //TODO:텍스트 어떻게 가져오지?

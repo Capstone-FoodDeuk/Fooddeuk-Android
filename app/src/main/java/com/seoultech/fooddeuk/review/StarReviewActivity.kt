@@ -1,22 +1,18 @@
 package com.seoultech.fooddeuk.review
 
-import android.R.id.button1
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MotionEvent
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityStarReviewBinding
-import com.seoultech.fooddeuk.storeSetting.OwnerViewModel
 
 
 class StarReviewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStarReviewBinding
+    lateinit var activity: Activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +30,17 @@ class StarReviewActivity : AppCompatActivity() {
 
         binding.tvStore.text = storeName + "의\n전체적인 만족도를 평가해주세요!"
 
-        if (storeCategory == "Takoyaki")
+        if (storeCategory == "타코야끼")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_tako)
-        else if (storeCategory == "Gunbam")
+        else if (storeCategory == "군밤")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_gunbam)
-        else if (storeCategory == "Goguma")
+        else if (storeCategory == "고구마")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_goguma)
-        else if (storeCategory == "Apple")
+        else if (storeCategory == "과일")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_apple)
-        else if (storeCategory == "Bungeoppang")
+        else if (storeCategory == "붕어빵")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_bungeoppang)
-        else if (storeCategory == "Sundae")
+        else if (storeCategory == "분식")
             binding.ivFoodTruck.setImageResource(R.drawable.ic_review_bottom_sundae)
 
         //다음 화면으로(별점, 카테고리 넣어서 보내기)

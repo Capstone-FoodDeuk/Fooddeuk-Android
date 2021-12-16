@@ -3,6 +3,7 @@
     import android.content.Intent
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
+    import android.util.Log
     import android.view.View
     import android.view.animation.AnimationUtils
     import android.widget.Toast
@@ -23,6 +24,8 @@
         var isCheckedAmount:Boolean = false
         var isCheckedKind:Boolean = false
         var storeId:Int = 0
+        var numStars:Long = 0
+        var storeCategory:String=""
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -40,9 +43,9 @@
             subscribeViewModel()
 
             //이전 화면에서 받아온 별 갯수와 카테고리 이미지 세팅
-            val numStars = intent.getLongExtra("numStars", 0)
-            val storeCategory = intent.getStringExtra("category")
-            val storeId = intent.getIntExtra("id", 0)
+            numStars = intent.getLongExtra("numStars", 0)
+            storeCategory = intent.getStringExtra("category")!!
+            storeId = intent.getIntExtra("id", 0)
             setCategoryNStars(numStars, storeCategory)
 
             //리뷰 입력 세팅
@@ -53,11 +56,13 @@
             binding.btnReviewOk.setOnClickListener {
                 // 통신
                 val storeReviewInfo = getStoreReviewInfoFromView(numStars)
-                callStoreReviewAPI(storeReviewInfo)
+                callStoreReviewAPI(storeId, storeReviewInfo)
 
                 // 트럭별 상세보기로 이동
                 val intent = Intent(this, TruckDetailActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
+                finish()
             }
         }
 
@@ -66,7 +71,7 @@
                 if (it) {
                     Toast.makeText(this, "리뷰 작성이 완료되었습니다.", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "가게 설정이 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "리뷰 작성이 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
                 }
             })
         }
@@ -80,22 +85,22 @@
             )
         }
 
-        private fun callStoreReviewAPI(storeReviewInfo: StoreReviewRequest) = storeReviewViewModel.requestStoreReview(storeId)
+        private fun callStoreReviewAPI(storeId: Int, storeReviewInfo:StoreReviewRequest) = storeReviewViewModel.requestStoreReview(storeId, storeReviewInfo)
 
         private fun setCategoryNStars(numStars: Long, storeCategory: String?) {
             binding.rbStars.setReviewScore(numStars.toFloat())
 
-            if(storeCategory == "Takoyaki")
+            if(storeCategory == "타코야끼")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_tako)
-            else if(storeCategory == "Gunbam")
+            else if(storeCategory == "군밤")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_gunbam)
-            else if(storeCategory == "Goguma")
+            else if(storeCategory == "고구마")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_goguma)
-            else if(storeCategory == "Apple")
+            else if(storeCategory == "과일")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_apple)
-            else if(storeCategory == "Bungeoppang")
+            else if(storeCategory == "붕어빵")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_bungeo)
-            else if(storeCategory == "Sundae")
+            else if(storeCategory == "분식")
                 binding.ivDetailCategory.setImageResource(R.drawable.ic_category_sundae)
         }
 

@@ -16,12 +16,13 @@ class OwnerViewModel : ViewModel() {
     fun requestOwner(ownerInfo: OwnerRequest) {
         FooddeukAPI.requestOwner(ownerInfo).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                ownerOkCode.postValue(true)
+                ownerOkCode.value = true
+                Log.i("owner info", ownerInfo.toString())
                 Log.d("[Fooddeuk API] owner", "가게 정보 설정 성공")
             }
 
             override fun onFailure(call: Call<Any>, t: Throwable) {
-                ownerOkCode.postValue(false)
+                ownerOkCode.value = false
                 Log.d("[Fooddeuk API] owner", "가게 정보 설정 실패 Throwable -> ${t.message}")
             }
         })

@@ -69,6 +69,9 @@ class FragmentReviewList : Fragment() {
             var imgTaste : Int = 0
             var imgAmount : Int = 0
             var imgKind : Int = 0
+            var txtTaste : String = ""
+            var txtAmount : String = ""
+            var txtKind : String = ""
 
             when (it.category) {
                 "Takoyaki" -> imgCategory = R.drawable.ic_category_tako
@@ -80,24 +83,51 @@ class FragmentReviewList : Fragment() {
             }
 
             when (it.taste) {
-                "Good" -> imgTaste = R.drawable.ic_emoji_good
-                "SoSo" -> imgTaste = R.drawable.ic_emoji_soso
-                "Bad" -> imgTaste = R.drawable.ic_emoji_bad
+                "Good" -> {
+                    imgTaste = R.drawable.ic_emoji_good
+                    txtTaste = "맛있어요!"
+                }
+                "SoSo" -> {
+                    imgTaste = R.drawable.ic_emoji_soso
+                    txtTaste = "보통이에요"
+                }
+                "Bad" -> {
+                    imgTaste = R.drawable.ic_emoji_bad
+                    txtTaste = "별로예요"
+                }
             }
 
             when (it.quantity) {
-                "Good" -> imgAmount = R.drawable.ic_emoji_good
-                "SoSo" -> imgAmount = R.drawable.ic_emoji_soso
-                "Bad" -> imgAmount = R.drawable.ic_emoji_bad
+                "Enough" -> {
+                    imgAmount = R.drawable.ic_emoji_good
+                    txtAmount = "만족해요!"
+                }
+                "SoSo" -> {
+                    imgAmount = R.drawable.ic_emoji_soso
+                    txtAmount = "보통이에요"
+                }
+                "Bad" -> {
+                    imgAmount = R.drawable.ic_emoji_bad
+                    txtAmount = "부족해요"
+                }
             }
 
             when (it.kindness) {
-                "Good" -> imgKind = R.drawable.ic_emoji_good
-                "SoSo" -> imgKind = R.drawable.ic_emoji_soso
-                "Bad" -> imgKind = R.drawable.ic_emoji_bad
+                "Kind" -> {
+                    imgKind = R.drawable.ic_emoji_good
+                    txtKind = "친절해요!"
+                }
+                "SoSo" -> {
+                    imgKind = R.drawable.ic_emoji_soso
+                    txtKind = "보통이에요"
+                }
+                "Bad" -> {
+                    imgKind = R.drawable.ic_emoji_bad
+                    txtKind = "불친절해요"
+                }
             }
 
-            ReviewList.add(ReviewData(imgCategory, it.name, imgTaste, it.taste, imgAmount, it.quantity, imgKind, it.kindness))
+            ReviewList.add(ReviewData(imgCategory, it.name, imgTaste, txtTaste, imgAmount, txtAmount, imgKind, txtKind))
             Log.i("[dibs] prepare data : store name", it.name)
         }
         mAdapter!!.setData(ReviewList)
