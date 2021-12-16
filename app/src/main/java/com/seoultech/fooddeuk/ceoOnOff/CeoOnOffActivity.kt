@@ -15,6 +15,7 @@ import com.google.android.gms.location.LocationServices
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityCeoOnOffBinding
 import com.seoultech.fooddeuk.model.httpBody.OpenInfoRequest
+import com.seoultech.fooddeuk.review.CheckReviewActivity
 import com.seoultech.fooddeuk.storeSetting.StoreSettingActivity
 import com.seoultech.fooddeuk.util.AndroidPermissionManager
 import java.time.LocalDateTime
@@ -92,6 +93,10 @@ class CeoOnOffActivity : AppCompatActivity() {
                 when (menuItem.itemId) {
                     R.id.truck_setting -> {
                         val intent = Intent(this@CeoOnOffActivity, StoreSettingActivity::class.java)
+                        startActivity(intent)
+                    }
+                    R.id.review_manager -> {
+                        val intent = Intent(this@CeoOnOffActivity, CheckReviewActivity::class.java)
                         startActivity(intent)
                     }
                 }

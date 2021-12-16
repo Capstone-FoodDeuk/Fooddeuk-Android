@@ -1,18 +1,17 @@
 package com.seoultech.fooddeuk.storeSetting
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.seoultech.fooddeuk.R
+import com.seoultech.fooddeuk.ceoOnOff.CeoOnOffActivity
 import com.seoultech.fooddeuk.databinding.ActivityStoreSettingBinding
 import com.seoultech.fooddeuk.model.httpBody.Menu
 import com.seoultech.fooddeuk.model.httpBody.OwnerRequest
-import java.util.ArrayList
 
 class StoreSettingActivity : AppCompatActivity() {
 
@@ -20,8 +19,8 @@ class StoreSettingActivity : AppCompatActivity() {
     private lateinit var ownerViewModel: OwnerViewModel
     private lateinit var category: String
     private val data = arrayListOf<MenuData>()
-    private var methods = arrayListOf<String>()
-    private var menus = arrayListOf<Menu>()
+    var methods = arrayListOf<String>()
+    var menus = arrayListOf<Menu>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +36,11 @@ class StoreSettingActivity : AppCompatActivity() {
         // view model
         ownerViewModel = ViewModelProvider(this).get(OwnerViewModel::class.java)
         subscribeViewModel()
+
+        // back click
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
 
         // category click
         categoryClick()
@@ -57,9 +61,12 @@ class StoreSettingActivity : AppCompatActivity() {
 
         // ok click
         binding.btnSettingOk.setOnClickListener {
-            Log.i("메뉴 정보", menus.toString())
             val ownerInfo = getOwnerInfoFromView()
             callOwnerAPI(ownerInfo)
+
+            val intent = Intent(this, CeoOnOffActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

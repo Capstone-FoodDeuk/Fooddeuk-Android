@@ -66,6 +66,8 @@ class TruckDetailActivity : AppCompatActivity() {
             btnWriteReview.setOnClickListener {
                 val intent = Intent(this@TruckDetailActivity, StarReviewActivity::class.java)
                 intent.putExtra("storeId", 1) // TODO : 임시 id 값 넘겨줌, 변경 필요
+                intent.putExtra("name", binding.layoutTruckDetailTitle.tvTruckName.text)
+                intent.putExtra("category", binding.layoutTruckDetailTitle.tvTruckCategory.text)
                 startActivity(intent)
             }
         }

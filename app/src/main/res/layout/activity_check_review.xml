@@ -11,12 +11,12 @@
         android:layout_marginBottom="100dp">
 
         <ImageView
-            android:id="@+id/iv_hamburger"
+            android:id="@+id/iv_back"
             android:layout_width="18dp"
             android:layout_height="15dp"
             android:layout_marginStart="23dp"
             android:layout_marginTop="35dp"
-            android:src="@drawable/ic_hamburger_black"
+            android:src="@drawable/ic_back_arrow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

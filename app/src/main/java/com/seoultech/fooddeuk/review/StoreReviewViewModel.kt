@@ -8,20 +8,19 @@ import com.seoultech.fooddeuk.network.FooddeukAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Path
 
 class StoreReviewViewModel : ViewModel() {
     val storeReviewOkCode: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun requestStoreReview(storeId: Int) {
-        FooddeukAPI.requestStoreReview(storeId).enqueue(object : Callback<Any> {
+    fun requestStoreReview(storeId: Int, reviewInfo: StoreReviewRequest) {
+        FooddeukAPI.requestStoreReview(storeId, reviewInfo).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                storeReviewOkCode.postValue(true)
+                storeReviewOkCode.value = true
                 Log.d("[Fooddeuk API] store review", "리뷰 작성 성공")
             }
 
             override fun onFailure(call: Call<Any>, t: Throwable) {
-                storeReviewOkCode.postValue(false)
+                storeReviewOkCode.value = false
                 Log.d("[Fooddeuk API] store review", "리뷰 작성 실패 Throwable -> ${t.message}")
             }
         })

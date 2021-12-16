@@ -11,4 +11,7 @@ data class OwnerRequest (
     val methods: ArrayList<String> = ArrayList<String>()
 )
 
-data class Menu(val name : String, val price : Long)
+data class Menu(
+    val name : String = "",
+    val price : Long = 0
+)

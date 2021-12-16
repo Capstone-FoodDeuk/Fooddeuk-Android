@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="91dp"
-        android:text="misogene님"
         android:textColor="@color/food_deuk_text_a"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"

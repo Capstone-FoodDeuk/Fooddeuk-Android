@@ -5,6 +5,8 @@ import com.seoultech.fooddeuk.model.GitRepoResponse
 import com.seoultech.fooddeuk.model.httpBody.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 object FooddeukAPI {
     // 참고용 1 (추후에 지울 것)
@@ -29,8 +31,8 @@ object FooddeukAPI {
         return FooddeukServiceImpl.service.requestOwner(ownerInfo)
     }
 
-    fun requestStoreReview(storeId: Int) : Call<Any> {
-        return FooddeukServiceImpl.service.requestStoreReview(storeId)
+    fun requestStoreReview(storeId: Int, reviewInfo: StoreReviewRequest) : Call<Any> {
+        return FooddeukServiceImpl.service.requestStoreReview(storeId, reviewInfo)
     }
 
     fun requestTruckDetailInfo(storeId: Int): Call<TruckDetailResponse> {

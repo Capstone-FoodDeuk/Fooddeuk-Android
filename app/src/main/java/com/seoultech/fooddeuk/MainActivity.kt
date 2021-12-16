@@ -7,8 +7,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.seoultech.fooddeuk.databinding.ActivityMainBinding
 import com.seoultech.fooddeuk.mypage.MyPageActivity
-import com.seoultech.fooddeuk.review.InputReviewActivity
-import com.seoultech.fooddeuk.review.InputStoreActivity
 import com.seoultech.fooddeuk.storeSetting.StoreSettingActivity
 
 class MainActivity : AppCompatActivity() {
@@ -35,14 +33,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tmpButtonsClickListener() {
-        binding.tmpWriteReview.setOnClickListener {
-            val intent = Intent(this, InputStoreActivity::class.java)
-            startActivity(intent)
-        }
-        binding.tmpCheckReview.setOnClickListener {
-            val intent = Intent(this, InputReviewActivity::class.java)
-            startActivity(intent)
-        }
         binding.tmpSettingStore.setOnClickListener {
             val intent = Intent(this, StoreSettingActivity::class.java)
             startActivity(intent)
