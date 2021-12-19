@@ -192,6 +192,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -226,6 +227,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -262,6 +264,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -337,6 +340,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -371,6 +375,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -407,6 +412,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -482,6 +488,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -516,6 +523,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -552,6 +560,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

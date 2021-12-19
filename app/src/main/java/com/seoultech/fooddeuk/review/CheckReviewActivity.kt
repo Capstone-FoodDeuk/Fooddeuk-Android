@@ -1,14 +1,23 @@
 package com.seoultech.fooddeuk.review
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityCheckReviewBinding
+import java.lang.Math.round
 import kotlin.math.max
 
 class CheckReviewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCheckReviewBinding
+    private lateinit var checkReviewViewModel: CheckReviewViewModel
+
+    val tasteArray = arrayOf("맛있어요!", "보통이에요", "별로예요")
+    val amountArray = arrayOf("만족해요!", "보통이에요", "부족해요")
+    val kindArray = arrayOf("친절해요!", "보통이에요", "불친절해요")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,57 +29,50 @@ class CheckReviewActivity : AppCompatActivity() {
             finish()
         }
 
-        var tasteEval : Int
-        var amountEval : Int
-        var kindEval : Int
-        var tasteArray = arrayOf("맛있어요!", "보통이에요", "별로예요")
-        var amountArray = arrayOf("만족해요!", "보통이에요", "부족해요")
-        var kindArray = arrayOf("친절해요!", "보통이에요", "불친절해요")
+        checkReviewViewModel = ViewModelProvider(this).get(CheckReviewViewModel::class.java)
+        subscribeViewModel()
 
-        val storeName = "맛있다코야끼"
-        val category = "타코야끼"
-        val starScore = 4.2
-
-        val tasteGood = 10
-        val tasteSoSo = 6
-        val tasteBad = 4
-        val amountGood = 3
-        val amountSoSo = 7
-        val amountBad = 10
-        val kindGood = 8
-        val kindSoSo = 10
-        val kindBad = 2
-
-        //상단 카드뷰의 가게명, 카테고리, 평가 인원, 별점 세팅
-        binding.tvStoreName.text = storeName
-
-        if (category != null) {
-            setCategoryImage(category)
-        }
-
-        tasteEval = tasteGood + tasteSoSo + tasteBad
-        amountEval = amountGood + amountSoSo + amountBad
-        kindEval = kindGood + kindSoSo + kindBad
-
-        binding.tvNumEval.text = "총 " + tasteEval + "명이 평가하였습니다"
-
-        binding.rbStarReview.setReviewScore(starScore.toFloat())
-        binding.tvStarScore.text = starScore.toString()
-
-        binding.tvTasteBest.text = "'" + tasteArray[getBestReview(tasteGood, tasteSoSo, tasteBad)] + "'를 가장 많이 받았어요!"
-        binding.tvAmountBest.text = "'" + amountArray[getBestReview(amountGood, amountSoSo, amountBad)] + "'를 가장 많이 받았어요!"
-        binding.tvKindBest.text = "'" + kindArray[getBestReview(kindGood, kindSoSo, kindBad)] + "'를 가장 많이 받았어요!"
-
-        binding.tvTasteGoodRatio.text = "(" + getPercentage(tasteEval, tasteGood) + "%)"
-        binding.tvTasteSosoRatio.text = "(" + getPercentage(tasteEval, tasteSoSo) + "%)"
-        binding.tvTasteBadRatio.text = "(" + getPercentage(tasteEval, tasteBad) + "%)"
-        binding.tvAmountGoodRatio.text = "(" + getPercentage(amountEval, amountGood) + "%)"
-        binding.tvAmountSosoRatio.text = "(" + getPercentage(amountEval, amountSoSo) + "%)"
-        binding.tvAmountBadRatio.text = "(" + getPercentage(amountEval, amountBad) + "%)"
-        binding.tvKindGoodRatio.text = "(" + getPercentage(kindEval, kindGood) + "%)"
-        binding.tvKindSosoRatio.text = "(" + getPercentage(kindEval, kindSoSo) + "%)"
-        binding.tvKindBadRatio.text = "(" + getPercentage(kindEval, kindBad) + "%)"
+        callCheckReviewAPI()
     }
+
+    private fun subscribeViewModel() {
+        checkReviewViewModel.checkReviewOkCode.observe(this, {
+            if (it) {
+                val checkReviewData = checkReviewViewModel.checkReviewData
+
+                //상단 카드뷰 세팅
+                binding.tvStoreName.text = checkReviewData.name
+                setCategoryImage(checkReviewData.category)
+                binding.tvNumEval.text = "총 " + checkReviewData.userCnt + "명이 평가하였습니다"
+                binding.rbStarReview.setReviewScore(round((checkReviewData.totalSum.toFloat()/checkReviewData.userCnt)*10)/10.0.toFloat())
+                binding.tvStarScore.text = (round((checkReviewData.totalSum.toFloat()/checkReviewData.userCnt)*10)/10.0).toString()
+
+                //가장 많이 받았어요 텍스트 세팅
+                binding.tvTasteBest.text = "'" + tasteArray[getBestReview(checkReviewData.taste.Good, checkReviewData.taste.SoSo, checkReviewData.taste.Bad)] + "'를 가장 많이 받았어요!"
+                binding.tvAmountBest.text = "'" + amountArray[getBestReview(checkReviewData.quantity.Enough, checkReviewData.quantity.SoSo, checkReviewData.quantity.Bad)] + "'를 가장 많이 받았어요!"
+                binding.tvKindBest.text = "'" + kindArray[getBestReview(checkReviewData.kind.Kind, checkReviewData.kind.SoSo, checkReviewData.kind.Bad)] + "'를 가장 많이 받았어요!"
+
+                //퍼센티지 세팅
+                if(checkReviewData.userCnt!=0) {
+                    binding.tvTasteGoodRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.taste.Good) + "%)"
+                    binding.tvTasteSosoRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.taste.SoSo) + "%)"
+                    binding.tvTasteBadRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.taste.Bad) + "%)"
+                    binding.tvAmountGoodRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.quantity.Enough) + "%)"
+                    binding.tvAmountSosoRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.quantity.SoSo) + "%)"
+                    binding.tvAmountBadRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.quantity.Bad) + "%)"
+                    binding.tvKindGoodRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.kind.Kind) + "%)"
+                    binding.tvKindSosoRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.kind.SoSo) + "%)"
+                    binding.tvKindBadRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.kind.Bad) + "%)"
+                }
+
+                Toast.makeText(this, "리뷰 조회가 완료되었습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "리뷰 조회가 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun callCheckReviewAPI() = checkReviewViewModel.requestCheckReviewInfo()
 
     private fun getBestReview(num1:Int, num2:Int, num3:Int): Int {
         var maxNum : Int
@@ -90,17 +92,17 @@ class CheckReviewActivity : AppCompatActivity() {
     }
 
     private fun setCategoryImage(category:String) {
-        if(category == "타코야끼")
+        if(category == "Takoyaki")
             binding.ivCategory.setImageResource(R.drawable.ic_category_tako)
-        else if(category == "군밤")
+        else if(category == "Chestnuts")
             binding.ivCategory.setImageResource(R.drawable.ic_category_gunbam)
-        else if(category == "군고구마")
+        else if(category == "GOGUMA")
             binding.ivCategory.setImageResource(R.drawable.ic_category_goguma)
-        else if(category == "과일")
+        else if(category == "Fruit")
             binding.ivCategory.setImageResource(R.drawable.ic_category_apple)
-        else if(category == "붕어빵")
+        else if(category == "FishBread")
             binding.ivCategory.setImageResource(R.drawable.ic_category_bungeo)
-        else if(category == "순대")
+        else if(category == "Snack")
             binding.ivCategory.setImageResource(R.drawable.ic_category_sundae)
     }
 }
