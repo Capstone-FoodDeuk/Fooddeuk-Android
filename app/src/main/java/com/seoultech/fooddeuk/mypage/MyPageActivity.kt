@@ -1,15 +1,14 @@
 package com.seoultech.fooddeuk.mypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityMyPageBinding
 import com.seoultech.fooddeuk.dialog.NickNameSettingDialog
 
@@ -21,10 +20,8 @@ class MyPageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMyPageBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         val list = listOf(FragmentDibsList(), FragmentReviewList())
         val pagerAdatper = FragmentPagerAdapter(list, this)

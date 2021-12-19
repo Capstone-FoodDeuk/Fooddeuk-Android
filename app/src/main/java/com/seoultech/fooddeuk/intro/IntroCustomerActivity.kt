@@ -11,7 +11,6 @@ import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityIntroCustomerBinding
 import com.seoultech.fooddeuk.login.LoginActivity
 import com.seoultech.fooddeuk.login.UserType
-import com.seoultech.fooddeuk.map.MapActivity
 
 
 class IntroCustomerActivity : AppCompatActivity() {
@@ -20,8 +19,7 @@ class IntroCustomerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIntroCustomerBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         val tab = binding.tlIndication
         val viewPager = binding.vpScreen

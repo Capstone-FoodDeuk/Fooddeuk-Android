@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.seoultech.fooddeuk.R
-import com.seoultech.fooddeuk.ceoOnOff.CeoOnOffActivity
 import com.seoultech.fooddeuk.databinding.ActivityIntroCeoBinding
 import com.seoultech.fooddeuk.login.LoginActivity
 import com.seoultech.fooddeuk.login.UserType
@@ -19,8 +18,7 @@ class IntroCEOActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIntroCeoBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         val tab = binding.tlIndication
         val viewPager = binding.vpScreen

@@ -24,10 +24,8 @@ class StoreSettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityStoreSettingBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         // recycler view
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
