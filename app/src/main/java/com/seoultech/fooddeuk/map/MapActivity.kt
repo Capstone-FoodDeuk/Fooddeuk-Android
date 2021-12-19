@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -13,6 +15,8 @@ import com.google.android.gms.location.LocationServices
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityMapBinding
 import com.seoultech.fooddeuk.detail.TruckDetailActivity
+import com.seoultech.fooddeuk.model.enums.Category
+import com.seoultech.fooddeuk.model.httpBody.TruckInfo
 import com.seoultech.fooddeuk.mypage.MyPageActivity
 import com.seoultech.fooddeuk.util.AndroidPermissionManager
 import net.daum.mf.map.api.MapPOIItem
@@ -27,6 +31,7 @@ class MapActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMapBinding
     private lateinit var locationProviderClient: FusedLocationProviderClient
+    private lateinit var viewModel: MapViewModel
     private val markerClickListener = MarkerEventListener(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,10 @@ class MapActivity : AppCompatActivity() {
         // set things
         setContentView(binding.root)
         setClickListeners()
+
+        // observe viewModel
+        viewModel = ViewModelProvider(this).get(MapViewModel::class.java)
+        subscribeViewModel()
     }
 
     override fun onResume() {
@@ -64,19 +73,36 @@ class MapActivity : AppCompatActivity() {
         }
     }
 
+    private fun subscribeViewModel() {
+        viewModel.homeDataOkCode.observe(this, {
+            if (it) {
+                viewModel.truckInfoList?.let {
+                    list -> setMarkers(list)
+                }
+            } else {
+                Toast.makeText(this, "죄송합니다. 푸드트럭 위치 정보를 가져오지 못했습니다.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
     private fun initKakaoMap(latitude: Double, longitude: Double) {
         val kakaoMap = KakaoMap
         kakaoMap.init(this, binding.clMap, latitude, longitude)
-        setMarkers()
+        callHomeDataAPI(latitude, longitude, null) // init 시에는 필터 없음(all 카테고리)
         KakaoMap.kakaoMapView.setPOIItemEventListener(markerClickListener)
     }
 
-    private fun setMarkers() {
+    private fun setMarkers(truckInfoList: List<TruckInfo>) {
         val kakaoMap = KakaoMap
-        // TODO : 나중에 서버에서 받아야할 데이터임
-        kakaoMap.addMarker(37.624814, 127.077832, "타코야끼집", 0, R.drawable.ic_map_marker_tako) // 예시
-        kakaoMap.addMarker(37.625857, 127.077859, "과일트럭", 1, R.drawable.ic_map_marker_apple) // 예시
-        kakaoMap.addMarker(37.625043, 127.077505, "붕어빵", 2, R.drawable.ic_map_marker_bungeoppang) // 예시
+        truckInfoList.forEach {
+            kakaoMap.addMarker(
+                it.latitude,
+                it.longitude,
+                it.name,
+                it.id,
+                getCategoryMapMarkerLogo(it.category)
+            )
+        }
     }
 
     private fun checkLocationPermission() {
@@ -102,11 +128,25 @@ class MapActivity : AppCompatActivity() {
         }
     }
 
+    private fun getCategoryMapMarkerLogo(category: String): Int {
+        return when (category) {
+            Category.TAKOYAKI.serverName -> R.drawable.ic_map_marker_tako
+            Category.FISHBREAD.serverName -> R.drawable.ic_map_marker_bungeoppang
+            Category.FRUIT.serverName -> R.drawable.ic_map_marker_apple
+            Category.CHESTNUTS.serverName -> R.drawable.ic_map_marker_gunbam
+            else -> R.drawable.ic_map_marker_tako
+        }
+    }
+
+    private fun callHomeDataAPI(latitude: Double, longitude: Double, categories: ArrayList<String>?) = viewModel.requestHomeData(latitude, longitude,  categories)
+
     class MarkerEventListener(val context: Context): MapView.POIItemEventListener {
         override fun onPOIItemSelected(p0: MapView?, p1: MapPOIItem?) { }
 
         override fun onCalloutBalloonOfPOIItemTouched(p0: MapView?, p1: MapPOIItem?) {
-            val intent = Intent(context, TruckDetailActivity::class.java)
+            val intent = Intent(context, TruckDetailActivity::class.java).apply {
+                putExtra("store_id", p1?.tag)
+            }
             context.startActivity(intent)
         }
 

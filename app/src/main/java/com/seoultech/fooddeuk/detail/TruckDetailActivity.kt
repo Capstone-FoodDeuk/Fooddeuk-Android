@@ -8,9 +8,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityTruckDetailBinding
 import com.seoultech.fooddeuk.dialog.NoTruckDialog
 import com.seoultech.fooddeuk.model.enums.Category
+import com.seoultech.fooddeuk.model.enums.PayMethod
 import com.seoultech.fooddeuk.review.StarReviewActivity
 
 class TruckDetailActivity : AppCompatActivity() {
@@ -34,7 +36,7 @@ class TruckDetailActivity : AppCompatActivity() {
         subscribeViewModel()
 
         // call api function to get data from server
-        callTruckDetailInfoAPI(3) // TODO: (chohee) storeId 임의, 변경 필요
+        callTruckDetailInfoAPI(getStoreId())
     }
 
     private fun initRecyclerView() {
@@ -60,12 +62,12 @@ class TruckDetailActivity : AppCompatActivity() {
             }
             ivLike.setOnClickListener {
                 ivLike.toggle()
-                callTruckLikeAPI(3) // TODO : 임시 id 값 넘겨줌, 변경 필요
+                callTruckLikeAPI(getStoreId())
             }
             ivBackArrow.setOnClickListener { finish() }
             btnWriteReview.setOnClickListener {
                 val intent = Intent(this@TruckDetailActivity, StarReviewActivity::class.java)
-                intent.putExtra("storeId", 3) // TODO : 임시 id 값 넘겨줌, 변경 필요
+                intent.putExtra("storeId", getStoreId())
                 intent.putExtra("name", binding.layoutTruckDetailTitle.tvTruckName.text)
                 intent.putExtra("category", binding.layoutTruckDetailTitle.tvTruckCategory.text)
                 startActivity(intent)
@@ -77,6 +79,8 @@ class TruckDetailActivity : AppCompatActivity() {
         truckDetailViewModel.truckDetailInfoOkCode.observe(this, {
             if (it) {
                 val truckDetailData = truckDetailViewModel.truckDetailData
+                binding.ivBackgroundMap.setImageResource(getCategoryBackground(truckDetailData.category))
+                binding.layoutTruckDetailTitle.ivTruckCategoryLogo.setImageResource(getCategoryLogo(truckDetailData.category))
                 binding.layoutTruckDetailTitle.tvTruckName.text = truckDetailData.name
                 binding.layoutTruckDetailTitle.tvTruckCategory.text = getCategoryNameByKorean(truckDetailData.category)
                 binding.layoutTruckDetailTitle.tvReviewScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
@@ -86,9 +90,9 @@ class TruckDetailActivity : AppCompatActivity() {
                 binding.layoutTruckDetailReview.tvScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
                 binding.ivLike.isChecked = truckDetailData.liked
                 truckDetailData.paymentMethods.forEach {
-                    binding.layoutTruckDetailPayType.payTypeBankTransfer.visibility = if (it == binding.layoutTruckDetailPayType.payTypeBankTransfer.tag) View.VISIBLE else View.GONE
-                    binding.layoutTruckDetailPayType.payTypeCash.visibility = if (it == binding.layoutTruckDetailPayType.payTypeCash.tag) View.VISIBLE else View.GONE
-                    binding.layoutTruckDetailPayType.payTypeCard.visibility = if (it == binding.layoutTruckDetailPayType.payTypeCard.tag) View.VISIBLE else View.GONE
+                    binding.layoutTruckDetailPayType.payTypeBankTransfer.visibility = if (it == PayMethod.BANK_TRANSFER.name) View.VISIBLE else View.GONE
+                    binding.layoutTruckDetailPayType.payTypeCash.visibility = if (it == PayMethod.CASH.name) View.VISIBLE else View.GONE
+                    binding.layoutTruckDetailPayType.payTypeCard.visibility = if (it == PayMethod.CARD.name) View.VISIBLE else View.GONE
                 }
                 binding.layoutTruckDetailReview.rbStars.setReviewScore(3.0f) // TODO : (chohee) 임시 점수임
             } else {
@@ -120,7 +124,29 @@ class TruckDetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun getCategoryLogo(category: String): Int {
+        return when (category) {
+            Category.TAKOYAKI.serverName -> R.drawable.ic_category_tako_small
+            Category.FISHBREAD.serverName -> R.drawable.ic_category_bungeo_small
+            Category.FRUIT.serverName -> R.drawable.ic_category_apple_small
+            Category.CHESTNUTS.serverName -> R.drawable.ic_category_gunbam_small
+            else -> R.drawable.ic_category_tako_small
+        }
+    }
+
+    private fun getCategoryBackground(category: String): Int {
+        return when (category) {
+            Category.TAKOYAKI.serverName -> R.drawable.ic_review_bottom_tako
+            Category.FISHBREAD.serverName -> R.drawable.ic_review_bottom_bungeoppang
+            Category.FRUIT.serverName -> R.drawable.ic_review_bottom_apple
+            Category.CHESTNUTS.serverName -> R.drawable.ic_review_bottom_gunbam
+            else -> R.drawable.ic_review_bottom_tako
+        }
+    }
+
     private fun getReviewScore(userCount: Int, totalSum: Int) = if (userCount != 0) totalSum.toDouble() / userCount else 0
+
+    private fun getStoreId() = intent.getIntExtra("store_id", -1)
 
     private fun callTruckDetailInfoAPI(storeId: Int) = truckDetailViewModel.requestTruckDetailInfo(storeId)
 

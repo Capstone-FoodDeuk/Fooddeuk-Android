@@ -36,4 +36,8 @@ object FooddeukAPI {
     fun requestMyPageInfo(): Call<MyPageResponse> {
         return FooddeukServiceImpl.service.requestMyPageInfo()
     }
+
+    fun requestHomeData(latitude: Double, longitude: Double, categories: ArrayList<String>?): Call<MapResponse> {
+        return FooddeukServiceImpl.service.requestHomeData(latitude, longitude, categories)
+    }
 }

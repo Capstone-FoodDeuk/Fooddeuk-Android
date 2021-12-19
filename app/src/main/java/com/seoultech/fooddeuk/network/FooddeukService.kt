@@ -29,4 +29,11 @@ interface FooddeukService {
 
     @GET("guest")
     fun requestMyPageInfo(): Call<MyPageResponse>
+
+    @GET("home")
+    fun requestHomeData(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+        @Query("categories") categories: ArrayList<String>?
+    ): Call<MapResponse>
 }

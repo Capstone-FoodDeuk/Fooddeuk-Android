@@ -41,7 +41,6 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/pay_type_bank_transfer"
-            android:tag="BANK_TRANSFER"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="계좌이체"
@@ -53,7 +52,6 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/pay_type_cash"
-            android:tag="CASH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="현금"
@@ -65,7 +63,6 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/pay_type_card"
-            android:tag="CARD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="카드"
