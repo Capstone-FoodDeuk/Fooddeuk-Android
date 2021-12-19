@@ -54,10 +54,9 @@ class CheckReviewActivity : AppCompatActivity() {
 
         binding.tvNumEval.text = "총 " + tasteEval + "명이 평가하였습니다"
 
-        binding.rbStarReview.rating = starScore.toFloat()
+        binding.rbStarReview.setReviewScore(starScore.toFloat())
         binding.tvStarScore.text = starScore.toString()
 
-        //TODO:텍스트 어떻게 가져오지?
         binding.tvTasteBest.text = "'" + tasteArray[getBestReview(tasteGood, tasteSoSo, tasteBad)] + "'를 가장 많이 받았어요!"
         binding.tvAmountBest.text = "'" + amountArray[getBestReview(amountGood, amountSoSo, amountBad)] + "'를 가장 많이 받았어요!"
         binding.tvKindBest.text = "'" + kindArray[getBestReview(kindGood, kindSoSo, kindBad)] + "'를 가장 많이 받았어요!"
