@@ -1,6 +1,7 @@
 package com.seoultech.fooddeuk.ceoOnOff
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.seoultech.fooddeuk.model.httpBody.OpenInfoRequest
@@ -15,6 +16,10 @@ class CeoOnOffViewModel : ViewModel() {
     var currentLatitude: Double = 0.0
     var currentLongitude: Double = 0.0
 
+    private var _truckOffStatus: MutableLiveData<Boolean> = MutableLiveData()
+    val truckOffStatus: LiveData<Boolean>
+        get() = _truckOffStatus
+
     fun requestTruckOpen(openInfo: OpenInfoRequest) {
         FooddeukAPI.requestTruckOpen(openInfo).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
@@ -27,5 +32,9 @@ class CeoOnOffViewModel : ViewModel() {
                 truckOpenOkCode.value = false
             }
         })
+    }
+
+    fun setTruckOff(isOff: Boolean) {
+        _truckOffStatus.value = isOff
     }
 }

@@ -14,6 +14,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityCeoOnOffBinding
+import com.seoultech.fooddeuk.dialog.OnOffConfirmDialog
 import com.seoultech.fooddeuk.model.httpBody.OpenInfoRequest
 import com.seoultech.fooddeuk.review.CheckReviewActivity
 import com.seoultech.fooddeuk.storeSetting.StoreSettingActivity
@@ -65,6 +66,12 @@ class CeoOnOffActivity : AppCompatActivity() {
                 Toast.makeText(this, "죄송합니다. 푸드득 앱 문제로 오픈 설정에 실패했습니다.", Toast.LENGTH_SHORT).show()
             }
         })
+        viewModel.truckOffStatus.observe(this, {
+            if (it) {
+                binding.layoutOnOffToggle.onOrOff = false
+                binding.onOrOff = false
+            }
+        })
     }
 
     private fun init() {
@@ -79,8 +86,7 @@ class CeoOnOffActivity : AppCompatActivity() {
                 binding.onOrOff = true
             }
             layoutOnOffToggle.btnOff.setOnClickListener {
-                binding.layoutOnOffToggle.onOrOff = false
-                binding.onOrOff = false
+                OnOffConfirmDialog.newInstance().show(supportFragmentManager, "OnOffConfirmDialog")
             }
             btnOnSettingSave.setOnClickListener {
                 val openInfo = getOpenInfoFromView()
