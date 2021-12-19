@@ -36,4 +36,7 @@ interface FooddeukService {
         @Query("longitude") longitude: Double,
         @Query("categories") categories: ArrayList<String>?
     ): Call<MapResponse>
+
+    @GET("owner/review")
+    fun requestCheckReviewInfo(): Call<CheckReviewResponse>
 }

@@ -40,4 +40,8 @@ object FooddeukAPI {
     fun requestHomeData(latitude: Double, longitude: Double, categories: ArrayList<String>?): Call<MapResponse> {
         return FooddeukServiceImpl.service.requestHomeData(latitude, longitude, categories)
     }
+
+    fun requestCheckReviewInfo(): Call<CheckReviewResponse> {
+        return FooddeukServiceImpl.service.requestCheckReviewInfo()
+    }
 }

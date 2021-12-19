@@ -70,25 +70,25 @@
                     android:id="@+id/tv_num_eval"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="83dp"
                     android:layout_marginTop="50dp"
                     android:textColor="@color/food_deuk_text_b"
                     android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <RatingBar
+                <com.baha.reviewbar.ReviewBar
                     android:id="@+id/rb_star_review"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="77dp"
-                    android:progressBackgroundTint="@color/food_deuk_text_d"
-                    android:progressTint="@color/food_deuk_available_yellow"
-                    android:secondaryProgressTint="@color/food_deuk_text_d"
+                    android:layout_marginTop="75dp"
+                    app:emptyIcon="@drawable/ic_empty_star"
+                    app:fillIcon="@drawable/ic_full_star"
+                    app:halfEnable="false"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:reviewScoreMax="5" />
 
                 <TextView
                     android:id="@+id/tv_star_score"
@@ -141,7 +141,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="320dp"
-            android:text="'맛있어요!'를 가장 많이 받았어요!"
             android:textColor="@color/food_deuk_text_a"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -193,6 +192,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -227,6 +227,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -263,6 +264,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -287,7 +289,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="525dp"
-            android:text="'보통이에요'를 가장 많이 받았어요!"
             android:textColor="@color/food_deuk_text_a"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -339,6 +340,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -373,6 +375,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -409,6 +412,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -433,7 +437,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="730dp"
-            android:text="'친절해요!'를 가장 많이 받았어요!"
             android:textColor="@color/food_deuk_text_a"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -485,6 +488,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -519,6 +523,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -555,6 +560,7 @@
                     android:textColor="@color/food_deuk_text_c"
                     android:textSize="10sp"
                     android:textStyle="bold"
+                    android:text="(0%)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
