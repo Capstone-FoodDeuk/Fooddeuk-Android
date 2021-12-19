@@ -9,6 +9,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.databinding.ActivityIntroCustomerBinding
+import com.seoultech.fooddeuk.login.LoginActivity
+import com.seoultech.fooddeuk.login.UserType
 import com.seoultech.fooddeuk.map.MapActivity
 
 
@@ -91,7 +93,9 @@ class IntroCustomerActivity : AppCompatActivity() {
 
         //start
         btnStarted.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java).apply {
+                putExtra("USER_TYPE", UserType.CUSTOMER.name)
+            }
             startActivity(intent)
             finish()
         }

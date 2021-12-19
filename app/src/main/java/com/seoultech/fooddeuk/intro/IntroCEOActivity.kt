@@ -10,6 +10,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.seoultech.fooddeuk.R
 import com.seoultech.fooddeuk.ceoOnOff.CeoOnOffActivity
 import com.seoultech.fooddeuk.databinding.ActivityIntroCeoBinding
+import com.seoultech.fooddeuk.login.LoginActivity
+import com.seoultech.fooddeuk.login.UserType
 
 class IntroCEOActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIntroCeoBinding
@@ -90,7 +92,9 @@ class IntroCEOActivity : AppCompatActivity() {
 
         //start
         btnStarted.setOnClickListener {
-            val intent = Intent(this, CeoOnOffActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java).apply {
+                putExtra("USER_TYPE", UserType.CEO.name)
+            }
             startActivity(intent)
             finish() // 액티비티 백스택 계산해보면 로그인 화면으로 돌아감
         }
