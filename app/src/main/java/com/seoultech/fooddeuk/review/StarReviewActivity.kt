@@ -52,6 +52,7 @@ class StarReviewActivity : AppCompatActivity() {
                     intent.putExtra("category", storeCategory)
                     intent.putExtra("id", storeId)
                     startActivity(intent)
+                    finish()
                 }
             }
             false

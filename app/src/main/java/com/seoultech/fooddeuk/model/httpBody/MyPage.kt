@@ -8,7 +8,7 @@ data class MyPageResponse (
 )
 
 data class GuestInfo (
-    val nickname: String = "",
+    val nickname: String? = "",
     val likes: ArrayList<Likes> = arrayListOf(),
     val reviews: ArrayList<Reviews> = arrayListOf()
 )
