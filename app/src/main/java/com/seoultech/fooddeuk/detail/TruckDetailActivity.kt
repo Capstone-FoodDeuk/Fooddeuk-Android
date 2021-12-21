@@ -14,6 +14,7 @@ import com.seoultech.fooddeuk.dialog.NoTruckDialog
 import com.seoultech.fooddeuk.model.enums.Category
 import com.seoultech.fooddeuk.model.enums.PayMethod
 import com.seoultech.fooddeuk.review.StarReviewActivity
+import kotlin.math.round
 
 class TruckDetailActivity : AppCompatActivity() {
 
@@ -84,7 +85,11 @@ class TruckDetailActivity : AppCompatActivity() {
                 binding.layoutTruckDetailTitle.tvTruckName.text = truckDetailData.name
                 binding.layoutTruckDetailTitle.tvTruckCategory.text = getCategoryNameByKorean(truckDetailData.category)
                 binding.layoutTruckDetailTitle.tvReviewScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
-                binding.layoutTruckDetailBusinessInfo.tvBusinessTime.text = "${truckDetailData.closeTime.substring(11 until 16)} 마감" // 00:00 부분 추출
+                binding.layoutTruckDetailBusinessInfo.tvBusinessTime.text = if (truckDetailData.closeTime.isNotEmpty()) {
+                    "${truckDetailData.closeTime.substring(11 until 16)} 마감"
+                } else {
+                    "마감 정보 없음"
+                }
                 phoneNumber = truckDetailViewModel.truckDetailData.phoneNumber
                 menuListAdapter.setDataSet(truckDetailViewModel.truckDetailData.menuList)
                 binding.layoutTruckDetailReview.tvScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
@@ -144,7 +149,10 @@ class TruckDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun getReviewScore(userCount: Int, totalSum: Int) = if (userCount != 0) totalSum.toDouble() / userCount else 0
+    private fun getReviewScore(userCount: Int, totalSum: Int) = if (userCount != 0) {
+        val rawScore = totalSum.toDouble() / userCount
+        round(rawScore * 100) / 100 // 소수점 3번째 자리에서 반올림 한다.
+    } else 0
 
     private fun getStoreId() = intent.getIntExtra("store_id", -1)
 

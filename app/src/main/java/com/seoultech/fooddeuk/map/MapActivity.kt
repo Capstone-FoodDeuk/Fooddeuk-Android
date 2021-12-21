@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -32,6 +33,7 @@ class MapActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMapBinding
     private lateinit var locationProviderClient: FusedLocationProviderClient
     private lateinit var viewModel: MapViewModel
+    private lateinit var kakaoMap: MapView
     private val markerClickListener = MarkerEventListener(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +52,7 @@ class MapActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         checkLocationPermission()
+
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         locationProviderClient.lastLocation.addOnSuccessListener {
             initKakaoMap(it.latitude, it.longitude) // latitude = 위도, longitude = 경도
@@ -86,16 +89,19 @@ class MapActivity : AppCompatActivity() {
     }
 
     private fun initKakaoMap(latitude: Double, longitude: Double) {
-        val kakaoMap = KakaoMap
-        kakaoMap.init(this, binding.clMap, latitude, longitude)
-        callHomeDataAPI(latitude, longitude, null) // init 시에는 필터 없음(all 카테고리)
-        KakaoMap.kakaoMapView.setPOIItemEventListener(markerClickListener)
+        kakaoMap = MapView(this)
+        binding.clMap.addView(kakaoMap)
+
+        // 지도 중심점 현재 위치로 세팅(줌 레벨 낮을 수록 Zoom In)
+        kakaoMap.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(latitude, longitude), 1,true)
+        kakaoMap.setPOIItemEventListener(markerClickListener)
+
+        callHomeDataAPI(latitude, longitude, null) // 카테고리가 null이면 all 카테고리이다.
     }
 
     private fun setMarkers(truckInfoList: List<TruckInfo>) {
-        val kakaoMap = KakaoMap
         truckInfoList.forEach {
-            kakaoMap.addMarker(
+            addMarker(
                 it.latitude,
                 it.longitude,
                 it.name,
@@ -103,6 +109,18 @@ class MapActivity : AppCompatActivity() {
                 getCategoryMapMarkerLogo(it.category)
             )
         }
+    }
+
+    private fun addMarker(latitude: Double, longitude: Double, itemName: String, tag: Int, image: Int) {
+        val marker = MapPOIItem()
+        marker.itemName = itemName
+        marker.tag = tag
+        marker.mapPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude)
+        marker.markerType = MapPOIItem.MarkerType.CustomImage
+        marker.customImageResourceId = image
+        marker.isCustomImageAutoscale = false // 커스텀 이미지 크기 자동 조절
+        marker.setCustomImageAnchor(0.5f, 1.0f) // 커스텀 이미지에서 앵커 포인트 지정
+        kakaoMap.addPOIItem(marker)
     }
 
     private fun checkLocationPermission() {
@@ -140,13 +158,17 @@ class MapActivity : AppCompatActivity() {
 
     private fun callHomeDataAPI(latitude: Double, longitude: Double, categories: ArrayList<String>?) = viewModel.requestHomeData(latitude, longitude,  categories)
 
-    class MarkerEventListener(val context: Context): MapView.POIItemEventListener {
+    inner class MarkerEventListener(val context: Context): MapView.POIItemEventListener {
         override fun onPOIItemSelected(p0: MapView?, p1: MapPOIItem?) { }
 
         override fun onCalloutBalloonOfPOIItemTouched(p0: MapView?, p1: MapPOIItem?) {
             val intent = Intent(context, TruckDetailActivity::class.java).apply {
                 putExtra("store_id", p1?.tag)
             }
+            Log.d("kimchohee마커", p1?.tag.toString())
+            // DaumMap does not support that two or more net.daum.mf.map.api.MapView objects exists at the same time
+            // 위 에러 대응을 위해 clMap 뷰에 추가된 지도 뷰를 제거한다.
+            binding.clMap.removeView(kakaoMap)
             context.startActivity(intent)
         }
 

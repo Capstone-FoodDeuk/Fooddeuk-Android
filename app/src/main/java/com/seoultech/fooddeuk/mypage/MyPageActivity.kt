@@ -11,6 +11,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.seoultech.fooddeuk.databinding.ActivityMyPageBinding
 import com.seoultech.fooddeuk.dialog.NickNameSettingDialog
+import androidx.core.app.ActivityCompat
+
 
 class MyPageActivity : AppCompatActivity() {
 
@@ -48,13 +50,14 @@ class MyPageActivity : AppCompatActivity() {
 
         //로그아웃 버튼
         binding.ivLogout.setOnClickListener {
-            Toast.makeText(this, "로그아웃", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
+            ActivityCompat.finishAffinity(this)
         }
     }
     private fun subscribeViewModel() {
         nicknameViewModel.myPageOkCode.observe(this, {
             if (it) {
-                nickname = nicknameViewModel.myPageData.nickname
+                nickname = nicknameViewModel.myPageData.nickname.toString()
                 Log.i("mypage : nickname", nickname)
                 binding.tvNickname.text = nickname+"님"
             } else {
