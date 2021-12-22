@@ -152,6 +152,8 @@ class MapActivity : AppCompatActivity() {
             Category.FISHBREAD.serverName -> R.drawable.ic_map_marker_bungeoppang
             Category.FRUIT.serverName -> R.drawable.ic_map_marker_apple
             Category.CHESTNUTS.serverName -> R.drawable.ic_map_marker_gunbam
+            Category.SNACK.serverName -> R.drawable.ic_map_marker_sundae
+            Category.GOGUMA.serverName -> R.drawable.ic_map_marker_goguma
             else -> R.drawable.ic_map_marker_tako
         }
     }

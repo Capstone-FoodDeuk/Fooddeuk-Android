@@ -47,6 +47,7 @@
             android:textSize="15sp"
             android:textColor="@color/food_deuk_text_a"
             android:enabled="false"
+            android:visibility="gone"
             app:chipBackgroundColor="@color/food_deuk_available_yellow"
             tool:text="계좌이체"/>
 
@@ -58,6 +59,7 @@
             android:textSize="15sp"
             android:textColor="@color/food_deuk_text_a"
             android:enabled="false"
+            android:visibility="gone"
             app:chipBackgroundColor="@color/food_deuk_available_yellow"
             tool:text="현금"/>
 
@@ -69,6 +71,7 @@
             android:textSize="15sp"
             android:textColor="@color/food_deuk_text_a"
             android:enabled="false"
+            android:visibility="gone"
             app:chipBackgroundColor="@color/food_deuk_available_yellow"
             tool:text="카드"/>
 

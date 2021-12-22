@@ -16,8 +16,7 @@ data class GuestInfo (
 data class Likes (
     val name : String = "",
     val category : String = "",
-    val latitude : Double = 0.0,
-    val longitude : Double = 0.0,
+    val location: Location = Location(),
     val closeTime : String = "",
     val isAlarmActive : Boolean = true
 )

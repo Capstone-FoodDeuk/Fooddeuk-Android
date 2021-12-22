@@ -60,6 +60,9 @@ class CheckReviewActivity : AppCompatActivity() {
                     binding.tvAmountGoodRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.quantity.Enough) + "%)"
                     binding.tvAmountSosoRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.quantity.SoSo) + "%)"
                     binding.tvAmountBadRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.quantity.Bad) + "%)"
+                    Log.i("kind - good", checkReviewData.kind.Kind.toString())
+                    Log.i("kind - soso", checkReviewData.kind.SoSo.toString())
+                    Log.i("kind - bad", checkReviewData.kind.Bad.toString())
                     binding.tvKindGoodRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.kind.Kind) + "%)"
                     binding.tvKindSosoRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.kind.SoSo) + "%)"
                     binding.tvKindBadRatio.text = "(" + getPercentage(checkReviewData.userCnt, checkReviewData.kind.Bad) + "%)"

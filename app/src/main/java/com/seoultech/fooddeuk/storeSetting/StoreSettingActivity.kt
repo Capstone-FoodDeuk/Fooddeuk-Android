@@ -133,7 +133,7 @@ class StoreSettingActivity : AppCompatActivity() {
         }
         binding.btnCategoryGoguma.setOnClickListener {
             setGogumaClick()
-            category = "Goguma"
+            category = "GOGUMA"
         }
         binding.btnCategoryApple.setOnClickListener {
             setAppleClick()

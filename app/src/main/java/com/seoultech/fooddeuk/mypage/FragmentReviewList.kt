@@ -79,7 +79,7 @@ class FragmentReviewList : Fragment() {
                 "Snack" -> imgCategory = R.drawable.ic_category_sundae
                 "Fruit" -> imgCategory = R.drawable.ic_category_apple
                 "Chestnuts" -> imgCategory = R.drawable.ic_category_gunbam
-                "Goguma" -> imgCategory = R.drawable.ic_category_goguma
+                "GOGUMA" -> imgCategory = R.drawable.ic_category_goguma
             }
 
             when (it.taste) {

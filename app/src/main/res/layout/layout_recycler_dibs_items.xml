@@ -47,7 +47,7 @@
             android:layout_marginTop="42dp"
             android:text="공릉로 559-26"
             android:textColor="@color/food_deuk_text_a"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +55,7 @@
             android:id="@+id/tv_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="42dp"
             android:text="|"
             android:textColor="@color/food_deuk_text_a"
@@ -67,11 +67,11 @@
             android:id="@+id/tv_item_time_before"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="42dp"
             android:text="1일 전 영업"
             android:textColor="@color/food_deuk_text_a"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/tv_bar"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,9 +1,12 @@
 package com.seoultech.fooddeuk.detail
 
 import android.content.Intent
+import android.location.Address
+import android.location.Geocoder
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +16,7 @@ import com.seoultech.fooddeuk.databinding.ActivityTruckDetailBinding
 import com.seoultech.fooddeuk.dialog.NoTruckDialog
 import com.seoultech.fooddeuk.model.enums.Category
 import com.seoultech.fooddeuk.model.enums.PayMethod
+import com.seoultech.fooddeuk.model.httpBody.TasteInfo
 import com.seoultech.fooddeuk.review.StarReviewActivity
 import kotlin.math.round
 
@@ -90,16 +94,21 @@ class TruckDetailActivity : AppCompatActivity() {
                 } else {
                     "마감 정보 없음"
                 }
+                binding.layoutTruckDetailBusinessInfo.tvBusinessLocation.text = getAddress(truckDetailData.location.latitude, truckDetailData.location.longitude)
                 phoneNumber = truckDetailViewModel.truckDetailData.phoneNumber
                 menuListAdapter.setDataSet(truckDetailViewModel.truckDetailData.menuList)
                 binding.layoutTruckDetailReview.tvScore.text = getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt).toString()
                 binding.ivLike.isChecked = truckDetailData.liked
+                Log.i("payment", truckDetailData.paymentMethods.toString())
                 truckDetailData.paymentMethods.forEach {
-                    binding.layoutTruckDetailPayType.payTypeBankTransfer.visibility = if (it == PayMethod.BANK_TRANSFER.name) View.VISIBLE else View.GONE
-                    binding.layoutTruckDetailPayType.payTypeCash.visibility = if (it == PayMethod.CASH.name) View.VISIBLE else View.GONE
-                    binding.layoutTruckDetailPayType.payTypeCard.visibility = if (it == PayMethod.CARD.name) View.VISIBLE else View.GONE
+                    if (it == PayMethod.BANK_TRANSFER.name)
+                        binding.layoutTruckDetailPayType.payTypeBankTransfer.visibility = View.VISIBLE
+                    else if (it == PayMethod.CASH.name)
+                        binding.layoutTruckDetailPayType.payTypeCash.visibility = View.VISIBLE
+                    else if (it == PayMethod.CARD.name)
+                        binding.layoutTruckDetailPayType.payTypeCard.visibility = View.VISIBLE
                 }
-                binding.layoutTruckDetailReview.rbStars.setReviewScore(3.0f) // TODO : (chohee) 임시 점수임
+                binding.layoutTruckDetailReview.rbStars.setReviewScore(getReviewScore(truckDetailData.rating.totalSum, truckDetailData.rating.userCnt))
             } else {
                 Toast.makeText(this, "죄송합니다. 푸드득 앱에 문제가 생겼어요! 얼른 고칠게요", Toast.LENGTH_SHORT).show()
                 finish()
@@ -119,12 +128,34 @@ class TruckDetailActivity : AppCompatActivity() {
         })
     }
 
+    private fun getAddress(latitude: Double, longitude: Double): String {
+        var geocoder = Geocoder(this)
+        var list: List<Address> = geocoder.getFromLocation(latitude, longitude, 2)
+
+        if(list!=null) {
+            if (list.size == 0) {
+                Log.e("Reverse GeoCoding", "주소값이 없어요")
+                return ""
+            }
+            else {
+                var address = list.get(0).getAddressLine(0).toString()
+                for (i in 1..3) {
+                    address = address.substring(address.indexOf(" ")+1)
+                }
+                return address
+            }
+        }
+        return ""
+    }
+
     private fun getCategoryNameByKorean(category: String): String {
         return when (category) {
             Category.TAKOYAKI.serverName -> Category.TAKOYAKI.koreanName
             Category.FISHBREAD.serverName -> Category.FISHBREAD.koreanName
             Category.FRUIT.serverName -> Category.FRUIT.koreanName
             Category.CHESTNUTS.serverName -> Category.CHESTNUTS.koreanName
+            Category.SNACK.serverName -> Category.SNACK.koreanName
+            Category.GOGUMA.serverName -> Category.GOGUMA.koreanName
             else -> Category.UNDEFINED.koreanName
         }
     }
@@ -135,6 +166,8 @@ class TruckDetailActivity : AppCompatActivity() {
             Category.FISHBREAD.serverName -> R.drawable.ic_category_bungeo_small
             Category.FRUIT.serverName -> R.drawable.ic_category_apple_small
             Category.CHESTNUTS.serverName -> R.drawable.ic_category_gunbam_small
+            Category.SNACK.serverName -> R.drawable.ic_category_sundae_small
+            Category.GOGUMA.serverName -> R.drawable.ic_category_goguma_small
             else -> R.drawable.ic_category_tako_small
         }
     }
@@ -145,14 +178,16 @@ class TruckDetailActivity : AppCompatActivity() {
             Category.FISHBREAD.serverName -> R.drawable.ic_review_bottom_bungeoppang
             Category.FRUIT.serverName -> R.drawable.ic_review_bottom_apple
             Category.CHESTNUTS.serverName -> R.drawable.ic_review_bottom_gunbam
+            Category.SNACK.serverName -> R.drawable.ic_review_bottom_sundae
+            Category.GOGUMA.serverName -> R.drawable.ic_review_bottom_goguma
             else -> R.drawable.ic_review_bottom_tako
         }
     }
 
-    private fun getReviewScore(userCount: Int, totalSum: Int) = if (userCount != 0) {
-        val rawScore = totalSum.toDouble() / userCount
+    private fun getReviewScore(totalSum: Int, userCount: Int):Float = if (userCount != 0) {
+        val rawScore = (totalSum.toFloat())/userCount
         round(rawScore * 100) / 100 // 소수점 3번째 자리에서 반올림 한다.
-    } else 0
+    } else 0.0F
 
     private fun getStoreId() = intent.getIntExtra("store_id", -1)
 
