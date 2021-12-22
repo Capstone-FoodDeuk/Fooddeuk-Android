@@ -3,7 +3,10 @@ package com.seoultech.fooddeuk.ceoOnOff
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -112,12 +115,29 @@ class CeoOnOffActivity : AppCompatActivity() {
                 checkLocationPermission() // 위치 권한 허용 여부 확인
                 locationProviderClient = LocationServices.getFusedLocationProviderClient(this@CeoOnOffActivity)
                 locationProviderClient.lastLocation.addOnSuccessListener { // 마지막 위치 가져오기
-                    layoutOnTruckLocationInput.openLocationInput.setText("위도 = ${it.latitude}, 경도 = ${it.longitude}")
+                    layoutOnTruckLocationInput.openLocationInput.setText(getAddress(it.latitude, it.longitude))
                     viewModel.currentLatitude = it.latitude
                     viewModel.currentLongitude = it.longitude
                 }
             }
         }
+    }
+
+    private fun getAddress(latitude: Double, longitude: Double): String {
+        var geocoder = Geocoder(this)
+        var list: List<Address> = geocoder.getFromLocation(latitude, longitude, 2)
+
+        if(list!=null) {
+            if (list.size == 0) {
+                Log.e("Reverse GeoCoding", "주소값이 없어요")
+                return ""
+            }
+            else {
+                var address = list.get(0).getAddressLine(0).toString().substring(5)
+                return address
+            }
+        }
+        return ""
     }
 
     /**

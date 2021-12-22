@@ -29,20 +29,24 @@
                 android:textSize="16sp"
                 android:textColor="@color/food_deuk_text_a"
                 android:textStyle="bold"/>
+
             <ImageView
+                android:id="@+id/iv_review_taste"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="14dp"
                 android:src="@drawable/ic_emoji_good"
-                tool:src="@drawable/ic_emoji_good"/>
+                tool:src="@drawable/ic_emoji_good" />
+
             <TextView
+                android:id="@+id/tv_review_taste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="맛있어요!"
-                android:textSize="15sp"
                 android:textColor="@color/food_deuk_text_a"
-                tool:text="맛있어요!"/>
+                android:textSize="15sp"
+                tool:text="맛있어요!" />
             <TextView
                 android:id="@+id/tv_taste_percentage"
                 android:layout_width="wrap_content"
@@ -58,43 +62,49 @@
             android:id="@+id/ll_imoji_detail_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:gravity="center_horizontal"
-            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ll_imoji_detail_taste"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="양"
-                android:textSize="16sp"
                 android:textColor="@color/food_deuk_text_a"
-                android:textStyle="bold"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <ImageView
+                android:id="@+id/iv_review_quantity"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="14dp"
                 android:src="@drawable/ic_emoji_bad"
-                tool:src="@drawable/ic_emoji_bad"/>
+                tool:src="@drawable/ic_emoji_bad" />
+
             <TextView
+                android:id="@+id/tv_review_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="부족해요"
-                android:textSize="15sp"
                 android:textColor="@color/food_deuk_text_a"
-                tool:text="부족해요"/>
+                android:textSize="15sp"
+                tool:text="부족해요" />
+
             <TextView
                 android:id="@+id/tv_amount_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="(83%)"
-                android:textSize="13sp"
                 android:textColor="@color/food_deuk_text_c"
-                tool:text="(83%)"/>
+                android:textSize="13sp"
+                tool:text="(83%)" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,20 +123,24 @@
                 android:textSize="16sp"
                 android:textColor="@color/food_deuk_text_a"
                 android:textStyle="bold"/>
+
             <ImageView
+                android:id="@+id/iv_review_kindness"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="14dp"
                 android:src="@drawable/ic_emoji_soso"
-                tool:src="@drawable/ic_emoji_soso"/>
+                tool:src="@drawable/ic_emoji_soso" />
+
             <TextView
+                android:id="@+id/tv_review_kindness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="보통이에요"
-                android:textSize="15sp"
                 android:textColor="@color/food_deuk_text_a"
-                tool:text="보통이에요"/>
+                android:textSize="15sp"
+                tool:text="보통이에요" />
             <TextView
                 android:id="@+id/tv_kindness_percentage"
                 android:layout_width="wrap_content"
